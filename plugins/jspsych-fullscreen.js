@@ -151,12 +151,11 @@ jsPsych.plugins['fullscreen'] = (function(){
             fs_plugin_glob.fs_abort = fs.getFullScreenAbort(trial.on_fullscreen_abort)
             fs.addListener();
             if (trial.visibility){
-              var vs_abort = function(){
-                fs.removeListener()
-                trial.on_visibility_abort();
-              };
-              fs_plugin_glob.vs_abort = vs_abort
-              vs.addListener();}
+                fs_plugin_glob.vs_abort = function(){
+                  fs.removeListener();
+                  trial.on_visibility_abort();
+                };
+                vs.addListener();}
             };
           display_element.html('');
           jsPsych.finishTrial();
