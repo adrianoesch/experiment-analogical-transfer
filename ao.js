@@ -4,7 +4,7 @@ var Experiment = {
                       +((screen.width-800)/2).toString()+'px;',
     buttonStyle : 'height:60px;width:90px;float:right;font-size:12px;font-weight:bold;',
     instructions : instructions,
-    nTrials : 6,
+    nTrials : 1,
     wrap : function(p){
       var divStart = "<div id='content' style='"+this.contentDivStyle+"'>"
       if (typeof p == 'string'){
@@ -26,7 +26,8 @@ var Experiment = {
       return b
     },
     instructions_block : function(){
-      var pages = [this.wrap(this.instructions.task)];
+      var pages = [this.wrap(this.instructions.task),
+                    this.wrap(this.instructions.reminder)];
       var b = {
         type : 'instructions',
         pages: pages
@@ -167,13 +168,13 @@ var Experiment = {
     },
     init : function(){
       var timeline = [];
-      // timeline.push(this.enter_fullscreen_block());
-      // timeline.push(this.consent_block());
-      // timeline.push(this.instructions_block());
+      timeline.push(this.enter_fullscreen_block());
+      timeline.push(this.consent_block());
+      timeline.push(this.instructions_block());
       timeline.push(this.hebb_block());
       timeline.push(this.demographics_block());
-      // timeline.push(this.exit_fullscreen_block());
-      // timeline.push(this.debriefing_block());
+      timeline.push(this.exit_fullscreen_block());
+      timeline.push(this.debriefing_block());
       return timeline;
     }
   },

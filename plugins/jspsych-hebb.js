@@ -12,6 +12,9 @@ jsPsych.plugins['hebb'] = (function() {
     var statIdx = 0;
     var td = 0;
 
+    var stimulusOnsetInterval = 1500;
+    var crossInterval = 500;
+
     // var setTimeoutHandlers = [];
     var trial_data = {
       title : trial.title,
@@ -100,9 +103,9 @@ jsPsych.plugins['hebb'] = (function() {
 
     var dragStart = function(){
       statIdx=0;
-      var dragStyle = "<style>#content{width:800px;position:absolute;}#menu{ margin-top:0px;}.menui{  width:150px;  height:280px;}.wrapMenu{  padding:0 50px;  float:left;}#menubox{  margin-left:200px;}#names, #name1, #name2{  background-color:rgb(230,230,230);}#relations, #relation{  background-color:rgb(200,200,200);}#names,#relations {  padding:10px;}#input{ width:800px; position:relative;  top:60px;  float:left;}.inputi{  width:190px;  padding:5px;  height:50px;}#inputbox{  font-size:16px;  position:relative;  border:1px solid black;  height:140px; padding:00px 60px;}.wrapInput{  float:left;  margin:20px 10px;}.relationDivs,.nameDivs{  font-size:14px;  font-family:arial;  height:20px;  border-radius: 3px;  margin:8px;  padding:5px;}.nameDivs{  background-color: rgba(0,0,0,0.2);}.relationDivs {  background-color: rgba(0,0,0,0.2);}#nextbutton{  position:relative;  margin-top:30px;  float:right;  padding:10px;  border-radius: 5px;  width:80px;  text-align:center;  background-color: rgba(0,0,0,0.7);  color:rgb(230,230,230)}#nextbutton:hover{  background-color: rgb(255,20,20);  color: black;}#errormessage{  color:rgb(250,50,50);  text-align:center; font-size:15px;}</style>";
+      var dragStyle = "<style>#content{width:800px;position:absolute;}#menu{ border:solid 1px black;height:370px;}.menui{  width:150px;  height:280px;}.wrapMenu{  padding:0 50px;  float:left;}#menubox{margin:20px 0px 0px 130px;}#names, #name1, #name2{  background-color:rgb(230,230,230);}#relations, #relation{  background-color:rgb(200,200,200);}#names,#relations {  padding:10px;}#input{ width:800px; position:relative;  top:30px;  float:left;} .inputi{  width:190px;  padding:10px;  height:30px;}#inputbox{  font-size:16px;  position:relative;  border:1px solid black;  height:120px; padding:00px 50px;}.wrapInput{  float:left;  margin:20px 10px;}.relationDivs,.nameDivs{  font-size:13px;  font-family:arial;  height:20px;  border-radius: 3px;  margin:3px;  padding:0px 0px 5px 5px;}.nameDivs{  background-color: rgba(0,0,0,0.2);}.relationDivs {  background-color: rgba(0,0,0,0.2);}#nextbutton{  position:relative;  margin-top:30px;  float:right;  padding:10px;  border-radius: 5px;  width:80px;  text-align:center;  background-color: rgba(0,0,0,0.7);  color:rgb(230,230,230)}#nextbutton:hover{  background-color: rgb(255,20,20);  color: black;}#errormessage{  color:rgb(250,50,50);  text-align:center; font-size:15px;}</style>";
       var dragScript = "<script>var d = {  drag : function(ev) {    ev.dataTransfer.setData('text', ev.target.id);    ev.dataTransfer.setData('class', ev.target.className);  },  drop : function(ev) {    ev.preventDefault();    var data = ev.dataTransfer.getData('text');    var classMatch = ev.dataTransfer.getData('class').slice(0,4)==ev.target.id.slice(0,4);    var emptyOrBackDrop = (ev.target.innerHTML=='' || ev.target.className=='menui');    if ( classMatch && emptyOrBackDrop){      ev.target.appendChild(document.getElementById(data));    }  },  allowDrop : function(ev) {    var classMatch = ev.dataTransfer.getData('class').slice(0,4)==ev.target.id.slice(0,4);    if (classMatch && (ev.target.innerHTML=='' || ev.target.className=='menui')){      ev.preventDefault();    };  },};</script>";
-      var dragHtml = "<div id='content'>  <div id='menu' >    <div id='menubox'>      <div class='wrapMenu'>Names:<div id='names' class='menui'        ondrop='d.drop(event)' ondragover='d.allowDrop(event)' ></div></div>      <div class='wrapMenu'>Relations:<div id='relations' class='menui' ondrop='d.drop(event)' ondragover='d.allowDrop(event)' ></div></div>  </div>  </div>  <div id='input'>Statement <span id='statementNr'></span>: <span id='errormessage' style='margin-left:15px;'></span>    <div id='inputbox'>      <div class='wrapInput'>Name:<div id='name1' class='inputi' ondrop='d.drop(event)' ondragover='d.allowDrop(event)'></div></div>      <div class='wrapInput'>Relation:<div id='relation' class='inputi' ondrop='d.drop(event)' ondragover='d.allowDrop(event)' ></div></div>  <div class='wrapInput'>Name:<div id='name2' class='inputi' ondrop='d.drop(event)' ondragover='d.allowDrop(event)'></div></div>    </div>    <div id='nextbutton' >Next</div>  </div></div>";
+      var dragHtml = "<div id='content'>Menu:  <div id='menu' >    <div id='menubox'>      <div class='wrapMenu'>Names:<div id='names' class='menui'        ondrop='d.drop(event)' ondragover='d.allowDrop(event)' ></div></div>      <div class='wrapMenu'>Relations:<div id='relations' class='menui' ondrop='d.drop(event)' ondragover='d.allowDrop(event)' ></div></div>  </div>  </div>  <div id='input'>Response: <strong>Statement <span id='statementNr'></span></strong> <span id='errormessage' style='margin-left:15px;'></span>    <div id='inputbox'>      <div class='wrapInput'>Name:<div id='name1' class='inputi' ondrop='d.drop(event)' ondragover='d.allowDrop(event)'></div></div>      <div class='wrapInput'>Relation:<div id='relation' class='inputi' ondrop='d.drop(event)' ondragover='d.allowDrop(event)' ></div></div>  <div class='wrapInput'>Name:<div id='name2' class='inputi' ondrop='d.drop(event)' ondragover='d.allowDrop(event)'></div></div>    </div>    <div id='nextbutton' >Next</div>  </div></div>";
       display_element.html(dragStyle);
       display_element.append(dragHtml);
       display_element.append(dragScript);
@@ -125,21 +128,46 @@ jsPsych.plugins['hebb'] = (function() {
       };
     };
 
-    var readStart = function(){
-      var statIdx = 0;
-      display_element.html(statements[statIdx])
+    var getCrossTable = function(linelength){
+          var table = "<table style='margin:0 auto;border-collapse:collapse;position:relative;top:"+(screen.height*.5-linelength-50).toString()+"px;'>"
+          var tdStyles =
+              ["height:"+linelength+"px;width:"+linelength+"px;border-right:4px solid black;border-bottom:4px solid black;",
+               "height:"+linelength+"px;width:"+linelength+"px;border-left:4px solid black;border-bottom:4px solid black;",
+               "height:"+linelength+"px;width:"+linelength+"px;border-right:4px solid black;border-top:4px solid black;",
+               "height:"+linelength+"px;width:"+linelength+"px;border-left:4px solid black;border-top:4px solid black;"]
+          for (i=0;i<2;i++){
+            table += "<tr>"
+            for(j=0;j<2;j++){
+              idx = (i*2)+(j)
+              table += "<td style='"+tdStyles[idx]+"'/>"
+            }
+            table += "</tr>"
+          }
+          table += "</table"
+          return table
     };
 
-    var keyboardListener = jsPsych.pluginAPI.getKeyboardResponse({
-      callback_function: readProgress,
-      valid_responses: [39],
-      rt_method: 'date',
-      persist: true,
-      allow_held_key: false
-    });
+    var keyboardListener // for later use
+    var readStart = function(){
+      var statIdx = 0;
+      keyboardListener = jsPsych.pluginAPI.getKeyboardResponse({
+        callback_function: readProgress,
+        valid_responses: [39],
+        rt_method: 'date',
+        persist: true,
+        allow_held_key: false
+      });
+      display_element.html(statements[statIdx])
+    };
+    // display_element.html(getCrossTable(150))
+    display_element.html('');
+    setTimeout(function(){
+      display_element.html(getCrossTable(150))
+      setTimeout(function(){
+        readStart()
+      },crossInterval)
+    },stimulusOnsetInterval);
 
-    readStart();
-    // dragStart();
     };
 
   return plugin;
