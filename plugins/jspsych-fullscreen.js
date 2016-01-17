@@ -152,8 +152,8 @@ jsPsych.plugins['fullscreen'] = (function(){
             fs.addListener();
             if (trial.visibility){
                 fs_plugin_glob.vs_abort = function(){
-                  trial.on_visibility_abort;
-                  fs.removeListener();
+                  fs.removeListener()
+                  trial.on_visibility_abort();
                 };
                 vs.addListener();}
             };
