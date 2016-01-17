@@ -36,7 +36,7 @@ jsPsych.plugins['fullscreen'] = (function(){
       var fs = {
         check : function (){
           if(typeof document.webkitIsFullScreen != 'boolean' && typeof document.mozFullScreen != 'boolean' && +
-          typeof document.msFullscreenEnable != 'boolean' && typeof document.fullscreenchange != 'boolean'){
+          typeof document.msFullscreenEnabled != 'boolean' && typeof document.fullscreenchange != 'boolean'){
             return false;
           }else{
             return true;
