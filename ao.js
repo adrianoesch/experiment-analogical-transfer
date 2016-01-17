@@ -49,8 +49,8 @@ var Experiment = {
         },
         on_fullscreen_fail: function(){
           jsPsych.finishTrial();
-          jsPsych.endExperiment('Your browser doesn\t provide the necessary functionality. We recommend \
-          using an updated version of Firefox or Chrome.');
+          jsPsych.endExperiment('Your browser doesn\'t provide the necessary functionality. We recommend \
+          using an up-to-date version of Firefox or Chrome.');
         },
         on_visibility_abort:function(){
           jsPsych.finishTrial();
@@ -58,8 +58,8 @@ var Experiment = {
         },
         on_visibility_fail:function(){
           jsPsych.finishTrial();
-          jsPsych.endExperiment('Your browser doesn\t provide the necessary functionality. We recommend \
-          using an updated version of Firefox or Chrome.');
+          jsPsych.endExperiment('Your browser doesn\'t provide the necessary functionality. We recommend \
+          using an up-to-date version of Firefox or Chrome.');
         }
       };
       return b

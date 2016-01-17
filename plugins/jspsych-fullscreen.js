@@ -36,7 +36,7 @@ jsPsych.plugins['fullscreen'] = (function(){
       var fs = {
         check : function (){
           if(typeof document.webkitIsFullScreen != 'boolean' && typeof document.mozFullScreen != 'boolean' && +
-          typeof document.msFullscreenElement != 'boolean' && typeof document.fullscreenchange != 'boolean'){
+          typeof document.msFullscreenEnable != 'boolean' && typeof document.fullscreenchange != 'boolean'){
             return false;
           }else{
             return true;
@@ -151,7 +151,7 @@ jsPsych.plugins['fullscreen'] = (function(){
                 }
               }
             }else{
-              trial.on_launch_fail()
+              trial.on_fullscreen_fail()
             }
           }
           if (trial.visibility){
