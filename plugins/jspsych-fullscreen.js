@@ -130,6 +130,13 @@ jsPsych.plugins['fullscreen'] = (function(){
         }
       };
 
+      if (!fs.check()){
+        trial.on_fullscreen_fail();
+      };
+      if (trial.visibility&&!vs.check()){
+        trial.on_visibility_fail();
+      };
+
       display_element.append(trial.html)
       display_element.children().append("<button id='jspsych-fullscreen-button' style='"+
           trial.buttonStyle+"'><p>" + trial.button + "</p></button>")
@@ -140,36 +147,13 @@ jsPsych.plugins['fullscreen'] = (function(){
             vs.removeListener()
             fs.exit();
           }else{
-            if (fs.check()){
-              fs.launch(document.documentElement);
-              if (typeof trial.on_fullscreen_abort != 'undefined'){
-                if (typeof trial.on_fullscreen_abort != 'function'){
-                  console.error('jspsych-fullscreen response parameter is not a function.');
-                }else{
-                  fs_plugin_glob.fs_abort = fs.getFullScreenAbort(trial.on_fullscreen_abort)
-                  fs.addListener();
-                }
-              }
-            }else{
-              trial.on_fullscreen_fail()
-            }
-          }
-          if (trial.visibility){
-            if(vs.check()){
-              if (typeof trial.on_visibility_fail != 'undefined'){
-                if (typeof trial.on_visibility_fail != 'function'){
-                  console.error('jspsych-fullscreen response parameter is not a function.');
-                }else{
-                  fs_plugin_glob.vs_abort = trial.on_visibility_abort;
-                  vs.addListener();
-                }
-              }
-            }else{
-              if (typeof trial.on_visibility_fail != 'undefined'){
-                trial.on_visibility_fail()
-              }
-            }
-          }
+            fs.launch(document.documentElement);
+            fs_plugin_glob.fs_abort = fs.getFullScreenAbort(trial.on_fullscreen_abort)
+            fs.addListener();
+            if (trial.visibility){
+                fs_plugin_glob.vs_abort = trial.on_visibility_abort;
+                vs.addListener();}
+            };
           display_element.html('');
           jsPsych.finishTrial();
         });
