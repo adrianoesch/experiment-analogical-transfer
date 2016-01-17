@@ -35,8 +35,8 @@ jsPsych.plugins['fullscreen'] = (function(){
 
       var fs = {
         check : function (){
-          if(typeof document.webkitIsFullScreen != 'boolean' && typeof document.mozFullScreen != 'boolean' && +
-          typeof document.msFullscreenEnabled != 'boolean' && typeof document.fullscreenchange != 'boolean'){
+          if(typeof document.webkitIsFullScreen == 'undefined' && typeof document.mozFullScreen == 'undefined' && +
+          typeof document.msFullscreenEnabled == 'undefined' && typeof document.fullscreenchange == 'undefined'){
             return false;
           }else{
             return true;
@@ -104,8 +104,8 @@ jsPsych.plugins['fullscreen'] = (function(){
         on_abort : trial.on_visibility_abort,
         on_fail : trial.on_visibility_fail,
         check : function(){
-          if(typeof document.webkitHidden != 'boolean' && typeof document.mozHidden != 'boolean' && +
-          typeof document.msHidden != 'boolean' && typeof document.hidden != 'boolean'){
+          if(typeof document.webkitHidden == 'undefined' && typeof document.mozHidden == 'undefined' && +
+          typeof document.msHidden == 'undefined' && typeof document.hidden == 'undefined'){
             return false;
           }else{
             return true;
