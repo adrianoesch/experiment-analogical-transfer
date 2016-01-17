@@ -136,6 +136,9 @@ jsPsych.plugins['fullscreen'] = (function(){
       if (trial.visibility&&!vs.check()){
         trial.on_visibility_fail();
       };
+      if (navigator.userAgent.indexOf("MSIE ") > -1 ){
+        trial.on_fullscreen_fail();
+      }
 
       display_element.append(trial.html)
       display_element.children().append("<button id='jspsych-fullscreen-button' style='"+
