@@ -175,15 +175,18 @@ jsPsych.plugins['hebb'] = (function() {
       });
       display_element.html(statements[statIdx])
     };
+
     // display_element.html(getCrossTable(150))
-    // display_element.html('');
-    // setTimeout(function(){
-    //   display_element.html(getCrossTable(150))
-    //   setTimeout(function(){
-    //     readStart()
-    //   },crossInterval)
-    // },stimulusOnsetInterval);
-    dragStart()
+    // dragStart()
+
+    display_element.html('');
+    setTimeout(function(){
+      display_element.html(getCrossTable(150))
+      setTimeout(function(){
+        readStart()
+      },crossInterval)
+    },stimulusOnsetInterval);
+
     };
 
   return plugin;
