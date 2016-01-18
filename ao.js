@@ -7,16 +7,15 @@ var Experiment = {
     },
     drop : function(ev) {
       ev.preventDefault();
-      var data = ev.dataTransfer.getData('text');
-      var classMatch = ev.dataTransfer.getData('class').slice(0,4)==ev.target.id.slice(0,4);
+      var classMatch = this.className.slice(0,4)==ev.target.id.slice(0,4);
       var emptyOrBackDrop = (ev.target.innerHTML=='' || ev.target.className=='menui');
       if ( classMatch && emptyOrBackDrop){
-        ev.target.appendChild(document.getElementById(data));
+        ev.target.appendChild(document.getElementById(this.targetID));
         ev.currentTarget.style.border = "";
       };
     },
     dragover : function(ev) {
-      var classMatch = ev.dataTransfer.getData('class').slice(0,4)==ev.target.id.slice(0,4);
+      var classMatch = this.className.slice(0,4)==ev.target.id.slice(0,4);
       if (classMatch && (ev.target.innerHTML=='' || ev.target.className=='menui')){
         ev.preventDefault();
         ev.currentTarget.style.border = "1px dashed black";
