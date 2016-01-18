@@ -7,8 +7,8 @@ var instructions = {
               the experiment. Ensure you are in a calm place without any distractions, for example, noise.<p>\
               <p>Click "Enter" to launch into fullscreen and start the experiment.',
 
-  consent :   '<h2>Consent</h2><p>In this experiment you will be asked to briefly remember very short stories \
-              and then recall the statements after each story. The experiment will \
+  consent :   '<h2>Consent</h2><p>In this experiment you will be asked to read very short stories \
+              and recall the content after each story. The experiment will \
               take about 10 to 15 minutes. The data will be recorded anonymously. Your participation \
               is of course voluntary, and you can quit the experiment at any time without giving any \
               reasons. However, you will receive payment only if you complete the experiment.</p>\
