@@ -1,4 +1,30 @@
 var Experiment = {
+  d : {
+    dragstart : function(ev) {
+    ev.originalEvent.dataTransfer.setData('text', ev.target.id);
+    ev.originalEvent.dataTransfer.setData('class', ev.target.className);
+    },
+    drop : function(ev) {
+      ev.preventDefault();
+      var data = ev.originalEvent.dataTransfer.getData('text');
+      var classMatch = ev.originalEvent.dataTransfer.getData('class').slice(0,4)==ev.target.id.slice(0,4);
+      var emptyOrBackDrop = (ev.target.innerHTML=='' || ev.target.className=='menui');
+      if ( classMatch && emptyOrBackDrop){
+        ev.target.appendChild(document.getElementById(data));
+        ev.currentTarget.style.border = "";
+      };
+    },
+    dragover : function(ev) {
+      var classMatch = ev.originalEvent.dataTransfer.getData('class').slice(0,4)==ev.target.id.slice(0,4);
+      if (classMatch && (ev.target.innerHTML=='' || ev.target.className=='menui')){
+        ev.currentTarget.style.border = "1px dashed black";
+        ev.preventDefault();
+      };
+    },
+    dragleave : function(ev){
+      ev.currentTarget.style.border = "";
+    }
+  },
   timeline : {
     contentDivStyle : 'position:absolute;width:800px;left:'+
                       +((screen.width-800)/2).toString()+'px;',
@@ -168,8 +194,8 @@ var Experiment = {
     },
     init : function(){
       var timeline = [];
-      timeline.push(this.enter_fullscreen_block());
-      timeline.push(this.consent_block());
+      // timeline.push(this.enter_fullscreen_block());
+      // timeline.push(this.consent_block());
       timeline.push(this.instructions_block());
       timeline.push(this.hebb_block());
       timeline.push(this.demographics_block());
