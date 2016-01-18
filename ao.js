@@ -16,6 +16,7 @@ var Experiment = {
       };
     },
     dragover : function(ev) {
+      ev = ev.originalEvent
       var classMatch = ev.dataTransfer.getData('class').slice(0,4)==ev.target.id.slice(0,4);
       if (classMatch && (ev.target.innerHTML=='' || ev.target.className=='menui')){
         ev.preventDefault();
