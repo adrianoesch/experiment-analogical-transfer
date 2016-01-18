@@ -1,9 +1,9 @@
 var Experiment = {
   d : {
     dragstart : function(ev) {
-      console.log(ev)
-      ev.dataTransfer.setData('text', ev.target.id);
-      ev.dataTransfer.setData('class', ev.target.className);
+      this.targetID = ev.target.id;
+      this.className = ev.target.className;
+      console.log(this)
     },
     drop : function(ev) {
       ev.preventDefault();
