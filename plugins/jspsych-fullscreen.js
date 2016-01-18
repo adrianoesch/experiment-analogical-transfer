@@ -159,9 +159,9 @@ jsPsych.plugins['fullscreen'] = (function(){
         return false;
       };
 
-      // if (detectIE()!=false){
-      //   trial.on_fullscreen_fail();
-      // }
+      if (detectIE()!=false){
+        trial.on_fullscreen_fail();
+      }
 
       display_element.append(trial.html)
       display_element.children().append("<button id='jspsych-fullscreen-button' style='"+
