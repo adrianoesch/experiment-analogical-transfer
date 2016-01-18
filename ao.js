@@ -4,22 +4,23 @@ var Experiment = {
       ev.originalEvent.dataTransfer.setData('text', ev.target.id);
       ev.originalEvent.dataTransfer.setData('class', ev.target.className);
     },
-    drop : function(ev) {
-      ev.preventDefault();
-      var data = ev.dataTransfer.getData('text');
-      var classMatch = ev.dataTransfer.getData('class').slice(0,4)==ev.target.id.slice(0,4);
-      var emptyOrBackDrop = (ev.target.innerHTML=='' || ev.target.className=='menui');
-      if ( classMatch && emptyOrBackDrop){
-        ev.target.appendChild(document.getElementById(data));
-        ev.currentTarget.style.border = "";
-      };
-    },
+    // drop : function(ev) {
+    //   ev.preventDefault();
+    //   var data = ev.dataTransfer.getData('text');
+    //   var classMatch = ev.dataTransfer.getData('class').slice(0,4)==ev.target.id.slice(0,4);
+    //   var emptyOrBackDrop = (ev.target.innerHTML=='' || ev.target.className=='menui');
+    //   if ( classMatch && emptyOrBackDrop){
+    //     ev.target.appendChild(document.getElementById(data));
+    //     ev.currentTarget.style.border = "";
+    //   };
+    // },
     dragover : function(ev) {
+      ev.preventDefault();
       console.log(ev)
-      var classMatch = ev.dataTransfer.getData('class').slice(0,4)==ev.target.id.slice(0,4);
+      var classMatch = ev.orignalEvent.dataTransfer.getData('class').slice(0,4)==ev.target.id.slice(0,4);
       if (classMatch && (ev.target.innerHTML=='' || ev.target.className=='menui')){
         ev.currentTarget.style.border = "1px dashed black";
-        ev.preventDefault();
+
       };
     },
     dragleave : function(ev){
