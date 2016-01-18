@@ -1,21 +1,23 @@
 var Experiment = {
   d : {
+    targetID : '',
+    className : '',
     dragstart : function(ev) {
-      this.targetID = ev.target.id;
-      this.className = ev.target.className;
+      Experiment.d.targetID = ev.target.id;
+      Experiment.d.className = ev.target.className;
       console.log(this)
     },
     drop : function(ev) {
       ev.preventDefault();
-      var classMatch = this.className.slice(0,4)==ev.target.id.slice(0,4);
+      var classMatch = Experiment.d.className.slice(0,4)==ev.target.id.slice(0,4);
       var emptyOrBackDrop = (ev.target.innerHTML=='' || ev.target.className=='menui');
       if ( classMatch && emptyOrBackDrop){
-        ev.target.appendChild(document.getElementById(this.targetID));
+        ev.target.appendChild(document.getElementById(Experiment.d.targetID));
         ev.currentTarget.style.border = "";
       };
     },
     dragover : function(ev) {
-      var classMatch = this.className.slice(0,4)==ev.target.id.slice(0,4);
+      var classMatch = Experiment.d.className.slice(0,4)==ev.target.id.slice(0,4);
       if (classMatch && (ev.target.innerHTML=='' || ev.target.className=='menui')){
         ev.preventDefault();
         ev.currentTarget.style.border = "1px dashed black";
