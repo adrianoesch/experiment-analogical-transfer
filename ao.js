@@ -17,7 +17,6 @@ var Experiment = {
     // },
     dragover : function(ev) {
 
-      console.log(ev.orignalEvent.dataTransfer.getData('class'))
       console.log(ev.dataTransfer.getData('class'))
       console.log('')
       var classMatch = ev.orignalEvent.dataTransfer.getData('class').slice(0,4)==ev.target.id.slice(0,4);
