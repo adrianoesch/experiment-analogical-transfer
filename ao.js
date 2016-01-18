@@ -1,7 +1,6 @@
 var Experiment = {
   d : {
     dragstart : function(ev) {
-      console.log(ev)
       ev.originalEvent.dataTransfer.setData('text', ev.target.id);
       ev.originalEvent.dataTransfer.setData('class', ev.target.className);
     },
@@ -17,6 +16,7 @@ var Experiment = {
     },
     dragover : function(ev) {
       var classMatch = ev.originalEvent.dataTransfer.getData('class').slice(0,4)==ev.target.id.slice(0,4);
+      console.log(classMatch)
       if (classMatch && (ev.target.innerHTML=='' || ev.target.className=='menui')){
         ev.currentTarget.style.border = "1px dashed black";
         ev.preventDefault();
