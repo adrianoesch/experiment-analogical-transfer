@@ -17,9 +17,11 @@ var Experiment = {
     //   };
     // },
     dragover : function(ev) {
+      console.log(ev.dataTransfer.getData('class'))
       ev = ev.originalEvent
-      console.log(ev)
-      var classMatch = targetClass.slice(0,4)==ev.target.id.slice(0,4);
+      console.log(t=ev)
+      console.log(ev.dataTransfer.getData('class'))
+      var classMatch = ev.dataTransfer.getData('class').slice(0,4)==ev.target.id.slice(0,4);
       if (classMatch && (ev.target.innerHTML=='' || ev.target.className=='menui')){
         ev.preventDefault();
         ev.currentTarget.style.border = "1px dashed black";
