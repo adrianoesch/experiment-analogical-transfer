@@ -1,11 +1,9 @@
 var Experiment = {
   d : {
     dragstart : function(ev) {
-      console.log('dragstart')
-      console.log(ev.target.id)
-      ev.originalEvent.dataTransfer.setData('text', ev.target.id);
-      ev.originalEvent.dataTransfer.setData('class', ev.target.className);
-      console.log(ev)
+      var ev = ev.originalEvent
+      ev.dataTransfer.setData('text', ev.target.id);
+      ev.dataTransfer.setData('class', ev.target.className);
     },
     // drop : function(ev) {
     //   ev.preventDefault();
@@ -18,10 +16,8 @@ var Experiment = {
     //   };
     // },
     dragover : function(ev) {
-
-      console.log(ev.originalEvent.dataTransfer.getData('class'))
-      console.log('')
-      var classMatch = ev.orignalEvent.dataTransfer.getData('class').slice(0,4)==ev.target.id.slice(0,4);
+      ev = ev.originalEvent
+      var classMatch = ev.dataTransfer.getData('class').slice(0,4)==ev.target.id.slice(0,4);
       if (classMatch && (ev.target.innerHTML=='' || ev.target.className=='menui')){
         ev.preventDefault();
         ev.currentTarget.style.border = "1px dashed black";
