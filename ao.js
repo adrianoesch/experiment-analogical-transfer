@@ -24,6 +24,23 @@ var Experiment = {
     dragleave : function(ev){
       ev.currentTarget.style.border = "";
     }
+    ,
+    init :function(){
+      var addEvent = function(className,evStr,evFunc){
+        var t = document.getElementsByClassName(className);
+        for(i=0;i<t.length;i++){
+          t[i].addEventListener(evStr,evFunc);
+        };
+      };
+      addEvent("nameDivs","dragstart",Experiment.d.dragstart)
+      addEvent("relationDivs","dragstart",Experiment.d.dragstart)
+      addEvent("menui","dragover",Experiment.d.dragover)
+      addEvent("menui","drop",Experiment.d.drop)
+      addEvent("menui","dragleave",Experiment.d.dragleave)
+      addEvent("inputi","dragover",Experiment.d.dragover)
+      addEvent("inputi","drop",Experiment.d.drop)
+      addEvent("inputi","dragleave",Experiment.d.dragleave)
+    }
   },
   timeline : {
     contentDivStyle : 'position:absolute;width:800px;left:'+
@@ -196,7 +213,7 @@ var Experiment = {
       var timeline = [];
       // timeline.push(this.enter_fullscreen_block());
       // timeline.push(this.consent_block());
-      timeline.push(this.instructions_block());
+      // timeline.push(this.instructions_block());
       timeline.push(this.hebb_block());
       timeline.push(this.demographics_block());
       timeline.push(this.exit_fullscreen_block());

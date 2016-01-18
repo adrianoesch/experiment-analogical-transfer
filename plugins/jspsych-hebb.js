@@ -74,16 +74,9 @@ jsPsych.plugins['hebb'] = (function() {
         $('#relations').append("<div class='relationDivs' id='relation_"+j.toString()+"'\
         draggable='true'>"+i+"</div>")});
 
-      var  dragstart = function(ev) {
-        ev.originalEvent.dataTransfer.setData('text', ev.target.id);
-        ev.originalEvent.dataTransfer.setData('class', ev.target.className);
-      }
-
-      $('.nameDivs').on('dragstart',dragstart)
-      $('.relationDivs').on('dragstart',dragstart)
       $('.nameDivs').on('dragstart',addDragToCounter)
       $('.relationDivs').on('dragstart',addDragToCounter)
-
+      Experiment.d.init()
     };
 
     var addDragToCounter = function(){
@@ -130,13 +123,6 @@ jsPsych.plugins['hebb'] = (function() {
       var dragHtml = "<div id='content'>Menu:<div id='menu' ><div id='menubox'><div class='wrapMenu'>Names:<div id='names' class='menui' ></div></div>      <div class='wrapMenu'>Relations:<div id='relations' class='menui' ></div></div>  </div>  </div>  <div id='input'>Response: <strong>Statement <span id='statementNr'></span></strong> <span id='errormessage'></span>    <div id='inputbox'>      <div class='wrapInput'>Name:<div id='name1' class='inputi'></div></div>      <div class='wrapInput'>Relation:<div id='relation' class='inputi' ></div></div>  <div class='wrapInput'>Name:<div id='name2' class='inputi'></div></div>    </div>  <div id='nextbutton' >Next</div>  </div></div>";
       display_element.html(dragStyle);
       display_element.append(dragHtml);
-
-      $('.menui').on('drop',d.drop);
-      $('.menui').on('dragover',d.dragover);
-      $('.menui').on('dragleave',d.dragleave);
-      $('.inputi').on('drop',d.drop);
-      $('.inputi').on('dragover',d.dragover);
-      $('.inputi').on('dragleave',d.dragleave);
 
       // display_element.append(dragScript);
       $('#nextbutton').click(dragProgress);
