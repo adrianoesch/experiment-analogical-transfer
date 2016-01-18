@@ -19,7 +19,7 @@ jsPsych.plugins['fullscreen'] = (function(){
         jsPsych.endExperiment(str)
       };
       var defaultFail = function(){
-        var str = 'Your browser doesn\'t provide the necessary functionality.';
+        var str = 'Your browser doesn\'t provide the necessary functionality. Please contact the principal investigator of this experiment.';
         jsPsych.finishTrial()
         jsPsych.endExperiment(str)
       };
@@ -159,9 +159,9 @@ jsPsych.plugins['fullscreen'] = (function(){
         return false;
       };
 
-      if (detectIE()!=false){
-        trial.on_fullscreen_fail();
-      }
+      // if (detectIE()!=false){
+      //   trial.on_fullscreen_fail();
+      // }
 
       display_element.append(trial.html)
       display_element.children().append("<button id='jspsych-fullscreen-button' style='"+
