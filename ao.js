@@ -4,6 +4,7 @@ var Experiment = {
       var ev = ev.originalEvent
       ev.dataTransfer.setData('text', ev.target.id);
       ev.dataTransfer.setData('class', ev.target.className);
+      console.log(ev)
     },
     // drop : function(ev) {
     //   ev.preventDefault();
@@ -17,9 +18,7 @@ var Experiment = {
     // },
     dragover : function(ev) {
       ev = ev.originalEvent
-      var targetClass = ev.dataTransfer.getData('class')
-      console.log(targetClass)
-      console.log(ev.target.id)
+      console.log(ev)
       var classMatch = targetClass.slice(0,4)==ev.target.id.slice(0,4);
       if (classMatch && (ev.target.innerHTML=='' || ev.target.className=='menui')){
         ev.preventDefault();
