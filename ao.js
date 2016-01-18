@@ -15,9 +15,7 @@ var Experiment = {
       };
     },
     dragover : function(ev) {
-      console.log(ev.target.id.slice(0,4))
-      console.log(ev.originalEvent.dataTransfer.getData('class'))
-      console.log(ev.dataTransfer.getData('class'))
+      console.log(ev)
       var classMatch = ev.originalEvent.dataTransfer.getData('class').slice(0,4)==ev.target.id.slice(0,4);
       if (classMatch && (ev.target.innerHTML=='' || ev.target.className=='menui')){
         ev.currentTarget.style.border = "1px dashed black";
