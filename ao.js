@@ -1,13 +1,13 @@
 var Experiment = {
   d : {
     dragstart : function(ev) {
-      ev.originalEvent.dataTransfer.setData('text', ev.target.id);
-      ev.originalEvent.dataTransfer.setData('class', ev.target.className);
+      ev.dataTransfer.setData('text', ev.target.id);
+      ev.dataTransfer.setData('class', ev.target.className);
     },
     drop : function(ev) {
       ev.preventDefault();
-      var data = ev.originalEvent.dataTransfer.getData('text');
-      var classMatch = ev.originalEvent.dataTransfer.getData('class').slice(0,4)==ev.target.id.slice(0,4);
+      var data = ev.dataTransfer.getData('text');
+      var classMatch = ev.dataTransfer.getData('class').slice(0,4)==ev.target.id.slice(0,4);
       var emptyOrBackDrop = (ev.target.innerHTML=='' || ev.target.className=='menui');
       if ( classMatch && emptyOrBackDrop){
         ev.target.appendChild(document.getElementById(data));
