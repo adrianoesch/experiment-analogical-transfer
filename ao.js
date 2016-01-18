@@ -5,7 +5,6 @@ var Experiment = {
     dragstart : function(ev) {
       Experiment.d.targetID = ev.target.id;
       Experiment.d.className = ev.target.className;
-      console.log(this)
     },
     drop : function(ev) {
       ev.preventDefault();
