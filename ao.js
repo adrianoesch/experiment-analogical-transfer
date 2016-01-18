@@ -1,31 +1,24 @@
 var Experiment = {
   d : {
     dragstart : function(ev) {
-      var ev = ev.originalEvent
       ev.dataTransfer.setData('text', ev.target.id);
       ev.dataTransfer.setData('class', ev.target.className);
-      console.log(ev)
     },
-    // drop : function(ev) {
-    //   ev.preventDefault();
-    //   var data = ev.dataTransfer.getData('text');
-    //   var classMatch = ev.dataTransfer.getData('class').slice(0,4)==ev.target.id.slice(0,4);
-    //   var emptyOrBackDrop = (ev.target.innerHTML=='' || ev.target.className=='menui');
-    //   if ( classMatch && emptyOrBackDrop){
-    //     ev.target.appendChild(document.getElementById(data));
-    //     ev.currentTarget.style.border = "";
-    //   };
-    // },
+    drop : function(ev) {
+      ev.preventDefault();
+      var data = ev.dataTransfer.getData('text');
+      var classMatch = ev.dataTransfer.getData('class').slice(0,4)==ev.target.id.slice(0,4);
+      var emptyOrBackDrop = (ev.target.innerHTML=='' || ev.target.className=='menui');
+      if ( classMatch && emptyOrBackDrop){
+        ev.target.appendChild(document.getElementById(data));
+        ev.currentTarget.style.border = "";
+      };
+    },
     dragover : function(ev) {
-      console.log(ev.dataTransfer.getData('class'))
-      ev = ev.originalEvent
-      console.log(ev.dataTransfer.getData('class'))
-      console.log('')
       var classMatch = ev.dataTransfer.getData('class').slice(0,4)==ev.target.id.slice(0,4);
       if (classMatch && (ev.target.innerHTML=='' || ev.target.className=='menui')){
         ev.preventDefault();
         ev.currentTarget.style.border = "1px dashed black";
-
       };
     },
     dragleave : function(ev){
