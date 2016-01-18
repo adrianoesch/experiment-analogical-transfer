@@ -1,6 +1,7 @@
 var Experiment = {
   d : {
     dragstart : function(ev) {
+      ev = ev.originalEvent
       ev.dataTransfer.setData('text', ev.target.id);
       ev.dataTransfer.setData('class', ev.target.className);
     },
