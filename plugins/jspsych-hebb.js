@@ -95,36 +95,12 @@ jsPsych.plugins['hebb'] = (function() {
 
 
     var dragStart = function(){
-      var d = {
-        drop : function(ev) {
-          ev.preventDefault();
-          var data = ev.originalEvent.dataTransfer.getData('text');
-          var classMatch = ev.originalEvent.dataTransfer.getData('class').slice(0,4)==ev.target.id.slice(0,4);
-          var emptyOrBackDrop = (ev.target.innerHTML=='' || ev.target.className=='menui');
-          if ( classMatch && emptyOrBackDrop){
-            ev.target.appendChild(document.getElementById(data));
-            ev.currentTarget.style.border = "";
-          };
-        },
-        dragover : function(ev) {
-          var classMatch = ev.originalEvent.dataTransfer.getData('class').slice(0,4)==ev.target.id.slice(0,4);
-          if (classMatch && (ev.target.innerHTML=='' || ev.target.className=='menui')){
-            ev.currentTarget.style.border = "1px dashed black";
-            ev.preventDefault();
-          };
-        },
-        dragleave : function(ev){
-          ev.currentTarget.style.border = "";
-        }
-      };
-
       statIdx=0;
       var dragStyle = "<style>#content{width:800px;position:absolute;}#menu{ border:solid 1px black;height:370px;}.menui{  width:150px;  height:280px; border:1px solid white;}.wrapMenu{  padding:0 50px;  float:left;}#menubox{margin:20px 0px 0px 130px;}#names, #name1, #name2{  background-color:rgb(230,230,230);}#relations, #relation{  background-color:rgb(200,200,200);}#names,#relations {  padding:10px;}#input{ width:800px; position:relative;  top:30px;  float:left;} .inputi{  width:190px;  padding:10px;  height:30px;border:1px solid white;}#inputbox{  font-size:16px;  position:relative;  border:1px solid black;  height:120px; padding:00px 50px;}.wrapInput{  float:left;  margin:20px 10px;}.relationDivs,.nameDivs{  font-size:13px;  font-family:arial;  height:20px;  border-radius: 3px;  margin:3px;  padding:0px 0px 5px 5px;}.nameDivs{  background-color: rgba(0,0,0,0.2);}.relationDivs {  background-color: rgba(0,0,0,0.2);}#nextbutton{  position:relative;  margin-top:30px;  float:right;  padding:10px;  border-radius: 5px;  width:80px;  text-align:center;  background-color: rgba(0,0,0,0.7);  color:rgb(230,230,230)}#nextbutton:hover{  background-color: rgb(255,20,20);  color: black;}#errormessage{  color:rgb(250,50,50);  text-align:center; font-size:14px;}</style>";
       var dragHtml = "<div id='content'>Menu:<div id='menu' ><div id='menubox'><div class='wrapMenu'>Names:<div id='names' class='menui' ></div></div>      <div class='wrapMenu'>Relations:<div id='relations' class='menui' ></div></div>  </div>  </div>  <div id='input'>Response: <strong>Statement <span id='statementNr'></span></strong> <span id='errormessage'></span>    <div id='inputbox'>      <div class='wrapInput'>Name:<div id='name1' class='inputi'></div></div>      <div class='wrapInput'>Relation:<div id='relation' class='inputi' ></div></div>  <div class='wrapInput'>Name:<div id='name2' class='inputi'></div></div>    </div>  <div id='nextbutton' >Next</div>  </div></div>";
       display_element.html(dragStyle);
       display_element.append(dragHtml);
 
-      // display_element.append(dragScript);
       $('#nextbutton').click(dragProgress);
       $('#content').css('top',((screen.height*0.5)-350).toString()+'px');
       t0 = Date.now();

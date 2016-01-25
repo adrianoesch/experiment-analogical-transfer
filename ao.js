@@ -3,6 +3,7 @@ var Experiment = {
     targetID : '',
     className : '',
     dragstart : function(ev) {
+      ev.dataTransfer.setData("text", ev.target.id);
       Experiment.d.targetID = ev.target.id;
       Experiment.d.className = ev.target.className;
     },
@@ -30,7 +31,8 @@ var Experiment = {
       var addEvent = function(className,evStr,evFunc){
         var t = document.getElementsByClassName(className);
         for(i=0;i<t.length;i++){
-          t[i].addEventListener(evStr,evFunc);
+          t[i].addEventListener(evStr,function(event){
+            evFunc(event)});
         };
       };
       addEvent("nameDivs","dragstart",Experiment.d.dragstart);
@@ -235,9 +237,40 @@ var Experiment = {
 
   },
   startJsPsych : function(){
+    var detectIE = function(){
+      var ua = window.navigator.userAgent;
+      var msie = ua.indexOf('MSIE ');
+      if (msie > 0) {
+          // IE 10 or older => return version number
+          return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+      };
+      var trident = ua.indexOf('Trident/');
+      if (trident > 0) {
+          // IE 11 => return version number
+          var rv = ua.indexOf('rv:');
+          return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+      };
+      var edge = ua.indexOf('Edge/');
+      if (edge > 0) {
+         // Edge (IE 12+) => return version number
+         return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+      };
+      // other browser
+      return false;
+    };
+    var checkIE = function(){
+      if (detectIE()!=false){
+        var str = 'Your browser doesn\'t provide the necessary functionality. Please use an recently \
+        updated version of Chrome or Firefox. If further problems occure, please contact \
+        the principal investigator of this experiment.';
+        jsPsych.endExperiment(str);
+      }
+    };
+
     var timeline = this.timeline.init();
     jsPsych.init({
       timeline : timeline,
+      on_start : checkIE,
     });
   }
 };

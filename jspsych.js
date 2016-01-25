@@ -657,6 +657,11 @@ jsPsych.data = (function() {
     return JSON2CSV(dataObj);
   };
 
+  module.dataOfTypeAsCSV = function(type) {
+    var dataObj = module.getTrialsOfType(type);
+    return JSON2CSV(dataObj);
+  };
+
   module.dataAsJSON = function() {
     var dataObj = module.getData();
     return JSON.stringify(dataObj);
