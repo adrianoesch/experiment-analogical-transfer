@@ -28,6 +28,7 @@ var Experiment = {
     }
     ,
     init :function(){
+      console.log('drag initiated')
       var addEvent = function(className,evStr,evFunc){
         var t = document.getElementsByClassName(className);
         for(i=0;i<t.length;i++){
