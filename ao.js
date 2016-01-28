@@ -51,8 +51,9 @@ var Experiment = {
     buttonStyle : 'height:60px;width:90px;float:right;font-size:12px;font-weight:bold;',
     instructions : instructions,
     nTrials : 1,
-    wrap : function(p){
-      var divStart = "<div id='content' style='"+this.contentDivStyle+"'>"
+    wrap : function(p,mTop){
+      mTop = mTop || 0;
+      var divStart = "<div id='content' style='"+this.contentDivStyle+"margin-top:"+mTop+"px;'>"
       if (typeof p == 'string'){
         var t = divStart+p+'</div>';
       }else{
@@ -81,7 +82,7 @@ var Experiment = {
       return b
     },
     enter_fullscreen_block : function(){
-      var html = this.wrap(this.instructions.welcome);
+      var html = this.wrap(this.instructions.welcome,50);
       var buttonStyle = this.buttonStyle;
       var b={
         type: 'fullscreen',
@@ -236,7 +237,11 @@ var Experiment = {
     console.log(jsPsych.data.getData());
 
   },
-  startJsPsych : function(){
+  checkBrowser : function(){
+    var isDraggable = function(){
+      return 'draggable' in document.createElement('span')
+    };
+
     var detectIE = function(){
       var ua = window.navigator.userAgent;
       var msie = ua.indexOf('MSIE ');
@@ -258,21 +263,21 @@ var Experiment = {
       // other browser
       return false;
     };
-    var checkIE = function(){
-      if (detectIE()!=false){
-        var str = 'Your browser doesn\'t provide the necessary functionality. Please use an recently \
-        updated version of Chrome or Firefox. If further problems occure, please contact \
-        the principal investigator of this experiment.';
-        jsPsych.endExperiment(str);
-      }
-    };
 
-    var timeline = this.timeline.init();
-    jsPsych.init({
-      timeline : timeline,
-      on_start : checkIE,
-    });
+    if (detectIE()!=false || isDraggable()==false){
+      var html = Experiment.timeline.wrap(instructions.browserError,150)
+      $('body').html(html)
+      return false
+    }else{
+      return true
+    };
+  },
+  startJsPsych : function(){
+    if (this.checkBrowser()){
+      var timeline = this.timeline.init();
+      jsPsych.init({
+        timeline : timeline,
+      });
+    }
   }
 };
-
-Experiment.startJsPsych();

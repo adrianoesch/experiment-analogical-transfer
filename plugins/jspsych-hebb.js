@@ -39,7 +39,7 @@ jsPsych.plugins['hebb'] = (function() {
     var dragProgress = function(){
       var input = $('.inputi').children();
       if(input.length<nNames[statIdx]){
-        $('#errormessage').html('All boxes below must contain a word from above. You can drag them with the mouse.')
+        $('#errormessage').html('All boxes below must contain an item from above. You can drag them with the mouse.')
         return
       };
       statIdx++;

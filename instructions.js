@@ -70,5 +70,9 @@ var instructions = {
              to investigate whether repeated causal structures stories eases the recall of information. Please do \
              not share this information with anyone! It is crucial that the explanation is kept confidential until we \
              have collected all data.</p><p>Here is your code to confirm your participation: 34#!2sS6zs6Q</p>\
-             <p>After copying the confirmation code, you can close this browser window or tab.</p>'
+             <p>After copying the confirmation code, you can close this browser window or tab.</p>',
+
+  browserError : '<h4>Your browser doesn\'t provide the necessary functionality. Please use an recently \
+                  updated version of Chrome or Firefox. If further problems occur, please contact Adrian Oesch,\
+                  the adminstrator of this experiment, at adrian.oesch(at)uzh.ch .</h4>'
 };
