@@ -48,7 +48,7 @@ var Experiment = {
   timeline : {
     contentDivStyle : 'position:absolute;width:800px;left:'+
                       +((screen.width-800)/2).toString()+'px;',
-    buttonStyle : 'height:60px;width:90px;float:right;font-size:12px;font-weight:bold;',
+    buttonStyle : 'height:60px;width:90px;float:right;font-size:12px;font-weight:bold;margin-top:50px;',
     instructions : instructions,
     nTrials : 1,
     wrap : function(p,mTop){
