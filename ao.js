@@ -275,9 +275,14 @@ var Experiment = {
   startJsPsych : function(){
     if (this.checkBrowser()){
       var timeline = this.timeline.init();
+      console.log(timeline)
       jsPsych.init({
-        timeline : timeline,
+        timeline : timeline
       });
     }
   }
+};
+
+window.onload = function(){
+  Experiment.startJsPsych();
 };
