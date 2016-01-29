@@ -4,7 +4,7 @@
 var c = {
   checkBrowser : function(){
     var fs = function (){
-      if(typeof document.webkitIsFullScreen == 'undefined' && typeof document.mozFullScreen == 'undefined' && 
+      if(typeof document.webkitIsFullScreen == 'undefined' && typeof document.mozFullScreen == 'undefined' &&
       typeof document.msFullscreenEnabled == 'undefined' && typeof document.fullscreenchange == 'undefined'){
         return false;
       }else{
@@ -39,7 +39,7 @@ var c = {
     };
 
     if ( detectIE()!=false || isDraggable()==false || fs()==false){
-      var html = Experiment.timeline.wrap(instructions.browserError,150)
+      var html = 'error'
       $('body').html(html)
       return false
     }else{

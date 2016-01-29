@@ -64,7 +64,7 @@ var Experiment = {
       return t;
     },
     consent_block : function(){
-      var page = [this.wrap(this.instructions.consent)];
+      var page = [this.wrap(this.instructions.consent,screen.height*.5-200)];
       var b = {
         type : 'instructions',
         pages: page
@@ -73,7 +73,7 @@ var Experiment = {
     },
     instructions_block : function(){
       var pages = [this.wrap(this.instructions.task),
-                    this.wrap(this.instructions.reminder)];
+                    this.wrap(this.instructions.reminder,screen.height*.5-200)];
       var b = {
         type : 'instructions',
         pages: pages
