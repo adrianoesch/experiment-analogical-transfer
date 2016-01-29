@@ -35,7 +35,7 @@ jsPsych.plugins['fullscreen'] = (function(){
 
       var fs = {
         check : function (){
-          if(typeof document.webkitIsFullScreen == 'undefined' && typeof document.mozFullScreen == 'undefined' && +
+          if(typeof document.webkitIsFullScreen == 'undefined' && typeof document.mozFullScreen == 'undefined' &&
           typeof document.msFullscreenEnabled == 'undefined' && typeof document.fullscreenchange == 'undefined'){
             return false;
           }else{
@@ -104,7 +104,7 @@ jsPsych.plugins['fullscreen'] = (function(){
         on_abort : trial.on_visibility_abort,
         on_fail : trial.on_visibility_fail,
         check : function(){
-          if(typeof document.webkitHidden == 'undefined' && typeof document.mozHidden == 'undefined' && +
+          if(typeof document.webkitHidden == 'undefined' && typeof document.mozHidden == 'undefined' && 
           typeof document.msHidden == 'undefined' && typeof document.hidden == 'undefined'){
             return false;
           }else{

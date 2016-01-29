@@ -4,7 +4,7 @@
 var c = {
   checkBrowser : function(){
     var fs = function (){
-      if(typeof document.webkitIsFullScreen == 'undefined' && typeof document.mozFullScreen == 'undefined' && +
+      if(typeof document.webkitIsFullScreen == 'undefined' && typeof document.mozFullScreen == 'undefined' && 
       typeof document.msFullscreenEnabled == 'undefined' && typeof document.fullscreenchange == 'undefined'){
         return false;
       }else{
