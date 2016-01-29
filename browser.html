@@ -1,7 +1,7 @@
 <html>
 <script>
 
-var c {
+var c = {
   checkBrowser : function(){
     var fs = function (){
       if(typeof document.webkitIsFullScreen == 'undefined' && typeof document.mozFullScreen == 'undefined' && +
@@ -44,9 +44,9 @@ var c {
       return false
     }else{
       return true
-    }
+    };
+  }
 };
-
 alert(c.checkBrowser());
 </script>
 </html>
