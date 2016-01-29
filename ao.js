@@ -31,8 +31,7 @@ var Experiment = {
       var addEvent = function(className,evStr,evFunc){
         var t = document.getElementsByClassName(className);
         for(i=0;i<t.length;i++){
-          t[i].addEventListener(evStr,function(event){
-            evFunc(event)});
+          t[i].addEventListener(evStr,evFunc,false);
         };
       };
       addEvent("nameDivs","dragstart",Experiment.d.dragstart);
@@ -215,8 +214,8 @@ var Experiment = {
     },
     init : function(){
       var timeline = [];
-      timeline.push(this.enter_fullscreen_block());
-      timeline.push(this.consent_block());
+      // timeline.push(this.enter_fullscreen_block());
+      // timeline.push(this.consent_block());
       timeline.push(this.instructions_block());
       timeline.push(this.hebb_block());
       timeline.push(this.demographics_block());
