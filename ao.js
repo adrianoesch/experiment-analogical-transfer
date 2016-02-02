@@ -144,7 +144,7 @@ var Experiment = {
         return i
       }
 
-      if (Experiment.is_pilot){
+      if (is_pilot){
         var difficulties = jsPsych.randomization.shuffle([2,2,2,3,3,3,4,4,4]);
         var objects = jsPsych.randomization.shuffle(texts.stories);
         for (i=0;i<difficulties.length;i++){
@@ -153,7 +153,6 @@ var Experiment = {
           objects[i].relations = objects[i].relations.slice(difficulties[i]*-1);
           objects[i] = createStories(objects[i]);
         }
-        console.log(objects)
       }else{
         var similars = jsPsych.randomization.shuffle(texts.stories.similar).map(function(i){
           return createStories(i,true)});
@@ -227,11 +226,6 @@ var Experiment = {
     },
     init : function(){
       var timeline = [];
-      // if (this.is_pilot==false){
-      //   timeline.push(this.enter_fullscreen_block());
-      //   timeline.push(this.consent_block());
-      //   timeline.push(this.instructions_block());
-      // }
       timeline.push(this.enter_fullscreen_block());
       timeline.push(this.consent_block());
       timeline.push(this.instructions_block());
@@ -299,6 +293,4 @@ var Experiment = {
   }
 };
 
-window.onload = function(){
-  Experiment.startJsPsych();
-};
+Experiment.startJsPsych();

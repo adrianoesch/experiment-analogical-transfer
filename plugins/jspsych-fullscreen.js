@@ -104,7 +104,7 @@ jsPsych.plugins['fullscreen'] = (function(){
         on_abort : trial.on_visibility_abort,
         on_fail : trial.on_visibility_fail,
         check : function(){
-          if(typeof document.webkitHidden == 'undefined' && typeof document.mozHidden == 'undefined' && 
+          if(typeof document.webkitHidden == 'undefined' && typeof document.mozHidden == 'undefined' &&
           typeof document.msHidden == 'undefined' && typeof document.hidden == 'undefined'){
             return false;
           }else{
