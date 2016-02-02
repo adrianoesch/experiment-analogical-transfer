@@ -13,26 +13,32 @@ var texts = {
         relations : [
           'ejects',
           'expels',
-          'distroys',
-          'demolishes',
+          'injects',
+          'destroys sth from',
+          'demolishes sth from',
+          'ereases sth from',
           'dies',
-          'perishes'
+          'perishes',
+          'is eliminated'
         ],
       },{
         title : 'countries',
         nNamesPerStatement : [2,2,1],
         statements : [
           'Country #1 invents weapon #2.',
-          'With weapon #2, the border of country #3 can be breached.',
+          'Weapon #2 can breach the border of country #3.',
           'Country #3 is invaded.'
         ],
         relations : [
-          'breaches',
-          'hurts',
-          'is invades',
-          'is loosing',
           'invents',
-          'introduces'
+          'introduces',
+          'injects',
+          'can breach the border of',
+          'can overcome the border of',
+          'can the border of',
+          'is hurt',
+          'is invaded',
+          'is loosing'
         ]
       },
       {
