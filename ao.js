@@ -293,4 +293,4 @@ var Experiment = {
   }
 };
 
-Experiment.startJsPsych();
+window.onload = function(){Experiment.startJsPsych()};
