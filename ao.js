@@ -180,13 +180,19 @@ var Experiment = {
       };
       return b
     },
-    debriefing_block : function(){
-      var page = [this.wrap(this.instructions.debriefing)];
-      var b = {
+    confirmation_block : function(){
+      page = this.wrap(instructions.confirmation,100)
+      var sessionCode = jsPsych.randomization.randomID(12);
+      jsPsych.data.addProperties({sessionCode : sessionCode});
+
+      b = {
         type : 'instructions',
-        pages: page
+        pages : [page],
+        on_trial_start : function(){
+          setTimeout(function(){$('#conf_code').html(sessionCode)},100);
+        }
       };
-      return b
+      return b;
     },
     demographics_block : function(){
       var nextButton = "<button id='jspsych-fullscreen-button' style='"+this.buttonStyle+"'>Next</button>";
@@ -231,7 +237,7 @@ var Experiment = {
       timeline.push(this.hebb_block());
       timeline.push(this.demographics_block());
       timeline.push(this.exit_fullscreen_block());
-      timeline.push(this.debriefing_block());
+      timeline.push(this.confirmation_block());
       return timeline;
     }
   },

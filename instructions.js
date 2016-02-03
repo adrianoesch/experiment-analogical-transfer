@@ -69,11 +69,11 @@ var instructions = {
   end_fullscreen : "<h2>This was it!</h2> <p>Please save your data and continue to the debriefing and confirmation code\
                    by <br>clicking 'Save & Exit'.</p>",
 
-  debriefing : '<h2>Thank you again for participating in our experiment.</h2><p>The goal of this experiment was \
+  confirmation : '<h2>Thank you for participating in our experiment.</h2><p>The goal of this experiment was \
              to investigate whether repeated causal structures stories eases the recall of information. Please do \
              not share this information with anyone! It is crucial that the explanation is kept confidential until we \
-             have collected all data.</p><p>Here is your code to confirm your participation: 34#!2sS6zs6Q</p>\
-             <p>After copying the confirmation code (use right-click in Safari), you can close this browser window or tab.</p>',
+             have collected all data.</p><p>Here is your code to confirm your participation: <span style="font-weight:bold;" id="conf_code"></span></p>\
+             <p>Make sure to copy and paste this code back to Crowdflower (use right-click in Safari). When are done with it, you can close this browser window or tab. Thanks!</p>',
 
   browserError : '<h4>Your browser doesn\'t provide the necessary functionality. Please use an recently \
                   updated version of Chrome or Firefox. If further problems occur, please contact Adrian Oesch,\
