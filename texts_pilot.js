@@ -1,5 +1,4 @@
 var texts = {
-  names : ['Titho','Ilres','Fozeh','Thygef','Dohod','Rove','Eshbu','Ottha','Thuha','Epnux','Evib','Potho','Ribi','Kawud','Avyth','Wehif','Uyim','Saly','Ohuy','Ezol','Eshov','Lyde','Huluw','Gena','Lenik','Upum','Hoyl','Afi','Yuxeh','Thisun','Ofes','Atmag','Vuloz','Puvi','Orok','Pishi','Thyra','Afid','Hosen','Upno','Kewos','Hoap','Ada','Olag','Uwit','Ebib','Irov','Uhuy','Ihab','Vivaf','Felac','Enwi','Ahow','Mabi','Owih','Rothuk','Napib','Ivan','Assit','Eyem','Roze','Awiz','Zimob','Ifeh','Izdep','Wutoc','Molash','Ofpoz','Mawi','Afik','Erok','Yoges','Uvman','Vilux','Lothe','Inag','Goxos','Itbob','Mewep','Ewey','Meuf','Owmi','Upel','Eefar','Igoth','Olef','Ubug','Aid','Hadith','Enmob','Wecin','Turow','Paza','Hize','Gelyp','Idog','Vipal','Pide','Gabit'],
   stories : [
     {
       title : 'bacteria',
@@ -123,8 +122,8 @@ var texts = {
       statements : [
         'Company #1 introduces product #2.',
         'Product #2 violates patent #4',
-        'Company #3 posses patent #4',
-        'Company #3 takes legal action'
+        'Company #3 posses patent #4.',
+        'Company #3 takes legal action.'
       ],
       relations : [
         [
@@ -145,7 +144,7 @@ var texts = {
         [
           'takes legal action',
           'brings charges',
-          'brings lawyer'
+          'brings a lawyer'
         ]
       ]
     },
@@ -156,7 +155,7 @@ var texts = {
         'Boy #1 goes to school #2.',
         'Girl #3 writes a letter for boy #1.',
         'Girl #4 is a friend of girl #3.',
-        'Girl #4 brings the letter to boy #1',
+        'Girl #4 brings the letter to boy #1.',
       ],
       relations : [
         [
@@ -190,7 +189,7 @@ var texts = {
       relations : [
         [
           'needs',
-          'has',
+          'requires',
           'looks for'
         ],[
           'is sparse in',
@@ -265,5 +264,6 @@ var texts = {
         ]
       ]
     }
-  ]
+  ],
+  names : ['Titho','Ilres','Fozeh','Thygef','Dohod','Rove','Eshbu','Ottha','Thuha','Epnux','Evib','Potho','Ribi','Kawud','Avyth','Wehif','Uyim','Saly','Ohuy','Ezol','Eshov','Lyde','Huluw','Gena','Lenik','Upum','Hoyl','Afi','Yuxeh','Thisun','Ofes','Atmag','Vuloz','Puvi','Orok','Pishi','Thyra','Afid','Hosen','Upno','Kewos','Hoap','Ada','Olag','Uwit','Ebib','Irov','Uhuy','Ihab','Vivaf','Felac','Enwi','Ahow','Mabi','Owih','Rothuk','Napib','Ivan','Assit','Eyem','Roze','Awiz','Zimob','Ifeh','Izdep','Wutoc','Molash','Ofpoz','Mawi','Afik','Erok','Yoges','Uvman','Vilux','Lothe','Inag','Goxos','Itbob','Mewep','Ewey','Meuf','Owmi','Upel','Eefar','Igoth','Olef','Ubug','Aid','Hadith','Enmob','Wecin','Turow','Paza','Hize','Gelyp','Idog','Vipal','Pide','Gabit']
 };

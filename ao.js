@@ -25,8 +25,7 @@ var Experiment = {
     },
     dragleave : function(ev){
       ev.currentTarget.style.border = "";
-    }
-    ,
+    },
     init :function(){
       var addEvent = function(className,evStr,evFunc){
         var t = document.getElementsByClassName(className);
