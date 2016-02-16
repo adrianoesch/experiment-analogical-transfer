@@ -46,9 +46,9 @@ var texts = {
         ],[
           'is moving',
           'is blowing',
-          ''
+          'is showing'
         ],[
-          'makess it rain over',
+          'makes it rain over',
           'brings humidity to',
           'drys out over'
         ],[
@@ -132,14 +132,14 @@ var texts = {
           'perils'
         ],
         [
-          'posses',
-          'inherits',
-          'owns'
-        ],
-        [
           'violates',
           'ignores',
           'infringes'
+        ],
+        [
+          'posses',
+          'inherits',
+          'owns'
         ],
         [
           'takes legal action',

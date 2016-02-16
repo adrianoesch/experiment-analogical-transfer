@@ -20,17 +20,14 @@ jsPsych.plugins['hebb'] = (function() {
     var trial_data = {
       title : trial.title,
       similar : trial.similar,
-      diff : trial.diff
+      diff : trial.diff,
+      names : trial.names,
     };
     var kbResps = [];
     var nDrags = 0;
 
     // function to end trial when it is time
     var end_trial = function() {
-
-      // gather the data to store for the trial
-      console.log(trial_data)
-
       // clear the display
       display_element.html('');
 
@@ -39,17 +36,18 @@ jsPsych.plugins['hebb'] = (function() {
     };
 
     var dragProgress = function(){
+      var statIdxStr = statIdx.toString();
       var input = $('.inputi').children();
       if(input.length<nNames[statIdx]){
         $('#errormessage').html('All boxes below must contain an item from above. You can drag them with the mouse.')
         return
       };
       statIdx++;
-      trial_data['stat'+statIdx.toString()+'_name1'] = input[0].innerHTML;
-      trial_data['stat'+statIdx.toString()+'_relation'] =  input[1].innerHTML;
-      trial_data['stat'+statIdx.toString()+'_name2'] = nNames[statIdx-1]== 2 ? input[2].innerHTML : '';
-      trial_data['stat'+statIdx.toString()+'_timeDrag'] = Date.now()-t0;
-      trial_data['stat'+statIdx.toString()+'_ndrags'] = nDrags;
+      trial_data['stat'+statIdxStr+'_name1'] = input[0].innerHTML;
+      trial_data['stat'+statIdxStr+'_relation'] =  input[1].innerHTML;
+      trial_data['stat'+statIdxStr+'_name2'] = nNames[statIdx-1]== 2 ? input[2].innerHTML : '';
+      trial_data['stat'+statIdxStr+'_timeDrag'] = Date.now()-t0;
+      trial_data['stat'+statIdxStr+'_ndrags'] = nDrags;
       t0 = Date.now(); // reset new time measure
       nDrags = 0;
       if (statIdx==statements.length){
@@ -58,7 +56,7 @@ jsPsych.plugins['hebb'] = (function() {
         display()
       };
     };
-    var fadeCSS = '#statementNr{color:#000; -webkit-transition:color 1s ease-in; -moz-transition:color 1s ease-in; -o-transition:color 1s ease-in; transition:color 1s ease-in;}'
+
     var display = function(){
       $('#names').html('');
       $('#relations').html('');

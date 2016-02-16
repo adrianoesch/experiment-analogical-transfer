@@ -28,9 +28,8 @@
 			};
 
 			var endTrial = function(){
-				jsPsych.data.write(trial_data);
 				display_element.html('');
-				jsPsych.finishTrial();
+				jsPsych.finishTrial(trial_data);
 			}
 
 

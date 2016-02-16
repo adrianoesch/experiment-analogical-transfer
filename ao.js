@@ -1,4 +1,8 @@
 var Experiment = {
+  session : {
+    code : jsPsych.randomization.randomID(12),
+    start : new Date().toString().slice(0,24)
+  },
   d : {
     targetID : '',
     className : '',
@@ -125,55 +129,64 @@ var Experiment = {
       return b;
     },
     hebb_block : function(){
-      var names = texts.names;
-      function drawSampleNames(nNames){
-          return jsPsych.randomization.sample(names,nNames)
-      };
-      function createStories(i,simil){
-        i.similar = simil;
-        i.names = drawSampleNames(i.statements.length*2)
-        i.statements = i.statements.map(function(val,j){
-          var replKeys = ['\#1','\#2','\#3','\#4','\#5'];
-          for(j=0;j<replKeys.length;j++){
-            if(val.indexOf(replKeys[j]) >- 1){
-              val = val.replace(replKeys[j], i.names[j])};
-          };
-          return val
-        })
-        return i
-      }
 
-      if (is_pilot){
-        var difficulties = jsPsych.randomization.shuffle([2,2,2,3,3,3,4,4,4]);
-        var objects = jsPsych.randomization.shuffle(texts.stories);
-        for (i=0;i<difficulties.length;i++){
-          objects[i].diff = difficulties[i];
-          objects[i].statements = objects[i].statements.slice(difficulties[i]*-1);
-          objects[i].relations = objects[i].relations.slice(difficulties[i]*-1);
-          objects[i] = createStories(objects[i]);
-        }
-      }else{
-        var similars = jsPsych.randomization.shuffle(texts.stories.similar).map(function(i){
-          return createStories(i,true)});
-        var nonsimilars = jsPsych.randomization.shuffle(texts.stories.nonsimilar).map(function(i){
-          return createStories(i,false)});
-        var objects = [];
-        for (i=0;i<this.nTrials/2;i++){
-          objects.push(similars[i]);
-          objects.push(nonsimilars[i]);
+      var getObjects = function(){
+        var names = texts.names;
+        function drawSampleNames(nNames){
+            return jsPsych.randomization.sample(names,nNames)
         };
-      }
+
+        function createStories(i,simil){
+          i.similar = simil;
+          i.names = drawSampleNames(i.statements.length*2)
+          i.statements = i.statements.map(function(val,j){
+            var replKeys = ['\#1','\#2','\#3','\#4','\#5'];
+            for(j=0;j<replKeys.length;j++){
+              if(val.indexOf(replKeys[j]) >- 1){
+                val = val.replace(replKeys[j], i.names[j])};
+            };
+            return val
+          })
+          return i
+        };
+
+        if (is_pilot){
+          var difficulties = jsPsych.randomization.shuffle([2,2,2,3,3,3,4,4,4]);
+          var objects = jsPsych.randomization.shuffle(texts.stories);
+          for (i=0;i<difficulties.length;i++){
+            objects[i].diff = difficulties[i];
+            objects[i].statements = objects[i].statements.slice(difficulties[i]*-1);
+            objects[i].relations = objects[i].relations.slice(difficulties[i]*-1);
+            objects[i].nNamesPerStatement = objects[i].nNamesPerStatement.slice(difficulties[i]*-1);
+            objects[i] = createStories(objects[i]);
+          };
+        }else{
+          var similars = jsPsych.randomization.shuffle(texts.stories.similar).map(function(i){
+            return createStories(i,true)});
+          var nonsimilars = jsPsych.randomization.shuffle(texts.stories.nonsimilar).map(function(i){
+            return createStories(i,false)});
+          var objects = [];
+          for (i=0;i<this.nTrials/2;i++){
+            objects.push(similars[i]);
+            objects.push(nonsimilars[i]);
+          };
+        }
+        return objects;
+      };
 
       function wrapStatements(stat){
         return "<div style='content'><p style='text-align:center;font-size:40px;line-height:1.5;margin-top:"+((screen.height*.5)-30).toString()+"px;'>"
               +stat+"</p></div>";
       };
+
+      var objects = getObjects();
       objects = objects.map(function(i){
         i.statements = i.statements.map(function(j){
           return wrapStatements(j);
         })
         return i;
       })
+
       var b = {
         type : 'hebb',
         timeline : objects
@@ -182,7 +195,7 @@ var Experiment = {
     },
     confirmation_block : function(){
       page = this.wrap(instructions.confirmation,100)
-      var sessionCode = jsPsych.randomization.randomID(12);
+      var sessionCode = Experiment.session.code;
       jsPsych.data.addProperties({sessionCode : sessionCode});
 
       b = {
@@ -242,15 +255,36 @@ var Experiment = {
     }
   },
   saveData : function(){
-    // var csvStrings = [jsPsych.data.dataOfTypeAsCSV('hebb')]
-    // $.ajax({
-    //   type: 'post',
-    //   cache: false,
-    //   url: './store2.php',
-    //   data: {subjectID: Experiment.user.UID, folder: 'anna', csvStrings: csvStrings, dataAsJSON: jsPsych.data.dataAsJSON()}
-    // });
+    function createDemographicsCsvString(){
+      var d = jsPsych.data.getTrialsOfType('html-input-ao');
+      var csv = [{ sessionCode : d[0]['sessionCode'],
+                  age : d[0]['age'],
+                  gender : d[0]['gender'],
+                  qualification : d[0]['quali'],
+                  sincerity : d.length>1 ? d[1]['sincerity'] :  '',
+                  sessionStart : Experiment.session.start,
+                  sessionEnd : new Date().toString().slice(0,24)
+                }];
+      var csvString = jsPsych.data.JSON2CSV(csv);
+      return csvString
+    }
+
+    var csvStrings = [jsPsych.data.dataOfTypeAsCSV('hebb'), createDemographicsCsvString()];
+    var jsonStrings = [jsPsych.data.dataAsJSON()];
+
+    $.ajax({
+      type: 'post',
+      cache: false,
+      url: './store.php',
+      data: {
+        subjectID: [Experiment.session.code,new Date().toString().slice(0,24).replace(/ /g,'_')].join('_'),
+        folder: 'pilot_160216',
+        csvStrings: csvStrings,
+        dataAsJSON: jsonStrings
+      }
+    });
+
     console.log('Data saved.');
-    console.log(jsPsych.data.getData());
 
   },
   checkBrowser : function(){
