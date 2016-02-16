@@ -9,6 +9,7 @@ var texts = {
         'Body cell #5 dies.'
       ],
       nNamesPerStatement : [2,2,2,1],
+      nNames : 5,
       relations : [
         [
           'triggers sth. in',
@@ -32,6 +33,7 @@ var texts = {
     {
       title : 'meteo',
       nNamesPerStatement : [2,2,2,1],
+      nNames : 4,
       statements : [
         'Area #1 lies next to ocean #2.',
         'Wind #3 is moving cloud #4.',
@@ -61,6 +63,7 @@ var texts = {
     {
       title : 'fish',
       nNamesPerStatement : [2,2,2,1],
+      nNames : 5,
       statements : [
         'Fish #1 eat sea grass #2.',
         'Sea grass #3 grows in zone #4.',
@@ -90,6 +93,7 @@ var texts = {
     {
       title : 'minority',
       nNamesPerStatement : [2,2,2,1],
+      nNames : 3,
       statements : [
         'Country #1 shares ethnicity with minority #2.',
         'Country #1 supports minority #2.',
@@ -119,6 +123,7 @@ var texts = {
     {
       title : 'company',
       nNamesPerStatement : [2,2,2,1],
+      nNames : 4,
       statements : [
         'Company #1 introduces product #2.',
         'Product #2 violates patent #4',
@@ -151,6 +156,7 @@ var texts = {
     {
       title : 'school',
       nNamesPerStatement : [2,2,2,2],
+      nNames : 4,
       statements : [
         'Boy #1 goes to school #2.',
         'Girl #3 writes a letter for boy #1.',
@@ -180,6 +186,7 @@ var texts = {
     {
       title : 'ngo',
       nNamesPerStatement : [2,2,2,1],
+      nNames : 3,
       statements : [
         'Country #1 needs resource #2.',
         'Resource #2 is sparse in country #1.',
@@ -209,6 +216,7 @@ var texts = {
     {
       title : 'farm',
       nNamesPerStatement : [2,2,2,1],
+      nNames : 4,
       statements : [
         'Farmer #1 uses machine #2.',
         'Machine #2 can cut plant #3.',
@@ -238,10 +246,11 @@ var texts = {
     {
       title : 'space',
       nNamesPerStatement : [2,2,2,1],
+      nNames : 4,
       statements : [
         'Moon #1 circles planet #2.',
         'Meteor #3 hits planet #2',
-        'Planet #2 switches to orbit 4.',
+        'Planet #2 switches to orbit #4.',
         'Moon #1 looses attraction.'
       ],
       relations : [

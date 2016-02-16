@@ -4,7 +4,7 @@ var instructions = {
               the experiment:<ul><li>exiting fullscreen mode</li><li>switching tabs or applications</li>\
               <li>reloading the webpage</li><li>going-"back" in the browser</li></ul>\
               <p>Please close all other running applications and turn off all notifications before entering \
-              the experiment. Ensure you are in a calm place without any distractions, for example, noise.</p>\
+              the experiment. Ensure you are in a calm place without any distractions like noise for example.</p>\
               <p>Click "Enter" to launch into fullscreen and start the experiment.</p>',
 
   consent :   '<h2>Consent</h2><p>In this experiment you will be asked to read very short stories \

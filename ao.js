@@ -139,11 +139,15 @@ var Experiment = {
         function createStories(i,simil){
           i.similar = simil;
           i.names = drawSampleNames(i.statements.length*2)
-          i.statements = i.statements.map(function(val,j){
-            var replKeys = ['\#1','\#2','\#3','\#4','\#5'];
+          i.correctNamesInStatements = [];
+          var replKeys = ['\#1','\#2','\#3','\#4','\#5'];
+          i.statements = i.statements.map(function(val,num){
+            i.correctNamesInStatements[num] = [];
             for(j=0;j<replKeys.length;j++){
-              if(val.indexOf(replKeys[j]) >- 1){
-                val = val.replace(replKeys[j], i.names[j])};
+              if(val.indexOf(replKeys[j].slice(1,2)) > -1){
+                val = val.replace(replKeys[j], i.names[j])
+                i.correctNamesInStatements[num].push(i.names[j]);
+                };
             };
             return val
           })
@@ -158,7 +162,7 @@ var Experiment = {
             objects[i].statements = objects[i].statements.slice(difficulties[i]*-1);
             objects[i].relations = objects[i].relations.slice(difficulties[i]*-1);
             objects[i].nNamesPerStatement = objects[i].nNamesPerStatement.slice(difficulties[i]*-1);
-            objects[i] = createStories(objects[i]);
+            objects[i] = createStories(objects[i],false);
           };
         }else{
           var similars = jsPsych.randomization.shuffle(texts.stories.similar).map(function(i){
@@ -171,6 +175,7 @@ var Experiment = {
             objects.push(nonsimilars[i]);
           };
         }
+        console.log(objects)
         return objects;
       };
 
@@ -189,7 +194,8 @@ var Experiment = {
 
       var b = {
         type : 'hebb',
-        timeline : objects
+        timeline : objects,
+        timing_post_trial: 0
       };
       return b
     },

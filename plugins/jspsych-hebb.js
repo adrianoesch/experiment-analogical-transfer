@@ -48,6 +48,9 @@ jsPsych.plugins['hebb'] = (function() {
       trial_data['stat'+statIdxStr+'_name2'] = nNames[statIdx-1]== 2 ? input[2].innerHTML : '';
       trial_data['stat'+statIdxStr+'_timeDrag'] = Date.now()-t0;
       trial_data['stat'+statIdxStr+'_ndrags'] = nDrags;
+      trial_data['stat'+statIdxStr+'_statNr'] = 4-trial.diff+statIdx;
+      trial_data['stat'+statIdxStr+'_name1_sol'] = trial.correctNamesInStatements[statIdx-1][0];
+      trial_data['stat'+statIdxStr+'_name2_sol'] = nNames[statIdx-1]== 2 ? trial.correctNamesInStatements[statIdx-1][1] : '';
       t0 = Date.now(); // reset new time measure
       nDrags = 0;
       if (statIdx==statements.length){
