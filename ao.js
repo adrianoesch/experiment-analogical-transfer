@@ -93,21 +93,17 @@ var Experiment = {
         buttontext: "Enter",
         visibility: true,
         on_fullscreen_abort: function(){
-          jsPsych.finishTrial();
-          jsPsych.endExperiment('The experiment was terminated due to fullscreen abort.');
+          jsPsych.abortExperiment('The experiment was terminated due to fullscreen abort.');
         },
         on_fullscreen_fail: function(){
-          jsPsych.finishTrial();
-          jsPsych.endExperiment('Your browser doesn\'t provide the necessary functionality. We recommend \
+          jsPsych.abortExperiment('Your browser doesn\'t provide the necessary functionality. We recommend \
           using an up-to-date version of Firefox or Chrome.');
         },
         on_visibility_abort:function(){
-          jsPsych.finishTrial();
-          jsPsych.endExperiment('The experiment was terminated due to lack of visibility of the window.');
+          jsPsych.abortExperiment('The experiment was terminated due to lack of visibility of the window.');
         },
         on_visibility_fail:function(){
-          jsPsych.finishTrial();
-          jsPsych.endExperiment('Your browser doesn\'t provide the necessary functionality. We recommend \
+          jsPsych.abortExperiment('Your browser doesn\'t provide the necessary functionality. We recommend \
           using an up-to-date version of Firefox or Chrome.');
         }
       };
@@ -175,7 +171,6 @@ var Experiment = {
             objects.push(nonsimilars[i]);
           };
         }
-        console.log(objects)
         return objects;
       };
 

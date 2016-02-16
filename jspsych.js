@@ -169,6 +169,13 @@ var jsPsych = (function() {
     timeline.end();
   }
 
+  core.abortExperiment = function(end_message){
+    timeline.end_message = end_message;
+    timeline.end();
+    this.finishTrial();
+    this.pluginAPI.cancelAllKeyboardResponses(); //if keyboard is still listening then they might trigger some changes
+  }
+
   core.endCurrentTimeline = function() {
     timeline.endActiveNode();
   }

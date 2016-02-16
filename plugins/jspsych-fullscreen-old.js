@@ -35,7 +35,7 @@ jsPsych.plugins['fullscreen'] = (function(){
 
       var fs = {
         check : function (){
-          if(typeof document.webkitIsFullScreen == 'undefined' && typeof document.mozFullScreen == 'undefined' && +
+          if(typeof document.webkitIsFullScreen == 'undefined' && typeof document.mozFullScreen == 'undefined' &&
           typeof document.msFullscreenEnabled == 'undefined' && typeof document.fullscreenchange == 'undefined'){
             return false;
           }else{
@@ -70,29 +70,13 @@ jsPsych.plugins['fullscreen'] = (function(){
         getFullScreenAbort : function (callObj){
           var fullScreenAbort = function(){
             if (!document.webkitIsFullScreen && typeof document.webkitIsFullScreen != 'undefined'){
-              console.log('web abort')
-              callObj();
-              callObj();
-              vs.removeListener();
-              fs.removeListener();
+              callObj.call()
             }else if (!document.mozFullScreen && typeof document.mozFullScreen != 'undefined'){
-              console.log('moz abort')
-              callObj();
-              callObj();
-              vs.removeListener();
-              fs.removeListener();
+              callObj.call()
             }else if (!document.msFullscreenElement && typeof document.msFullscreenElement != 'undefined'){
-              console.log('ms abort')
-              callObj();
-              callObj();
-              vs.removeListener();
-              fs.removeListener();
+              callObj.call()
             }else if (!document.fullscreenchange && typeof document.fullscreenchange != 'undefined'){
-              console.log('abort')
-              callObj();
-              callObj();
-              vs.removeListener();
-              fs.removeListener();
+              callObj.call()
             }
           };
           return fullScreenAbort
@@ -120,7 +104,7 @@ jsPsych.plugins['fullscreen'] = (function(){
         on_abort : trial.on_visibility_abort,
         on_fail : trial.on_visibility_fail,
         check : function(){
-          if(typeof document.webkitHidden == 'undefined' && typeof document.mozHidden == 'undefined' && +
+          if(typeof document.webkitHidden == 'undefined' && typeof document.mozHidden == 'undefined' &&
           typeof document.msHidden == 'undefined' && typeof document.hidden == 'undefined'){
             return false;
           }else{
@@ -128,7 +112,7 @@ jsPsych.plugins['fullscreen'] = (function(){
           };
         },
         addListener : function(){
-          if (typeof document.webkitHidden != 'undefined'){
+          if (document.webkitHidden != 'undefined'){
             document.addEventListener('webkitvisibilitychange',fs_plugin_glob.vs_abort,false);
           }else if (typeof document.mozHidden != 'undefined'){
             document.addEventListener('mozvisibilitychange',fs_plugin_glob.vs_abort,false);
@@ -137,15 +121,6 @@ jsPsych.plugins['fullscreen'] = (function(){
           }else if (typeof document.hidden != 'undefined'){
             document.addEventListener('visibilitychange',fs_plugin_glob.vs_abort,false);
           }
-        },
-        getVisibilityAbort : function (callObj){
-          var visibilityAbort = function(){
-            callObj.call();
-            callObj.call();
-            fs.removeListener();
-            vs.removeListener();
-          }
-          return visibilityAbort;
         },
         removeListener : function(){
             document.removeEventListener('webkitvisibilitychange',fs_plugin_glob.vs_abort,false);
@@ -168,15 +143,18 @@ jsPsych.plugins['fullscreen'] = (function(){
 
       $('#jspsych-fullscreen-button').on('click',function(){
           if (trial.exit) {
-            fs.removeListener();
-            vs.removeListener();
+            fs.removeListener()
+            vs.removeListener()
             fs.exit();
           }else{
             fs.launch(document.documentElement);
             fs_plugin_glob.fs_abort = fs.getFullScreenAbort(trial.on_fullscreen_abort)
             fs.addListener();
             if (trial.visibility){
-                fs_plugin_glob.vs_abort = vs.getVisibilityAbort(trial.on_visibility_abort);
+                fs_plugin_glob.vs_abort = function(){
+                  fs.removeListener();
+                  trial.on_visibility_abort();
+                };
                 vs.addListener();}
             };
           display_element.html('');
