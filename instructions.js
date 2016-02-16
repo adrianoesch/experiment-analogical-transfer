@@ -73,7 +73,7 @@ var instructions = {
              to investigate whether repeated causal structures stories eases the recall of information. Please do \
              not share this information with anyone! It is crucial that the explanation is kept confidential until we \
              have collected all data.</p><p>Here is your code to confirm your participation: <span style="font-weight:bold;" id="conf_code"></span></p>\
-             <p>Make sure to copy and paste this code back to Crowdflower (use right-click in Safari). When you \
+             <p>Make sure to copy and paste this code back to Crowdflower (use right-click>copy in Safari). When you \
              are done with it, you can close this browser window or tab. Thanks!</p>',
 
   browserError : '<h4>Your browser doesn\'t provide the necessary functionality. Please use an recently \
