@@ -208,7 +208,7 @@ var Experiment = {
         type : 'instructions',
         pages : [page],
         on_trial_start : function(){
-          setTimeout(function(){$('#conf_code').html(sessionCode)},100);
+          setTimeout(function(){$('#conf_code').html([sessionCode,"57xo5ftqu4vr"].join('-'))},100);
         }
       };
       return b;
