@@ -15,13 +15,11 @@ jsPsych.plugins['fullscreen'] = (function(){
 
       var defaultAbort = function(){
         var str = 'Experiment was terminated by your action.';
-        jsPsych.finishTrial()
-        jsPsych.endExperiment(str)
+        jsPsych.abortExperiment(str);
       };
       var defaultFail = function(){
         var str = 'Your browser doesn\'t provide the necessary functionality. Please contact the principal investigator of this experiment.';
-        jsPsych.finishTrial()
-        jsPsych.endExperiment(str)
+        jsPsych.abortExperiment(str);
       };
 
       // set defaults
