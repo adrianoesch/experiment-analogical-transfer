@@ -1,7 +1,12 @@
 var Experiment = {
+  getTimeStamp : function(){
+    var str = new Date().toString().slice(0,24);
+    var str = str.replace(/ /g,'_');
+    var str = str.replace(/:/g,'-');
+    return str;
+  },
   session : {
-    code : jsPsych.randomization.randomID(12),
-    start : new Date().toString().slice(0,24)
+    code : jsPsych.randomization.randomID(12)
   },
   d : {
     targetID : '',
@@ -278,7 +283,7 @@ var Experiment = {
       cache: false,
       url: './store.php',
       data: {
-        subjectID: [Experiment.session.code,new Date().toString().slice(0,24).replace(/ /g,'_')].join('_'),
+        subjectID: [Experiment.session.code,Experiment.getTimeStamp()].join('_'),
         folder: 'pilot_160216',
         csvStrings: csvStrings,
         dataAsJSON: jsonStrings
@@ -324,6 +329,7 @@ var Experiment = {
     };
   },
   startJsPsych : function(){
+    this.session.start = this.getTimeStamp();
     if (this.checkBrowser()){
       var timeline = this.timeline.init();
       jsPsych.init({
