@@ -269,7 +269,7 @@ var Experiment = {
                   qualification : d[0]['quali'],
                   sincerity : d.length>1 ? d[1]['sincerity'] :  '',
                   sessionStart : Experiment.session.start,
-                  sessionEnd : new Date().toString().slice(0,24)
+                  sessionEnd : Experiment.getTimeStamp()
                 }];
       var csvString = jsPsych.data.JSON2CSV(csv);
       return csvString
@@ -338,5 +338,5 @@ var Experiment = {
     }
   }
 };
-
+console.log(t=JSON.parse(JSON.stringify(texts)))
 window.onload = function(){Experiment.startJsPsych()};
