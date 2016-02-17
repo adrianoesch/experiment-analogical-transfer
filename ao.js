@@ -338,5 +338,5 @@ var Experiment = {
     }
   }
 };
-console.log(t=JSON.parse(JSON.stringify(texts)))
+
 window.onload = function(){Experiment.startJsPsych()};
