@@ -66,8 +66,8 @@ var texts = {
       "nNames" : 5,
       "statements" : [
         "Fish #1 eat sea grass #2.",
-        "Sea grass #3 grows in zone #4.",
-        "Fisher #5 tries his luck in zone #4.",
+        "Sea grass #3 grows in zone #4.",
+        "Fisher #5 tries his luck in zone #4.",
         "Fisher #5 is successful."
       ],
       "relations" : [
@@ -95,7 +95,7 @@ var texts = {
       "nNamesPerStatement" : [2,2,2,1],
       "nNames" : 3,
       "statements" : [
-        "Country #1 shares ethnicity with minority #2.",
+        "Country #1 shares ethnicity with minority #2.",
         "Country #1 supports minority #2.",
         "Minority #2 is supressed in country #3.",
         "Minority #2 starts to fight."
@@ -158,10 +158,10 @@ var texts = {
       "nNamesPerStatement" : [2,2,2,2],
       "nNames" : 4,
       "statements" : [
-        "Boy #1 goes to school #2.",
-        "Girl #3 writes a letter for boy #1.",
+        "Boy #1 goes to school #2.",
+        "Girl #3 writes a letter for boy #1.",
         "Girl #4 is a friend of girl #3.",
-        "Girl #4 brings the letter to boy #1."
+        "Girl #4 brings the letter to boy #1."
       ],
       "relations" : [
         [
@@ -189,9 +189,9 @@ var texts = {
       "nNames" : 3,
       "statements" : [
         "Country #1 needs resource #2.",
-        "Resource #2 is sparse in country #1.",
-        "Country #3 has a lot of resource #2.",
-        "Country #2 starts negotiating."
+        "Resource #2 is sparse in country #1.",
+        "Country #3 has a lot of resource #2.",
+        "Country #2 starts negotiating."
       ],
       "relations" : [
         [
@@ -218,9 +218,9 @@ var texts = {
       "nNamesPerStatement" : [2,2,2,1],
       "nNames" : 4,
       "statements" : [
-        "Farmer #1 uses machine #2.",
+        "Farmer #1 uses machine #2.",
         "Machine #2 can cut plant #3.",
-        "Farmer #4 broke machine #2.",
+        "Farmer #4 breaks machine #2.",
         "Plant #3 can not be harvested."
       ],
       "relations" : [

@@ -21,7 +21,7 @@ jsPsych.plugins['hebb'] = (function() {
       title : trial.title,
       similar : trial.similar,
       diff : trial.diff,
-      names : trial.names,
+      names : trial.names.join(','),
     };
     var kbResps = [];
     var nDrags = 0;
@@ -30,7 +30,6 @@ jsPsych.plugins['hebb'] = (function() {
     var end_trial = function() {
       // clear the display
       display_element.html('');
-
       // move on to the next trial
       jsPsych.finishTrial(trial_data);
     };
@@ -49,6 +48,7 @@ jsPsych.plugins['hebb'] = (function() {
       trial_data['stat'+statIdxStr+'_timeDrag'] = Date.now()-t0;
       trial_data['stat'+statIdxStr+'_ndrags'] = nDrags;
       trial_data['stat'+statIdxStr+'_statNr'] = 4-trial.diff+statIdx;
+      trial_data['stat'+statIdxStr+'_rel_sol'] = trial.relations[statIdx-1][0];
       trial_data['stat'+statIdxStr+'_name1_sol'] = trial.correctNamesInStatements[statIdx-1][0];
       trial_data['stat'+statIdxStr+'_name2_sol'] = nNames[statIdx-1]== 2 ? trial.correctNamesInStatements[statIdx-1][1] : '';
       t0 = Date.now(); // reset new time measure
