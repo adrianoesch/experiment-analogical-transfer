@@ -54,6 +54,12 @@ var instructions = {
               <option val="yes">Yes, my data should be used</option>\
               <option val="no">No, my data should not be used</option></select></p>',
 
+  language : '<p>What is your native language? <select type="text" id="language">\
+              <option val="en">English</option>\
+              <option val="es">Spanish</option>\
+              <option val="de">German</option>\
+              <option val="ot">Other</option></select></p>',
+
   age :       '<p>How old are you? <select type="text" id="age">'+age_options+'</select></p>',
   gender :    '<p>Gender: <select id="gender"><option value=""></option>\
               <option value="female">Female</option><option value="male">Male</otion>\

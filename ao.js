@@ -5,6 +5,23 @@ var Experiment = {
     var str = str.replace(/:/g,'-');
     return str;
   },
+  getBrowserInfo : function(){
+    var ua=navigator.userAgent,tem,M=ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
+    if(/trident/i.test(M[1])){
+        tem=/\brv[ :]+(\d+)/g.exec(ua) || [];
+        return {name:'IE',version:(tem[1]||'')};
+        }
+    if(M[1]==='Chrome'){
+        tem=ua.match(/\bOPR\/(\d+)/)
+        if(tem!=null)   {return {name:'Opera', version:tem[1]};}
+        }
+    M=M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
+    if((tem=ua.match(/version\/(\d+)/i))!=null) {M.splice(1,1,tem[1]);}
+    return {
+      name: M[0],
+      version: M[1]
+    }
+  },
   session : {
     code : jsPsych.randomization.randomID(12)
   },
@@ -218,6 +235,7 @@ var Experiment = {
       var pages = this.wrap([ this.instructions.age+
                               this.instructions.gender+
                               this.instructions.qualification+
+                              this.instructions.language+
                               nextButton,
                               this.instructions.sincerity+
                               nextButton
@@ -239,7 +257,7 @@ var Experiment = {
         },
         timeline:[
           {
-            inputIDs :  ['age','gender','quali'],
+            inputIDs :  ['age','gender','quali','language'],
             html : pages[0]
           },{
             inputIDs : ['sincerity'],
@@ -262,14 +280,17 @@ var Experiment = {
   },
   saveData : function(){
     function createDemographicsCsvString(){
-      var d = jsPsych.data.getTrialsOfType('html-input-ao');
+      var d = jsPsych.data.getTrialsOfType('html-input-ao') ;
+      var b = Experiment.getBrowserInfo()
       var csv = [{ sessionCode : d[0]['sessionCode'],
                   age : d[0]['age'],
                   gender : d[0]['gender'],
                   qualification : d[0]['quali'],
                   sincerity : d.length>1 ? d[1]['sincerity'] :  '',
                   sessionStart : Experiment.session.start,
-                  sessionEnd : Experiment.getTimeStamp()
+                  sessionEnd : Experiment.getTimeStamp(),
+                  browserName : b.name,
+                  browserVersion : b.version
                 }];
       var csvString = jsPsych.data.JSON2CSV(csv);
       return csvString

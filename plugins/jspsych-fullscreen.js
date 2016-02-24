@@ -193,7 +193,7 @@ jsPsych.plugins['fullscreen'] = (function(){
           }else{
             fs.launch(document.documentElement);
             fs_plugin_glob.fs_abort = fs.getFullScreenAbort(trial.on_fullscreen_abort)
-            fs.addListener();
+            setTimeout(fs.addListener,100);
             if (trial.visibility){
                 fs_plugin_glob.vs_abort = vs.getVisibilityAbort(trial.on_visibility_abort);
                 setTimeout(vs.addListener,100);
