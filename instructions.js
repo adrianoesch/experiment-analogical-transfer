@@ -54,7 +54,14 @@ var instructions = {
               <option val="yes">Yes, my data should be used</option>\
               <option val="no">No, my data should not be used</option></select></p>',
 
+  effort :    '<p>How much effort did you put in the task? <select type="text" id="effort">\
+              <option val="0">0 - none</option>\
+              <option val="1">1 - little bit</option>\
+              <option val="2">2 - quite some</option>\
+              <option val="3">3 - a lot</option></select></p>'
+
   language : '<p>What is your native language? <select type="text" id="language">\
+              <option val=""></option>\
               <option val="en">English</option>\
               <option val="es">Spanish</option>\
               <option val="de">German</option>\

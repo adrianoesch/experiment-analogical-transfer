@@ -24,16 +24,16 @@
     },
     "rebel" : {
       "statements" : [
-        "Rebel group #1 invents weapon #2.",
+        "Rebel group #1 invents weapon #2.",
         "Weapon #2 breaches the border of country #3.",
-        "Country #3 is invaded."
+        "Country #3 is invaded."
       ]
     },
     "hacker" : {
       "statements" : [
         "Hacker #1 wrote computer code #2.",
-        "Code #2 cracks the firewall of company #3.",
-        "Company #3 suffers data loss."
+        "Code #2 cracks the firewall of company #3.",
+        "Company #3 suffers data loss."
       ]
     },
     "gas" : {
@@ -238,5 +238,15 @@
         ]
       ]
     }
+  },
+  "trick" : {
+    "statements" : {
+      "Object #1 relates to object #2."
+    },
+    "relations" : [
+      "relates to",
+      "delegates",
+      "increases"
+    ]
   }
 };

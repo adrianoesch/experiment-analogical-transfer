@@ -22,9 +22,13 @@ var Experiment = {
       version: M[1]
     }
   },
+  setIpAddress : function(){
+    $.ajax('/ip-address.php',{success:function(data){Experiment.session.ip_address = data}})
+  },
   session : {
     code : jsPsych.randomization.randomID(12)
   },
+  material : {},
   d : {
     targetID : '',
     className : '',
@@ -149,9 +153,12 @@ var Experiment = {
     hebb_block : function(){
 
       var getObjects = function(){
-        var names = texts.names;
+        r = $.getJSON('material_texts.json',{success : (d)=>{Experiment.material.});
+
+        $.getJSON('material_names.json',function(data){Experiment.material.names = data});
+
         function drawSampleNames(nNames){
-            return jsPsych.randomization.sample(names,nNames)
+            return jsPsych.randomization.sample(Experiment.material.names,nNames)
         };
 
         function createStories(i,simil){
@@ -172,27 +179,16 @@ var Experiment = {
           return i
         };
 
-        if (is_pilot){
-          var difficulties = jsPsych.randomization.shuffle([2,2,2,3,3,3,4,4,4]);
-          var objects = jsPsych.randomization.shuffle(texts.stories);
-          for (i=0;i<difficulties.length;i++){
-            objects[i].diff = difficulties[i];
-            objects[i].statements = objects[i].statements.slice(difficulties[i]*-1);
-            objects[i].relations = objects[i].relations.slice(difficulties[i]*-1);
-            objects[i].nNamesPerStatement = objects[i].nNamesPerStatement.slice(difficulties[i]*-1);
-            objects[i] = createStories(objects[i],false);
-          };
-        }else{
-          var similars = jsPsych.randomization.shuffle(texts.stories.similar).map(function(i){
-            return createStories(i,true)});
-          var nonsimilars = jsPsych.randomization.shuffle(texts.stories.nonsimilar).map(function(i){
-            return createStories(i,false)});
-          var objects = [];
-          for (i=0;i<this.nTrials/2;i++){
-            objects.push(similars[i]);
-            objects.push(nonsimilars[i]);
-          };
-        }
+        var similars = jsPsych.randomization.shuffle(texts.stories.similar).map(function(i){
+          return createStories(i,true)});
+        var nonsimilars = jsPsych.randomization.shuffle(texts.stories.nonsimilar).map(function(i){
+          return createStories(i,false)});
+        var objects = [];
+        for (i=0;i<this.nTrials/2;i++){
+          objects.push(similars[i]);
+          objects.push(nonsimilars[i]);
+        };
+        
         return objects;
       };
 
@@ -236,6 +232,7 @@ var Experiment = {
                               this.instructions.gender+
                               this.instructions.qualification+
                               this.instructions.language+
+                              this.instructions.effort+
                               nextButton,
                               this.instructions.sincerity+
                               nextButton
@@ -257,7 +254,7 @@ var Experiment = {
         },
         timeline:[
           {
-            inputIDs :  ['age','gender','quali','language'],
+            inputIDs :  ['age','gender','quali','language','effort'],
             html : pages[0]
           },{
             inputIDs : ['sincerity'],
