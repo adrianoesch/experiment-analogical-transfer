@@ -23,9 +23,7 @@ var Experiment = {
     }
   },
   setIpAddress : function(){
-    if(!is_dev){
-      $.ajax('/ip-address.php',{success:function(data){Experiment.session.ipAddress = data}})
-    };
+    $.ajax('/ip-address.php',{method:'GET',success:function(data){Experiment.session.ipAddress = data}})
   },
   session : {
     code : jsPsych.randomization.randomID(12)
