@@ -23,12 +23,18 @@ var Experiment = {
     }
   },
   setIpAddress : function(){
-    $.ajax('/ip-address.php',{success:function(data){Experiment.session.ip_address = data}})
+    if(!is_dev){
+      $.ajax('/ip-address.php',{success:function(data){Experiment.session.ipAddress = data}})
+    };
   },
   session : {
     code : jsPsych.randomization.randomID(12)
   },
-  material : {},
+  nTrials : is_dev ? 1 : 3,
+  material : {
+    names : names,
+    texts : texts
+  },
   d : {
     targetID : '',
     className : '',
@@ -78,7 +84,6 @@ var Experiment = {
                       +((screen.width-800)/2).toString()+'px;',
     buttonStyle : 'height:60px;width:90px;float:right;font-size:12px;font-weight:bold;margin-top:50px;',
     instructions : instructions,
-    nTrials : 1,
     wrap : function(p,mTop){
       mTop = mTop || 0;
       var divStart = "<div id='content' style='"+this.contentDivStyle+"margin-top:"+mTop+"px;'>"
@@ -153,61 +158,76 @@ var Experiment = {
     hebb_block : function(){
 
       var getObjects = function(){
-        r = $.getJSON('material_texts.json',{success : (d)=>{Experiment.material.});
 
-        $.getJSON('material_names.json',function(data){Experiment.material.names = data});
-
-        function drawSampleNames(nNames){
-            return jsPsych.randomization.sample(Experiment.material.names,nNames)
-        };
-
-        function createStories(i,simil){
-          i.similar = simil;
-          i.names = drawSampleNames(i.statements.length*2)
-          i.correctNamesInStatements = [];
+        function storObjHandler(stoObj){
+          stoObj.names = drawSampleNames(stoObj.statements.length*2)
+          stoObj.correctNamesInStatements = [];
+          stoObj.nNamesPerStatement = [];
           var replKeys = ['\#1','\#2','\#3','\#4','\#5'];
-          i.statements = i.statements.map(function(val,num){
-            i.correctNamesInStatements[num] = [];
+          stoObj.statements = stoObj.statements.map(function(val,num){
+            stoObj.correctNamesInStatements[num] = [];
+            stoObj.nNamesPerStatement[num] = [];
             for(j=0;j<replKeys.length;j++){
               if(val.indexOf(replKeys[j].slice(1,2)) > -1){
-                val = val.replace(replKeys[j], i.names[j])
-                i.correctNamesInStatements[num].push(i.names[j]);
+                val = val.replace(replKeys[j], stoObj.names[j])
+                stoObj.correctNamesInStatements[num].push(stoObj.names[j]);
                 };
             };
+            stoObj.nNamesPerStatement[num] = stoObj.correctNamesInStatements[num].length
+            val = wrapStatements(val)
             return val
           })
-          return i
+          return stoObj
         };
 
-        var similars = jsPsych.randomization.shuffle(texts.stories.similar).map(function(i){
-          return createStories(i,true)});
-        var nonsimilars = jsPsych.randomization.shuffle(texts.stories.nonsimilar).map(function(i){
-          return createStories(i,false)});
-        var objects = [];
-        for (i=0;i<this.nTrials/2;i++){
-          objects.push(similars[i]);
-          objects.push(nonsimilars[i]);
+        function drawSampleNames(nNames){
+            return jsPsych.randomization.sample(names,nNames)
         };
-        
-        return objects;
+
+        function wrapStatements(stat){
+          return "<div style='content'><p style='text-align:center;font-size:40px;line-height:1.5;margin-top:"+((screen.height*.5)-30).toString()+"px;'>"
+                +stat+"</p></div>";
+        };
+
+        function getStoryTimeline(){
+          if (!is_dev){
+            analoguesTitle = jsPsych.randomization.shuffle(Object.keys(texts.analogues));
+            fillersTitle = jsPsych.randomization.shuffle(Object.keys(texts.fillers));
+          }else{
+            analoguesTitle = Object.keys(texts.analogues);
+            fillersTitle = Object.keys(texts.fillers);
+          };
+          storyTimeline = [];
+          console.log(fillersTitle)
+          for(i=0;i<Experiment.nTrials;i++){
+            analogueObj = texts.analogues[analoguesTitle[i]];
+            console.log(analogueObj)
+            analogueObj.story_type = 'analogue';
+            analogueObj.title = analoguesTitle[i];
+            fillerObj = texts.fillers[fillersTitle[i]];
+            fillerObj.story_type = 'filler';
+            fillerObj.title = fillersTitle[i];
+            storyTimeline.push(analogueObj)
+            storyTimeline.push(fillerObj)
+            if (i == (Experiment.nTrials/2)){
+              trickObj = texts.trick;
+              trickObj.title = 'trick';
+              trickObj.story_type = 'trick';
+              storyTimeline.push(trickObj)
+            };
+          };
+          return storyTimeline
+        };
+
+        storyTimeline = getStoryTimeline().map(storObjHandler);
+
+        return storyTimeline
       };
 
-      function wrapStatements(stat){
-        return "<div style='content'><p style='text-align:center;font-size:40px;line-height:1.5;margin-top:"+((screen.height*.5)-30).toString()+"px;'>"
-              +stat+"</p></div>";
-      };
-
-      var objects = getObjects();
-      objects = objects.map(function(i){
-        i.statements = i.statements.map(function(j){
-          return wrapStatements(j);
-        })
-        return i;
-      })
 
       var b = {
         type : 'hebb',
-        timeline : objects,
+        timeline : getObjects(),
         timing_post_trial: 0
       };
       return b
@@ -283,9 +303,11 @@ var Experiment = {
                   age : d[0]['age'],
                   gender : d[0]['gender'],
                   qualification : d[0]['quali'],
+                  effort : d[0]['effort'],
                   sincerity : d.length>1 ? d[1]['sincerity'] :  '',
                   sessionStart : Experiment.session.start,
                   sessionEnd : Experiment.getTimeStamp(),
+                  ipAddress : Experiment.session.ipAddress,
                   browserName : b.name,
                   browserVersion : b.version
                 }];
@@ -302,7 +324,7 @@ var Experiment = {
       url: './store.php',
       data: {
         subjectID: [Experiment.session.code,Experiment.getTimeStamp()].join('_'),
-        folder: 'pilot_160216',
+        folder: 'experiment_160310',
         csvStrings: csvStrings,
         dataAsJSON: jsonStrings
       }
@@ -342,12 +364,17 @@ var Experiment = {
       var html = Experiment.timeline.wrap(instructions.browserError,150)
       $('body').html(html)
       return false
+    }else if(screen.width<800){
+      var html = Experiment.timeline.wrap(instructions.screenError,150)
+      $('body').html(html)
+      return false
     }else{
       return true
     };
   },
   startJsPsych : function(){
     this.session.start = this.getTimeStamp();
+    this.setIpAddress()
     if (this.checkBrowser()){
       var timeline = this.timeline.init();
       jsPsych.init({

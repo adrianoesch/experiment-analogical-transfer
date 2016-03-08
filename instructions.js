@@ -50,22 +50,23 @@ var instructions = {
               giving it your full attention. You will receive your payment independent of how you respond. \
               This question serves only internal data anlysis assessment.</p>\
               <p>Have you done the experiment seriously? <select id="sincerity">\
-              <option val=""></option>\
-              <option val="yes">Yes, my data should be used</option>\
-              <option val="no">No, my data should not be used</option></select></p>',
+              <option value=""></option>\
+              <option value="yes">Yes, my data should be used</option>\
+              <option value="no">No, my data should not be used</option></select></p>',
 
   effort :    '<p>How much effort did you put in the task? <select type="text" id="effort">\
-              <option val="0">0 - none</option>\
-              <option val="1">1 - little bit</option>\
-              <option val="2">2 - quite some</option>\
-              <option val="3">3 - a lot</option></select></p>'
+              <option value=""></option>\
+              <option value="0">0 - none</option>\
+              <option value="1">1 - little bit</option>\
+              <option value="2">2 - quite some</option>\
+              <option value="3">3 - a lot</option></select></p>',
 
   language : '<p>What is your native language? <select type="text" id="language">\
-              <option val=""></option>\
-              <option val="en">English</option>\
-              <option val="es">Spanish</option>\
-              <option val="de">German</option>\
-              <option val="ot">Other</option></select></p>',
+              <option value=""></option>\
+              <option value="en">English</option>\
+              <option value="es">Spanish</option>\
+              <option value="de">German</option>\
+              <option value="ot">Other</option></select></p>',
 
   age :       '<p>How old are you? <select type="text" id="age">'+age_options+'</select></p>',
   gender :    '<p>Gender: <select id="gender"><option value=""></option>\
@@ -73,23 +74,27 @@ var instructions = {
               <option value="other">Others</option></select></p>',
 
   qualification : '<p>Highest educational qualification: <select id="quali">\
-              <option val=""></option>\
-              <option val="no highschool">No high school degree</option>\
-              <option val="highschool">High school degree</option>\
-              <option val="university">University degree</option>\
-              <option val="doctoral">Doctoral degree</option></select></p>',
+              <option value=""></option>\
+              <option value="no highschool">No high school degree</option>\
+              <option value="highschool">High school degree</option>\
+              <option value="university">University degree</option>\
+              <option value="doctoral">Doctoral degree</option></select></p>',
 
   end_fullscreen : "<h2>This was it!</h2> <p>Please save your data and continue to the debriefing and confirmation code\
                    by <br>clicking 'Save & Exit'.</p>",
 
   confirmation : '<h2>Thank you for participating in our experiment.</h2><p>The goal of this experiment was \
-             to investigate whether repeated causal structures stories eases the recall of information. Please do \
+             to investigate whether repeating causal structures in stories eases the recall of information. Please do \
              not share this information with anyone! It is crucial that the explanation is kept confidential until we \
              have collected all data.</p><p>Here is your code to confirm your participation: <span style="font-weight:bold;" id="conf_code"></span></p>\
              <p>Make sure to copy and paste this code back to Crowdflower (use right-click>copy in Safari). When you \
              are done with it, you can close this browser window or tab. Thanks!</p>',
 
-  browserError : '<h4>Your browser doesn\'t provide the necessary functionality. Please use an recently \
-                  updated version of Chrome or Firefox. If further problems occur, please contact Adrian Oesch,\
-                  the adminstrator of this experiment, at adrian.oesch(at)uzh.ch .</h4>'
+  browserError : '<h4>Your browser doesn\'t provide the necessary functionality. Please use a recently \
+                  updated version of Chrome, Firefox or Safari. If further problems occur, please contact Adrian Oesch,\
+                  the adminstrator of this experiment, at adrian.oesch(at)uzh.ch .</h4>',
+
+  screenError : '<h4>Your screen is too small. We need a minimum of 800px screen width to display the stimuli. You can \
+                  try to open the same link on bigger screen if you want.</h4>'
+
 };

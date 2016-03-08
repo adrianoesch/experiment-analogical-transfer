@@ -1,4 +1,4 @@
-{
+var texts = {
   "analogues" : {
     "bacteria": {
       "statements" : [
@@ -81,7 +81,7 @@
       ]
     }
   },
-  "filler" : {
+  "fillers" : {
     "meteo" : {
       "statements" : [
         "Area #1 lies next to ocean #2.",
@@ -240,9 +240,9 @@
     }
   },
   "trick" : {
-    "statements" : {
+    "statements" : [
       "Object #1 relates to object #2."
-    },
+    ],
     "relations" : [
       "relates to",
       "delegates",
