@@ -80,21 +80,25 @@ var instructions = {
               <option value="university">University degree</option>\
               <option value="doctoral">Doctoral degree</option></select></p>',
 
-  end_fullscreen : "<h2>This was it!</h2> <p>Please save your data and continue to the debriefing and confirmation code\
-                   by <br>clicking 'Save & Exit'.</p>",
+  end_fullscreen : "<h2>This was the main part!</h2><p>You can leave fullscreen mode by clicking 'Exit.<p>\
+                    <p>We would like to know a few more things about your experience during the task and \
+                    yourself next.</p>",
 
   confirmation : '<h2>Thank you for participating in our experiment.</h2><p>The goal of this experiment was \
-             to investigate whether repeating causal structures in stories eases the recall of information. Please do \
-             not share this information with anyone! It is crucial that the explanation is kept confidential until we \
-             have collected all data.</p><p>Here is your code to confirm your participation: <span style="font-weight:bold;" id="conf_code"></span></p>\
-             <p>Make sure to copy and paste this code back to Crowdflower (use right-click>copy in Safari). When you \
-             are done with it, you can close this browser window or tab. Thanks!</p>',
+                 to investigate whether repeating causal structures in stories eases the recall of information. Please do \
+                 not share this information with anyone! It is crucial that the explanation is kept confidential until we \
+                 have collected all data.</p><p>Here is your code to confirm your participation: <span style="font-weight:bold;" id="conf_code"></span></p>\
+                 <p>Make sure to copy and paste this code back to Crowdflower (use right-click>copy in Safari). When you \
+                 are done with it, you can close this browser window or tab. Thanks!</p>',
 
   browserError : '<h4>Your browser doesn\'t provide the necessary functionality. Please use a recently \
                   updated version of Chrome, Firefox or Safari. If further problems occur, please contact Adrian Oesch,\
                   the adminstrator of this experiment, at adrian.oesch(at)uzh.ch .</h4>',
 
   screenError : '<h4>Your screen is too small. We need a minimum of 800px screen width to display the stimuli. You can \
-                  try to open the same link on bigger screen if you want.</h4>'
+                  try to open the same link on bigger screen if you want.</h4>',
+
+  repetitionOpen : '<p>Did you realize any similarities between the stories you read?</p>'
+
 
 };

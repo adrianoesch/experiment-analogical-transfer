@@ -27,6 +27,21 @@ var texts = {
         "Rebel group #1 invents weapon #2.",
         "Weapon #2 breaches the border of country #3.",
         "Country #3 is invaded."
+      ],
+      "relations":[
+        [
+          "relation 1a",
+          "relation 1b",
+          "relation 1c"
+        ],[
+          "relation 2a",
+          "relation 2b",
+          "relation 2c"
+        ],[
+          "relation 3a",
+          "relation 3b",
+          "relation 3c"
+        ]
       ]
     },
     "hacker" : {
@@ -34,6 +49,21 @@ var texts = {
         "Hacker #1 wrote computer code #2.",
         "Code #2 cracks the firewall of company #3.",
         "Company #3 suffers data loss."
+      ],
+      "relations":[
+        [
+          "relation 1a",
+          "relation 1b",
+          "relation 1c"
+        ],[
+          "relation 2a",
+          "relation 2b",
+          "relation 2c"
+        ],[
+          "relation 3a",
+          "relation 3b",
+          "relation 3c"
+        ]
       ]
     },
     "gas" : {
@@ -41,51 +71,95 @@ var texts = {
         "Factory #1 emits gas #2.",
         "Gas #2 dissolves the outer layer of planet #3.",
         "Planet #3 becomes toxic."
+      ],
+      "relations":[
+        [
+          "emits",
+          "relation 1b",
+          "relation 1c"
+        ],[
+          "dissolves sth. of",
+          "dissipates sth. of",
+          "relation 2c"
+        ],[
+          "becomes toxic",
+          "gets uninhabitable",
+          "relation 3c"
+        ]
       ]
     },
     "lawyer" : {
       "statements" : [
         "Lawyer #1 finds loophole #2.",
         "Loophole #2 bypasses contract of union #3.",
-        "Union #3 looses its members."
+        "Union #3 looses a lawsuit."
+      ],
+      "relations":[
+        [
+          "relation 1a",
+          "relation 1b",
+          "relation 1c"
+        ],[
+          "relation 2a",
+          "relation 2b",
+          "relation 2c"
+        ],[
+          "relation 3a",
+          "relation 3b",
+          "relation 3c"
+        ]
       ]
     },
-    "perfume": {
+    "robber" : {
       "statements" : [
-        "Perfume #1 attracts insect #2.",
-        "Insect #2 peaks through skin of woman #3.",
-        "Woman #3 has an allergic reaction."
+        "Criminal #1 learns about security issue #2.",
+        "Security issue #2 suspends alarm system of museum #3.",
+        "Museum #3 gets robbed."
+      ],
+      "relations":[
+        [
+          "relation 1a",
+          "relation 1b",
+          "relation 1c"
+        ],[
+          "relation 2a",
+          "relation 2b",
+          "relation 2c"
+        ],[
+          "relation 3a",
+          "relation 3b",
+          "relation 3c"
+        ]
       ]
     },
-    "finance" : {
+    "mining" : {
       "statements" : [
-
-      ]
-    },
-    "airplanes" : {
-      "statements" : [
-
-
-      ]
-    },
-    "gift-paper" : {
-      "statements" : [
-        "pattern #1 pleases boy #2",
-        "boy #2 rips off paper of gift #3",
-        "gift #3 is revealed too early"
-      ]
-    },
-    "zoo" : {
-      "statements" : [
-
+        "Mining acitivities #1 provoke earthquake #2.",
+        "Earthquake #2 destabilizes concrete structure of dam #3.",
+        "Dam #3 bursts."
+      ],
+      "relations":[
+        [
+          "provoke",
+          "initate",
+          "propagates"
+        ],[
+          "destabilizes",
+          "shakes",
+          "relation 2c"
+        ],[
+          "bursts",
+          "disintegrates",
+          "relation 3c"
+        ]
       ]
     }
   },
   "fillers" : {
     "meteo" : {
       "statements" : [
-        "Area #1 lies next to ocean #2.",
-        "Cloud #3 makes it rain over area #1.",
+        "Cloud #1 collects humidity over ocean #2.",
+        "Ocean #2 lies behind the hills of area #1.",
         "Area #1 is fertile."
       ],
       "relations" : [
@@ -107,8 +181,8 @@ var texts = {
     "school" : {
       "statements" : [
         "Boy #1 goes to school #2.",
-        "Girl #3 writes a letter for boy #1.",
-        "Girl #3 falls in love.",
+        "Girl #3 writes a letter to boy #1.",
+        "Boy #1 falls in love.",
       ],
       "relations" : [
         [
@@ -116,125 +190,123 @@ var texts = {
           "is enrolled at",
           "enjoys"
         ],[
-          "writes sth. for",
+          "writes sth. to",
           "sends sth. to",
           "influences"
         ],[
-          "is a friend of",
-          "is a follower of",
-          "knows"
-        ],[
-          "brings sth. to",
-          "transports sth. to",
+          "falls in love",
+          "relation 3b",
           "borrows sth. from"
         ]
       ]
     },
     "fish" : {
       "statements" : [
-        "Fish #1 eat sea grass #2.",
-        "Sea grass #3 grows in zone #4.",
-        "Fisher #5 tries his luck in zone #4.",
-        "Fisher #5 is successful."
+        "Fisher #1 cultivates sea grass #2.",
+        "Sea grass #2 is regularly eaten by fish #3.",
+        "Fish #3 get caught."
       ],
-      "relations" : [
+      "relations":[
         [
-          "eat",
-          "digest",
-          "love"
+          "relation 1a",
+          "relation 1b",
+          "relation 1c"
         ],[
-          "grows in",
-          "propagates in",
-          "floats in"
+          "relation 2a",
+          "relation 2b",
+          "relation 2c"
         ],[
-          "tries his luck in",
-          "attempts his fortune in",
-          "looks in"
-        ],[
-          "is successful",
-          "triumphs",
-          "can be proud"
+          "relation 3a",
+          "relation 3b",
+          "relation 3c"
         ]
       ]
     },
     "space" : {
       "statements" : [
-        "Moon #1 circles planet #2.",
-        "Meteor #3 hits planet #2",
-        "Planet #2 switches to orbit #4.",
-        "Moon #1 looses attraction."
+        "Meteor #1 enteres galaxy #2.",
+        "Meteor #1 hits planet #3",
+        "Planet #3 switches orbit."
       ],
       "relations" : [
         [
-          "circles",
-          "revolves",
+          "enteres",
+          "introduced",
           "surrounds"
         ],[
           "hits",
           "smashes",
           "battles"
         ],[
-          "switches to",
-          "changes to",
-          "steps into"
-        ],[
-          "looses attraction",
-          "decreases force",
-          "is less enhanced"
+          "switches",
+          "changes",
+          "steps"
         ]
       ]
     },
     "farm" : {
       "statements" : [
-        "Farmer #1 uses machine #2.",
-        "Machine #2 can cut plant #3.",
-        "Farmer #4 breaks machine #2.",
-        "Plant #3 can not be harvested."
+        "Farmer #1 bought machine #2.",
+        "Machine #2 can collect fruit of plant #3.",
+        "Plant #3 are harvested automatically."
       ],
       "relations" : [
         [
-          "uses",
-          "applies",
-          "needs"
+          "bought",
+          "purchased",
+          "borrowed"
         ],[
-          "can cut",
-          "chops",
-          "can plow"
+          "can collect",
+          "garners",
+          "can compose"
         ],[
-          "breaks",
-          "damages",
-          "borrows"
-        ],[
-          "can not be harvested",
-          "can not be captured",
-          "can not move"
+          "are harvested automatically",
+          "are reaped mechanically",
+          "are picked manually"
         ]
       ]
     },
     "ngo" : {
       "statements" : [
-        "Country #1 needs resource #2.",
-        "Resource #2 is sparse in country #1.",
-        "Country #3 has a lot of resource #2.",
-        "Country #2 starts negotiating."
+        "Mining company #1 has a lot of resource #2.",
+        "Resource #2 is sparse in country #3.",
+        "Country #3 starts negotiating."
       ],
       "relations" : [
         [
-          "needs",
-          "requires",
-          "looks for"
+          "has a lot of",
+          "is filled with",
+          "fills in for"
         ],[
           "is sparse in",
           "is rarerly found in",
           "is sparked through"
         ],[
-          "has a lot of",
-          "is filled with",
-          "fills in for"
-        ],[
           "starts negotiating",
           "starts brokering",
           "starts trading"
+        ]
+      ]
+    },
+    "story" : {
+      "statements" : [
+        "Mining company #1 has a lot of resource #2.",
+        "Resource #2 is sparse in country #3.",
+        "Country #3 starts negotiating."
+      ],
+      "relations":[
+        [
+          "relation 1a",
+          "relation 1b",
+          "relation 1c"
+        ],[
+          "relation 2a",
+          "relation 2b",
+          "relation 2c"
+        ],[
+          "relation 3a",
+          "relation 3b",
+          "relation 3c"
         ]
       ]
     }

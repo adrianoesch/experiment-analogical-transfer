@@ -1,52 +1,47 @@
 <html>
 <script>
 
-var c = {
-  checkBrowser : function(){
-    var fs = function (){
-      if(typeof document.webkitIsFullScreen == 'undefined' && typeof document.mozFullScreen == 'undefined' &&
-      typeof document.msFullscreenEnabled == 'undefined' && typeof document.fullscreenchange == 'undefined'){
-        return false;
-      }else{
-        return true;
-      };
-    };
+checkBrowser = function(){
 
-    var isDraggable = function(){
-      return 'draggable' in document.createElement('span')
-    };
+  var getBrowserInfo = function(){
+    var ua=navigator.userAgent,tem,M=ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
+    if(/trident/i.test(M[1])){
+        tem=/\brv[ :]+(\d+)/g.exec(ua) || [];
+        return {name:'IE',version:(tem[1]||'')};
+        }
+    if(M[1]==='Chrome'){
+        tem=ua.match(/\bOPR\/(\d+)/)
+        if(tem!=null)   {return {name:'Opera', version:tem[1]};}
+        }
+    M=M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
+    if((tem=ua.match(/version\/(\d+)/i))!=null) {M.splice(1,1,tem[1]);}
+    return {
+      name: M[0],
+      version: M[1]
+    }
+  };
 
-    var detectIE = function(){
-      var ua = window.navigator.userAgent;
-      var msie = ua.indexOf('MSIE ');
-      if (msie > 0) {
-          // IE 10 or older => return version number
-          return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
-      };
-      var trident = ua.indexOf('Trident/');
-      if (trident > 0) {
-          // IE 11 => return version number
-          var rv = ua.indexOf('rv:');
-          return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
-      };
-      var edge = ua.indexOf('Edge/');
-      if (edge > 0) {
-         // Edge (IE 12+) => return version number
-         return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
-      };
-      // other browser
-      return false;
-    };
+  b = getBrowserInfo();
 
-    if ( detectIE()!=false || isDraggable()==false || fs()==false){
-      var html = 'error'
-      $('body').html(html)
-      return false
-    }else{
-      return true
-    };
+  acceptedBrowsers = {
+    'Firefox': 43,
+    'Chrome': 45,
+    'Safari': 9
+  };
+
+  console.log(b);
+
+  if(Object.keys(acceptedBrowsers).indexOf(b.name) == -1){
+    document.body.innerHTML = '<h4>You must either use Chrome, Firefox or Safari to take part in this experiment.</h4>';
+    console.log(b);
+  }else if(b.version < acceptedBrowsers[b.name]){
+    document.body.innerHTML = '<h4>The browser version is too outdated for this experiment. Please update your browser and try again.</h4>';
+  }else{
+    document.body.innerHTML = 'Your browser should be compatible with the experient requirements.'
   }
-};
-alert(c.checkBrowser());
+}
+
+window.onload = function(){checkBrowser()};
+
 </script>
 </html>
