@@ -12,7 +12,7 @@ var Experiment = {
     saveData : function(){
       function createDemographicsCsvString(){
         var d = jsPsych.data.getTrialsOfType('html-input-ao') ;
-        var b = Experiment.utils.getBrowserInfo()
+        var b = Experiment.utils.getBrowserInfo();
         var csv = [{ sessionCode : d[0]['sessionCode'],
                     age : d[0]['age'],
                     gender : d[0]['gender'],
@@ -66,9 +66,7 @@ var Experiment = {
     },
     checkBrowser : function(){
 
-
-
-      b = this.getBrowserInfo();
+      b = Experiment.utils.getBrowserInfo();
 
       acceptedBrowsers = {
         'Firefox': 42,
@@ -84,6 +82,9 @@ var Experiment = {
         $('body').html('<h4>The browser version is too outdated for this experiment. Please update your browser and try again.</h4>');
         console.log(b);
         throw new Error('Experiment aborted due to unaccepted browser.');
+      }else if(screen.width<800){
+        $('body').html('<h4>Your screen is too small. We need a minimum of 800px screen width to display stimuli.</h4>');
+        throw new Error('Experiment aborted due to small screen size.');
       }
     },
     wrap : function(p,mTop){
@@ -305,11 +306,47 @@ var Experiment = {
     },
     survey_block : function(){
       var nextButton = "<button id='jspsych-fullscreen-button' style='"+this.buttonStyle+"'>Next</button>";
-      // var pages = Experiment.utils.wrap();
+      var pages = Experiment.utils.wrap([
+        Experiment.material.instructions.noticeOpen+nextButton,
+        Experiment.material.instructions.similarityClosed+
+        Experiment.material.instructions.similarityOpen+
+        nextButton,
+        Experiment.material.instructions.repetitionClosed+
+        Experiment.material.instructions.repetitionOpen+
+        nextButton]);
+
+
       var b = {
-        type: "survey-text",
-        questions : [Experiment.material.repetitionOpen]
+        type: "html-input-ao",
+        cont_key: 'Button',
+        timeline : [
+          {
+            html: pages[0],
+            inputIDs : ['noticeOpen'],
+            on_finish : function(){
+              var changeVisibility = function(){
+                  if($('select').val()=='yes'){
+                    $('.optionalTextarea').show();
+                  }else{
+                    $('.optionalTextarea').hide();
+                  };
+                };
+              document.onchange = changeVisibility;
+            }
+          },{
+            html: pages[1],
+            inputIDs : ['similarityClosed','similarityOpen']
+
+          },{
+            html: pages[2],
+            inputIDs : ['repetitionClosed','repeitionOpen'],
+            on_finish : function(){
+              document.onchange = true;
+            }
+          }
+        ]
       };
+
       return b;
     },
     rei_block : function(){
@@ -345,8 +382,8 @@ var Experiment = {
       timeline.push(this.instructions_block());
       timeline.push(this.hebb_block());
       timeline.push(this.exit_fullscreen_block());
+      timeline.push(this.survey_block());
       timeline.push(this.rei_block());
-      // timeline.push(this.survey_block())
       timeline.push(this.demographics_block());
       timeline.push(this.confirmation_block());
       return timeline;
@@ -397,9 +434,9 @@ var Experiment = {
     }
   },
   init : function(){
-    this.utils.checkBrowser()
+    this.utils.checkBrowser();
     this.session.start = Experiment.utils.getTimeStamp();
-    this.utils.setIpAddress()
+    this.utils.setIpAddress();
     jsPsych.init({
       timeline : this.timeline.init()
     });

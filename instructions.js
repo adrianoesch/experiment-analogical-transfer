@@ -91,14 +91,28 @@ var instructions = {
                  <p>Make sure to copy and paste this code back to Crowdflower (use right-click>copy in Safari). When you \
                  are done with it, you can close this browser window or tab. Thanks!</p>',
 
-  browserError : '<h4>Your browser doesn\'t provide the necessary functionality. Please use a recently \
-                  updated version of Chrome, Firefox or Safari. If further problems occur, please contact Adrian Oesch,\
-                  the adminstrator of this experiment, at adrian.oesch(at)uzh.ch .</h4>',
+  noticeOpen : '<p>What do you think was this experiment about?<br><textarea type="text" id="noticeOpen" rows="4" cols="100"></textarea></p>',
+  similarityClosed : '<p>Did you notice similarities between the stories? \
+                      <select id="similarityClosed">\
+                      <option value=""></option>\
+                      <option value="yes">Yes</option>\
+                      <option value="no">No</option>\
+                      <option value="dk">Don\'t know</option>\
+                      </select></p>',
 
-  screenError : '<h4>Your screen is too small. We need a minimum of 800px screen width to display the stimuli. You can \
-                  try to open the same link on bigger screen if you want.</h4>',
+  similarityOpen : '<p class="optionalTextarea" style="display:none;">If so, what were the similarities?<br>\
+                    <textarea id="similarityOpen" rows="4" cols="100"></textarea></p>',
 
-  repetitionOpen : '<p>Did you realize any similarities between the stories you read?</p>'
+  repetitionClosed : '<p>Did you notice repeating elements between the stories? \
+                      <select id="repetitionClosed">\
+                      <option value=""></option>\
+                      <option value="yes">Yes</option>\
+                      <option value="no">No</option>\
+                      <option value="dk">Don\'t know</option>\
+                      </select></p>',
+
+  repetitionOpen : '<p class="optionalTextarea" style="display:none;">If so, which elements were repeating?<br>\
+                    <textarea id="repetitionOpen" rows="4" cols="100"></textarea></p>'
 
 
 };
