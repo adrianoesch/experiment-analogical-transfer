@@ -80,12 +80,12 @@ var instructions = {
               <option value="university">University degree</option>\
               <option value="doctoral">Doctoral degree</option></select></p>',
 
-  end_fullscreen : "<h2>First part done!</h2><p>You can leave fullscreen mode by clicking 'Exit'.\
+  end_fullscreen : '<h2>First part done!</h2><p>You can leave fullscreen mode by clicking "Exit".\
                     Next, we would like to know a few more things about your experience during the previous task and \
-                    yourself.</p>",
+                    yourself.</p>',
 
   confirmation : '<h2>Thank you for participating in our experiment.</h2><p>The goal of this experiment was \
-                 to investigate whether repeating causal structures in analogue stories eases the recall of information. Please do \
+                 to investigate whether repeating causal structures in analog stories eases the recall of information. Please do \
                  not share this information with anyone! It is crucial that the explanation is kept confidential until we \
                  have collected all data.</p><p>Here is your code to confirm your participation: <span style="font-weight:bold;" id="conf_code"></span></p>\
                  <p>Make sure to copy and paste this code back to Crowdflower (use right-click>copy in Safari). When you \
@@ -111,14 +111,14 @@ var instructions = {
   repetitionOpen : '<p class="optionalTextarea" style="display:none;">If so, which elements were repeating and in which stories did you detect those?<br>\
                     <textarea id="repetitionOpen" rows="4" cols="100"></textarea></p>',
 
-  analogyClosed : '<p>Did you notice the repeating analogue/causal structure in every second story during the experiment (not now)? \
+  analogyClosed : '<p>Did you notice the repeating analog/causal structure in every second story during the experiment (not now)? \
                       <select id="analogyClosed">\
                       <option value=""></option>\
                       <option value="yes">Yes</option>\
                       <option value="no">No</option>\
                       </select></p>',
 
-  analogyOpen : '<p class="optionalTextarea" style="display:none;">If so, can you remember the stories with repeating structure were about?<br>\
+  analogyOpen : '<p class="optionalTextarea" style="display:none;">If so, can you remember which stories had repeating/analog structure? <br>Please describe the ones you remember briefly.<br>\
                     <textarea id="analogyOpen" rows="4" cols="100"></textarea></p>'
 
 };
