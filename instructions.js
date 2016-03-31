@@ -17,7 +17,8 @@ var instructions = {
   task :      '<h2>Instructions</h2><p>Thank you very much for taking part in our experiment!</p>\
               <p>Your task will be to read\
               a few short stories and recall the content after each story. At first the stories \
-              will be presented statement by statement. Please read each statement quickly but thoroughly. \
+              will be presented statement by statement. Please read each statement thoroughly but don\'t \
+              waste too much time. \
               You can continue to the next statement with \
               pressing the right arrow key.</p>\
               <p>After each story you will be asked to recall the content, again statement \
@@ -27,7 +28,8 @@ var instructions = {
               (click on an item with the mouse & drag it into a corresponding container) \
               and rearrange the content of each statement that you have previously read.\
               You can correct your response by dragging objects back and forth within their corresponding containers\
-              until you click "Next". All response boxes must contain an item.</p>\
+              until you click "Next". All response boxes must contain an item. \
+              Means to facilitate this task are not allowed.</p>\
               <h3>Example</h3><p>Let\'s say you have read the statement "The child Driho smashed the mug Gapsi". \
               You will then see a screen like below. By dragging the name "Driho" into the first name box, the \
               relation "smashed" into the relation field the and the name "Krati" into the second name container, \

@@ -252,7 +252,7 @@ var Experiment = {
             fillerObj.title = fillersTitle[i];
             storyTimeline.push(analogueObj)
             storyTimeline.push(fillerObj)
-            if (i == Math.round(Experiment.nTrials/2)){
+            if (i == Math.round(Experiment.session.nTrials/2)){
               trickObj = Experiment.material.texts.trick;
               trickObj.title = 'trick';
               trickObj.condition = 'trick';
