@@ -1,5 +1,12 @@
 var Experiment = {
   utils:{
+    changeVisibility : function(){
+        if($('select').val()=='yes'){
+          $('.optionalTextarea').show();
+        }else{
+          $('.optionalTextarea').hide();
+        };
+    },
     getTimeStamp : function(){
       var str = new Date().toString().slice(0,24);
       var str = str.replace(/ /g,'_');
@@ -10,20 +17,36 @@ var Experiment = {
       $.ajax('/ip-address.php',{method:'GET',success:function(data){Experiment.session.ipAddress = data}})
     },
     saveData : function(){
+      function transfromHtmlInputFormat(data){
+        nd = {};
+        for(i=0;i<data.length;i++){
+          nd[data[i]['questionName']]=data[i];
+        };
+        return nd
+      };
+
       function createDemographicsCsvString(){
-        var d = jsPsych.data.getTrialsOfType('html-input-ao') ;
+        var htmlInputData = jsPsych.data.getTrialsOfType('html-input-ao') ;
+        var d = transfromHtmlInputFormat(htmlInputData)
+
         var b = Experiment.utils.getBrowserInfo();
-        var csv = [{ sessionCode : d[0]['sessionCode'],
-                    age : d[0]['age'],
-                    gender : d[0]['gender'],
-                    qualification : d[0]['quali'],
-                    effort : d[0]['effort'],
-                    sincerity : d.length>1 ? d[1]['sincerity'] :  '',
+        var csv = [{ sessionCode : Experiment.session.code,
+                    age : d['demo1']['age'],
+                    gender : d['demo1']['gender'],
+                    qualification : d['demo1']['quali'],
+                    effort : d['demo1']['effort'],
+                    sincerity : d['demo2']['sincerity'] || '',
                     sessionStart : Experiment.session.start,
                     sessionEnd : Experiment.utils.getTimeStamp(),
                     ipAddress : Experiment.session.ipAddress,
                     browserName : b.name,
-                    browserVersion : b.version
+                    browserVersion : b.version,
+                    similarityClosed : d['similarity']['similarityClosed'],
+                    similarityOpen : d['similarity']['similarityOpen'],
+                    repetitionClosed : d['repetition']['repetitionClosed'],
+                    repetitionOpen : d['repetition']['repetitionOpen'],
+                    analogyClosed : d['analogy']['analogyClosed'],
+                    analogyOpen : d['analogy']['analogyOpen']
                   }];
         var csvString = jsPsych.data.JSON2CSV(csv);
         return csvString
@@ -102,8 +125,9 @@ var Experiment = {
     }
   },
   session : {
+    is_dev : jsPsych.data.urlVariables()['is_dev'] == 'true',
     code : jsPsych.randomization.randomID(12),
-    nTrials : is_dev ? 1 : 7,
+    nTrials : jsPsych.data.urlVariables()['is_dev'] == 'true' ? 1 : 7
   },
   material : {
     names : names,
@@ -206,7 +230,7 @@ var Experiment = {
 
         function getStoryTimeline(){
 
-          if(is_dev){
+          if(Experiment.session.is_dev){
             var analoguesTitle = Object.keys(Experiment.material.texts.analogues).slice(0,1);
             var fillersTitle = Object.keys(Experiment.material.texts.fillers).slice(0,1);
           }else{
@@ -293,10 +317,16 @@ var Experiment = {
         timeline:[
           {
             inputIDs :  ['age','gender','quali','language','effort'],
-            html : pages[0]
+            html : pages[0],
+            data : {
+              questionName:'demo1'
+            }
           },{
             inputIDs : ['sincerity'],
             html : pages[1],
+            data : {
+              questionName:'demo2'
+            },
             on_finish : function(){
               Experiment.utils.saveData();
             }
@@ -307,14 +337,15 @@ var Experiment = {
     survey_block : function(){
       var nextButton = "<button id='jspsych-fullscreen-button' style='"+this.buttonStyle+"'>Next</button>";
       var pages = Experiment.utils.wrap([
-        Experiment.material.instructions.noticeOpen+nextButton,
         Experiment.material.instructions.similarityClosed+
         Experiment.material.instructions.similarityOpen+
-        nextButton,
+        nextButton+"<script>document.onchange = Experiment.utils.changeVisibility;</script>",
         Experiment.material.instructions.repetitionClosed+
         Experiment.material.instructions.repetitionOpen+
-        nextButton]);
-
+        nextButton,
+        Experiment.material.instructions.analogyClosed+
+        Experiment.material.instructions.analogyOpen+
+        nextButton],200);
 
       var b = {
         type: "html-input-ao",
@@ -322,29 +353,39 @@ var Experiment = {
         timeline : [
           {
             html: pages[0],
-            inputIDs : ['noticeOpen'],
-            on_finish : function(){
-              var changeVisibility = function(){
-                  if($('select').val()=='yes'){
-                    $('.optionalTextarea').show();
-                  }else{
-                    $('.optionalTextarea').hide();
-                  };
-                };
-              document.onchange = changeVisibility;
+            inputIDs : ['similarityClosed','similarityOpen'],
+            data : {
+              questionName: 'similarity'
             }
           },{
             html: pages[1],
-            inputIDs : ['similarityClosed','similarityOpen']
-
+            inputIDs : ['repetitionClosed','repetitionOpen'],
+            data : {
+              questionName: 'repetition'
+            }
           },{
             html: pages[2],
-            inputIDs : ['repetitionClosed','repeitionOpen'],
+            inputIDs : ['analogyClosed','analogyOpen'],
+            data : {
+              questionName: 'analogy'
+            },
             on_finish : function(){
               document.onchange = true;
             }
           }
-        ]
+        ],
+        check : function(info){
+          keys = Object.keys(info)
+          for(i=0;i<keys.length;i++){
+            if (info[keys[i]]=='' && $('#'+keys[i]+':visible').length>0){
+              return false
+            }
+          }
+          return true
+        },
+        error : function(){
+          alert('Some of the input containers are empty.')
+        }
       };
 
       return b;
@@ -377,13 +418,13 @@ var Experiment = {
     },
     init : function(){
       var timeline = [];
-      timeline.push(this.enter_fullscreen_block());
-      timeline.push(this.consent_block());
-      timeline.push(this.instructions_block());
-      timeline.push(this.hebb_block());
-      timeline.push(this.exit_fullscreen_block());
+      // timeline.push(this.enter_fullscreen_block());
+      // timeline.push(this.consent_block());
+      // timeline.push(this.instructions_block());
+      // timeline.push(this.hebb_block());
+      // timeline.push(this.exit_fullscreen_block());
       timeline.push(this.survey_block());
-      timeline.push(this.rei_block());
+      // timeline.push(this.rei_block());
       timeline.push(this.demographics_block());
       timeline.push(this.confirmation_block());
       return timeline;

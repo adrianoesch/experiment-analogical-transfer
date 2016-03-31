@@ -22,25 +22,25 @@ var texts = {
         ]
       ]
     },
-    "rebel" : {
+    "rebel-group" : {
       "statements" : [
-        "Rebel group #1 invents weapon #2.",
-        "Weapon #2 breaches the border of country #3.",
-        "Country #3 is invaded."
+        "Rebel group #1 bought weapon #2.",
+        "Weapon #2 breaches the border of city #3.",
+        "City #3 is invaded."
       ],
       "relations":[
         [
-          "relation 1a",
-          "relation 1b",
-          "relation 1c"
+          "bougth",
+          "acquired",
+          "caught"
         ],[
-          "relation 2a",
-          "relation 2b",
-          "relation 2c"
+          "breaches sth. of",
+          "breaks sth. of",
+          "passes sth. of"
         ],[
-          "relation 3a",
-          "relation 3b",
-          "relation 3c"
+          "is invaded",
+          "is intruded",
+          "is infiltrated"
         ]
       ]
     },
@@ -48,21 +48,21 @@ var texts = {
       "statements" : [
         "Hacker #1 wrote computer code #2.",
         "Code #2 cracks the firewall of company #3.",
-        "Company #3 suffers data loss."
+        "Company #3 suffers a data loss."
       ],
       "relations":[
         [
-          "relation 1a",
-          "relation 1b",
-          "relation 1c"
+          "wrote",
+          "invented",
+          "thought off"
         ],[
-          "relation 2a",
-          "relation 2b",
-          "relation 2c"
+          "cracks sth. of",
+          "penetrates sth. of",
+          "catches sth. of"
         ],[
-          "relation 3a",
-          "relation 3b",
-          "relation 3c"
+          "suffers sth.",
+          "leaks sth.",
+          "tolerates sth."
         ]
       ]
     },
@@ -75,16 +75,16 @@ var texts = {
       "relations":[
         [
           "emits",
-          "relation 1b",
-          "relation 1c"
+          "produces",
+          "filters"
         ],[
           "dissolves sth. of",
-          "dissipates sth. of",
-          "relation 2c"
+          "eliminates sth. of",
+          "resolves sth. of"
         ],[
           "becomes toxic",
-          "gets uninhabitable",
-          "relation 3c"
+          "turns inhabitable",
+          "becomes eliptic"
         ]
       ]
     },
@@ -92,21 +92,21 @@ var texts = {
       "statements" : [
         "Lawyer #1 finds loophole #2.",
         "Loophole #2 bypasses contract of union #3.",
-        "Union #3 looses a lawsuit."
+        "Union #3 loses a lawsuit."
       ],
       "relations":[
         [
-          "relation 1a",
-          "relation 1b",
-          "relation 1c"
+          "finds",
+          "detects",
+          "meets"
         ],[
-          "relation 2a",
-          "relation 2b",
-          "relation 2c"
+          "bypasses sth. of",
+          "overrides sth. of",
+          "bystands sth. of"
         ],[
-          "relation 3a",
-          "relation 3b",
-          "relation 3c"
+          "loses sth.",
+          "forfeits sth.",
+          "files sth."
         ]
       ]
     },
@@ -118,23 +118,23 @@ var texts = {
       ],
       "relations":[
         [
-          "relation 1a",
-          "relation 1b",
-          "relation 1c"
+          "learns about",
+          "finds out about",
+          "starts looking"
         ],[
-          "relation 2a",
-          "relation 2b",
-          "relation 2c"
+          "suspends sth. of",
+          "disrupts sth. of",
+          "inspects sth. of"
         ],[
-          "relation 3a",
-          "relation 3b",
-          "relation 3c"
+          "gets robbed",
+          "endures loss",
+          "is hijacked"
         ]
       ]
     },
-    "mining" : {
+    "fracking" : {
       "statements" : [
-        "Mining acitivities #1 provoke earthquake #2.",
+        "Fracking acitivities #1 provoke earthquake #2.",
         "Earthquake #2 destabilizes concrete structure of dam #3.",
         "Dam #3 bursts."
       ],
@@ -145,12 +145,12 @@ var texts = {
           "propagates"
         ],[
           "destabilizes",
-          "shakes",
-          "relation 2c"
+          "decomposes",
+          "shakes"
         ],[
           "bursts",
-          "disintegrates",
-          "relation 3c"
+          "is flushed",
+          "burns"
         ]
       ]
     }
@@ -159,21 +159,21 @@ var texts = {
     "meteo" : {
       "statements" : [
         "Cloud #1 collects humidity over ocean #2.",
-        "Ocean #2 lies behind the hills of area #1.",
+        "Ocean #2 lies next to the beaches of area #1.",
         "Area #1 is fertile."
       ],
       "relations" : [
         [
-          "lies next to",
+          "collects humidity over",
           "is contained in",
           "lies in front of"
         ],[
-          "makes it rain over",
-          "brings humidity to",
-          "drys out over"
+          "lies next to",
+          "is located near",
+          "lies above"
         ],[
-          "is humid",
           "is fertile",
+          "is humid",
           "is rich"
         ]
       ]
@@ -195,50 +195,50 @@ var texts = {
           "influences"
         ],[
           "falls in love",
-          "relation 3b",
-          "borrows sth. from"
+          "becomes fond of",
+          "feels loved"
         ]
       ]
     },
     "fish" : {
       "statements" : [
-        "Fisher #1 cultivates sea grass #2.",
-        "Sea grass #2 is regularly eaten by fish #3.",
-        "Fish #3 get caught."
+        "Fisher #1 cultivated sea grass #2.",
+        "Sea grass #2 is eaten by fish #3.",
+        "Fish #3 is captured."
       ],
       "relations":[
         [
-          "relation 1a",
-          "relation 1b",
-          "relation 1c"
+          "cultivated",
+          "grows",
+          "breeds"
         ],[
-          "relation 2a",
-          "relation 2b",
-          "relation 2c"
+          "is eaten by",
+          "is consumed by",
+          "is accpeted by"
         ],[
-          "relation 3a",
-          "relation 3b",
-          "relation 3c"
+          "is captured",
+          "is taken",
+          "is digested"
         ]
       ]
     },
     "space" : {
       "statements" : [
-        "Meteor #1 enteres galaxy #2.",
-        "Meteor #1 hits planet #3",
-        "Planet #3 switches orbit."
+        "Universe #1 casts off meteor #2.",
+        "Meteor #2 hits member of galaxy #3",
+        "Galaxy #3 recomposes."
       ],
       "relations" : [
         [
-          "enteres",
+          "casts off",
           "introduced",
           "surrounds"
         ],[
-          "hits",
-          "smashes",
-          "battles"
+          "hits sth. of",
+          "smashes sth. of",
+          "battles sth. of"
         ],[
-          "switches",
+          "restructures",
           "changes",
           "steps"
         ]
@@ -266,7 +266,7 @@ var texts = {
         ]
       ]
     },
-    "ngo" : {
+    "mining" : {
       "statements" : [
         "Mining company #1 has a lot of resource #2.",
         "Resource #2 is sparse in country #3.",
@@ -288,25 +288,25 @@ var texts = {
         ]
       ]
     },
-    "story" : {
+    "insect" : {
       "statements" : [
-        "Mining company #1 has a lot of resource #2.",
-        "Resource #2 is sparse in country #3.",
-        "Country #3 starts negotiating."
+        "Perfume #1 attracts insect #2.",
+        "Insect #2 attacks woman #3.",
+        "Woman #3 has an allergic reaction."
       ],
       "relations":[
         [
-          "relation 1a",
-          "relation 1b",
-          "relation 1c"
+          "attracts",
+          "lures",
+          "smells"
         ],[
-          "relation 2a",
-          "relation 2b",
-          "relation 2c"
+          "attacks",
+          "assaults",
+          "approaches"
         ],[
-          "relation 3a",
-          "relation 3b",
-          "relation 3c"
+          "has an allergic reaction",
+          "reacts allergically",
+          "has a panic reaction"
         ]
       ]
     }

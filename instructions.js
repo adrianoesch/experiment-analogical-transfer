@@ -12,14 +12,14 @@ var instructions = {
               take about 10 to 15 minutes. The data will be recorded anonymously. Your participation \
               is of course voluntary, and you can quit the experiment at any time without giving any \
               reasons. However, you will receive payment only if you complete the experiment.</p>\
-              <p>By pressing the right arrow you agree to those terms and continue the experiment.</p>',
+              <p>By pressing the right arrow key you agree to those terms and continue the experiment.</p>',
 
   task :      '<h2>Instructions</h2><p>Thank you very much for taking part in our experiment!</p>\
               <p>Your task will be to read\
               a few short stories and recall the content after each story. At first the stories \
               will be presented statement by statement. Please read each statement quickly but thoroughly. \
               You can continue to the next statement with \
-              the right arrow button.</p>\
+              pressing the right arrow key.</p>\
               <p>After each story you will be asked to recall the content, again statement \
               by statement in order of appearance. You will be able to choose the names of the entities plus the \
               relations between those entities from two separate menus (one for names and one for relations).\
@@ -80,7 +80,7 @@ var instructions = {
               <option value="university">University degree</option>\
               <option value="doctoral">Doctoral degree</option></select></p>',
 
-  end_fullscreen : "<h2>This was the main part!</h2><p>You can leave fullscreen mode by clicking 'Exit.<p>\
+  end_fullscreen : "<h2>First part done!</h2><p>You can leave fullscreen mode by clicking 'Exit.<p>\
                     <p>We would like to know a few more things about your experience during the task and \
                     yourself next.</p>",
 
@@ -91,28 +91,34 @@ var instructions = {
                  <p>Make sure to copy and paste this code back to Crowdflower (use right-click>copy in Safari). When you \
                  are done with it, you can close this browser window or tab. Thanks!</p>',
 
-  noticeOpen : '<p>What do you think was this experiment about?<br><textarea type="text" id="noticeOpen" rows="4" cols="100"></textarea></p>',
-  similarityClosed : '<p>Did you notice similarities between the stories? \
+  similarityClosed : '<p>Did you notice similarities between the stories during the experiment (not now)? \
                       <select id="similarityClosed">\
                       <option value=""></option>\
                       <option value="yes">Yes</option>\
                       <option value="no">No</option>\
-                      <option value="dk">Don\'t know</option>\
                       </select></p>',
 
   similarityOpen : '<p class="optionalTextarea" style="display:none;">If so, what were the similarities?<br>\
                     <textarea id="similarityOpen" rows="4" cols="100"></textarea></p>',
 
-  repetitionClosed : '<p>Did you notice repeating elements between the stories? \
+  repetitionClosed : '<p>Did you notice repeating elements between the stories during the <br>experiment (not now)? \
                       <select id="repetitionClosed">\
                       <option value=""></option>\
                       <option value="yes">Yes</option>\
                       <option value="no">No</option>\
-                      <option value="dk">Don\'t know</option>\
                       </select></p>',
 
-  repetitionOpen : '<p class="optionalTextarea" style="display:none;">If so, which elements were repeating?<br>\
-                    <textarea id="repetitionOpen" rows="4" cols="100"></textarea></p>'
+  repetitionOpen : '<p class="optionalTextarea" style="display:none;">If so, which elements were repeating and in which stories did you detect those?<br>\
+                    <textarea id="repetitionOpen" rows="4" cols="100"></textarea></p>',
 
+  analogyClosed : '<p>Did you notice the repeating analogue/causal structure in every second story during the experiment (not now)? \
+                      <select id="analogyClosed">\
+                      <option value=""></option>\
+                      <option value="yes">Yes</option>\
+                      <option value="no">No</option>\
+                      </select></p>',
+
+  analogyOpen : '<p class="optionalTextarea" style="display:none;">If so, can you remember the stories with repeating structure were about?<br>\
+                    <textarea id="analogyOpen" rows="4" cols="100"></textarea></p>'
 
 };
