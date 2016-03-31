@@ -52,7 +52,7 @@ var Experiment = {
         return csvString
       }
 
-      var csvStrings = [jsPsych.data.dataOfTypeAsCSV('hebb'),jsPsych.data.dataOfTypeAsCSV('survey-lickert'), createDemographicsCsvString()];
+      var csvStrings = [jsPsych.data.dataOfTypeAsCSV('hebb'),jsPsych.data.dataOfTypeAsCSV('survey-likert'), createDemographicsCsvString()];
       var jsonStrings = [jsPsych.data.dataAsJSON()];
 
       $.ajax({
@@ -141,7 +141,6 @@ var Experiment = {
     buttonStyle : 'height:60px;width:90px;float:right;font-size:12px;font-weight:bold;margin-top:50px;'
   },
   timeline : {
-
     consent_block : function(){
       var page = [Experiment.utils.wrap(Experiment.material.instructions.consent,100)];
       var b = {
