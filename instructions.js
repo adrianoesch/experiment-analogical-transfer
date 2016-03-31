@@ -47,8 +47,8 @@ var instructions = {
               ',
 
   sincerity : '<p>Finally, we ask you to tell us honestly whether you did the experiment seriously, \
-              giving it your full attention. You will receive your payment independent of how you respond. \
-              This question serves only internal data anlysis assessment.</p>\
+              giving it your full attention. You will receive your regular payment independent of how you respond. \
+              This question serves internal data anlysis assessment.</p>\
               <p>Have you done the experiment seriously? <select id="sincerity">\
               <option value=""></option>\
               <option value="yes">Yes, my data should be used</option>\
@@ -80,12 +80,12 @@ var instructions = {
               <option value="university">University degree</option>\
               <option value="doctoral">Doctoral degree</option></select></p>',
 
-  end_fullscreen : "<h2>First part done!</h2><p>You can leave fullscreen mode by clicking 'Exit.<p>\
-                    <p>We would like to know a few more things about your experience during the task and \
-                    yourself next.</p>",
+  end_fullscreen : "<h2>First part done!</h2><p>You can leave fullscreen mode by clicking 'Exit'.\
+                    Next, we would like to know a few more things about your experience during the previous task and \
+                    yourself.</p>",
 
   confirmation : '<h2>Thank you for participating in our experiment.</h2><p>The goal of this experiment was \
-                 to investigate whether repeating causal structures in stories eases the recall of information. Please do \
+                 to investigate whether repeating causal structures in analogue stories eases the recall of information. Please do \
                  not share this information with anyone! It is crucial that the explanation is kept confidential until we \
                  have collected all data.</p><p>Here is your code to confirm your participation: <span style="font-weight:bold;" id="conf_code"></span></p>\
                  <p>Make sure to copy and paste this code back to Crowdflower (use right-click>copy in Safari). When you \

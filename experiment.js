@@ -122,6 +122,9 @@ var Experiment = {
         };
       };
       return t;
+    },
+    displayConfCode : function(){
+      $('#conf_code').html([Experiment.session.code,"57xo5ftqu4vr"].join('-'));
     }
   },
   session : {
@@ -183,7 +186,7 @@ var Experiment = {
       return b
     },
     exit_fullscreen_block : function(){
-      var html = Experiment.utils.wrap(Experiment.material.instructions.end_fullscreen);
+      var html = Experiment.utils.wrap(Experiment.material.instructions.end_fullscreen,100);
 
       var b = {
         type : 'fullscreen',
@@ -276,16 +279,16 @@ var Experiment = {
       return b
     },
     confirmation_block : function(){
-      page = Experiment.utils.wrap(instructions.confirmation,100)
+      page = Experiment.utils.wrap(
+        instructions.confirmation+
+        "<script>Experiment.utils.displayConfCode()</script>"
+        ,100)
       var sessionCode = Experiment.session.code;
       jsPsych.data.addProperties({sessionCode : sessionCode});
 
       b = {
         type : 'instructions',
-        pages : [page],
-        on_trial_start : function(){
-          setTimeout(function(){$('#conf_code').html([sessionCode,"57xo5ftqu4vr"].join('-'))},100);
-        }
+        pages : [page]
       };
       return b;
     },
@@ -419,14 +422,14 @@ var Experiment = {
     },
     init : function(){
       var timeline = [];
-      timeline.push(this.enter_fullscreen_block());
-      timeline.push(this.consent_block());
-      timeline.push(this.instructions_block());
-      timeline.push(this.hebb_block());
-      timeline.push(this.exit_fullscreen_block());
-      timeline.push(this.survey_block());
-      timeline.push(this.rei_block());
-      timeline.push(this.demographics_block());
+      // timeline.push(this.enter_fullscreen_block());
+      // timeline.push(this.consent_block());
+      // timeline.push(this.instructions_block());
+      // timeline.push(this.hebb_block());
+      // timeline.push(this.exit_fullscreen_block());
+      // timeline.push(this.survey_block());
+      // timeline.push(this.rei_block());
+      // timeline.push(this.demographics_block());
       timeline.push(this.confirmation_block());
       return timeline;
     }
