@@ -45,12 +45,14 @@ jsPsych.plugins['hebb'] = (function() {
       trial_data['stat'+statIdxStr+'_fullStat'] = trial.statements[statIdx-1];
       trial_data['stat'+statIdxStr+'_name1'] = input[0].innerHTML;
       trial_data['stat'+statIdxStr+'_relation'] =  input[1].innerHTML;
-      trial_data['stat'+statIdxStr+'_name2'] = nNames[statIdx-1]== 2 ? input[2].innerHTML : '';
       trial_data['stat'+statIdxStr+'_timeDrag'] = Date.now()-t0;
       trial_data['stat'+statIdxStr+'_ndrags'] = nDrags;
       trial_data['stat'+statIdxStr+'_rel_sol'] = trial.relations[statIdx-1][0];
       trial_data['stat'+statIdxStr+'_name1_sol'] = trial.correctNamesInStatements[statIdx-1][0];
-      trial_data['stat'+statIdxStr+'_name2_sol'] = nNames[statIdx-1]== 2 ? trial.correctNamesInStatements[statIdx-1][1] : '';
+      if (statIdx!=3){
+        trial_data['stat'+statIdxStr+'_name2'] = input[2].innerHTML;
+        trial_data['stat'+statIdxStr+'_name2_sol'] = trial.correctNamesInStatements[statIdx-1][1];
+      };
       t0 = Date.now(); // reset new time measure
       nDrags = 0;
       if (statIdx==statements.length){
