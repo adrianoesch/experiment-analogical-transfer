@@ -91,7 +91,7 @@ var instructions = {
                  <p>Make sure to copy and paste this code back to Crowdflower (use right-click>copy in Safari). When you \
                  are done with it, you can close this browser window or tab. Thanks!</p>',
 
-  similarityClosed : '<p>Did you notice similarities between the stories during the experiment (not now)? \
+  similarityClosed : '<p>Did you notice similarities between the stories during the experiment (not now)?<br> \
                       <select id="similarityClosed">\
                       <option value=""></option>\
                       <option value="yes">Yes</option>\
@@ -101,7 +101,7 @@ var instructions = {
   similarityOpen : '<p class="optionalTextarea" style="display:none;">If so, what were the similarities?<br>\
                     <textarea id="similarityOpen" rows="4" cols="100"></textarea></p>',
 
-  repetitionClosed : '<p>Did you notice repeating elements between the stories during the <br>experiment (not now)? \
+  repetitionClosed : '<p>Did you notice repeating elements between the stories during the experiment (not now)?<br>\
                       <select id="repetitionClosed">\
                       <option value=""></option>\
                       <option value="yes">Yes</option>\

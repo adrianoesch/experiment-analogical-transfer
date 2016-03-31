@@ -111,8 +111,10 @@ var Experiment = {
       }
     },
     wrap : function(p,mTop){
+      var contentDivStyle = 'position:absolute;width:800px;left:'+
+                        +((screen.width-800)/2).toString()+'px;',
       mTop = mTop || 0;
-      var divStart = "<div id='content' style='"+this.contentDivStyle+"margin-top:"+mTop+"px;'>"
+      var divStart = "<div id='content' style='"+contentDivStyle+"margin-top:"+mTop+"px;'>"
       if (typeof p == 'string'){
         var t = divStart+p+'</div>';
       }else{
@@ -156,7 +158,7 @@ var Experiment = {
       return b
     },
     enter_fullscreen_block : function(){
-      var html = Experiment.utils.wrap(Experiment.material.instructions.welcome,50);
+      var html = Experiment.utils.wrap(Experiment.material.instructions.welcome,100);
       var buttonStyle = this.buttonStyle;
       var b={
         type: 'fullscreen',
@@ -298,7 +300,7 @@ var Experiment = {
                               nextButton,
                               Experiment.material.instructions.sincerity+
                               nextButton
-                            ]);
+                            ],100);
       var b = {
         type: "html-input-ao",
         check: function(info){
@@ -345,7 +347,7 @@ var Experiment = {
         nextButton,
         Experiment.material.instructions.analogyClosed+
         Experiment.material.instructions.analogyOpen+
-        nextButton],200);
+        nextButton],100);
 
       var b = {
         type: "html-input-ao",
@@ -418,13 +420,13 @@ var Experiment = {
     },
     init : function(){
       var timeline = [];
-      // timeline.push(this.enter_fullscreen_block());
-      // timeline.push(this.consent_block());
-      // timeline.push(this.instructions_block());
-      // timeline.push(this.hebb_block());
-      // timeline.push(this.exit_fullscreen_block());
+      timeline.push(this.enter_fullscreen_block());
+      timeline.push(this.consent_block());
+      timeline.push(this.instructions_block());
+      timeline.push(this.hebb_block());
+      timeline.push(this.exit_fullscreen_block());
       timeline.push(this.survey_block());
-      // timeline.push(this.rei_block());
+      timeline.push(this.rei_block());
       timeline.push(this.demographics_block());
       timeline.push(this.confirmation_block());
       return timeline;
