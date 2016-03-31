@@ -42,7 +42,7 @@ jsPsych.plugins['hebb'] = (function() {
         return
       };
       statIdx++;
-      trial_data['stat'+statIdxStr+'_fullStat'] = trial.statements[statIdx-1];
+      trial_data['stat'+statIdxStr+'_fullStat'] = trial.statements[statIdx-1].replace(/<\/?[^>]+(>|$)/g, "");
       trial_data['stat'+statIdxStr+'_name1'] = input[0].innerHTML;
       trial_data['stat'+statIdxStr+'_relation'] =  input[1].innerHTML;
       trial_data['stat'+statIdxStr+'_timeDrag'] = Date.now()-t0;
@@ -52,6 +52,9 @@ jsPsych.plugins['hebb'] = (function() {
       if (statIdx!=3){
         trial_data['stat'+statIdxStr+'_name2'] = input[2].innerHTML;
         trial_data['stat'+statIdxStr+'_name2_sol'] = trial.correctNamesInStatements[statIdx-1][1];
+      }else{
+        trial_data['stat'+statIdxStr+'_name2'] = 'NaN';
+        trial_data['stat'+statIdxStr+'_name2_sol'] = 'NaN';
       };
       t0 = Date.now(); // reset new time measure
       nDrags = 0;
