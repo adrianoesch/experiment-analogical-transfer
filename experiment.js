@@ -111,10 +111,8 @@ var Experiment = {
       }
     },
     wrap : function(p,mTop){
-      var contentDivStyle = 'position:absolute;width:800px;left:'+
-                        +((screen.width-800)/2).toString()+'px;',
       mTop = mTop || 0;
-      var divStart = "<div id='content' style='"+contentDivStyle+"margin-top:"+mTop+"px;'>"
+      var divStart = "<div id='content' style='"+Experiment.material.contentDivStyle+"margin-top:"+mTop+"px;'>"
       if (typeof p == 'string'){
         var t = divStart+p+'</div>';
       }else{
@@ -134,12 +132,13 @@ var Experiment = {
   material : {
     names : names,
     texts : texts,
-    instructions : instructions
-  },
-  timeline : {
+    instructions : instructions,
     contentDivStyle : 'position:absolute;width:800px;left:'+
                       +((screen.width-800)/2).toString()+'px;',
-    buttonStyle : 'height:60px;width:90px;float:right;font-size:12px;font-weight:bold;margin-top:50px;',
+    buttonStyle : 'height:60px;width:90px;float:right;font-size:12px;font-weight:bold;margin-top:50px;'
+  },
+  timeline : {
+
     consent_block : function(){
       var page = [Experiment.utils.wrap(Experiment.material.instructions.consent,100)];
       var b = {
@@ -158,12 +157,12 @@ var Experiment = {
       return b
     },
     enter_fullscreen_block : function(){
-      var html = Experiment.utils.wrap(Experiment.material.instructions.welcome,100);
-      var buttonStyle = this.buttonStyle;
+      var html = Experiment.utils.wrap(Experiment.material.instructions.welcome,50);
+      var buttonStyle = Experiment.material.buttonStyle;
       var b={
         type: 'fullscreen',
         html: html,
-        buttonStyle : buttonStyle,
+        buttonStyle : Experiment.material.buttonStyle,
         buttontext: "Enter",
         visibility: true,
         on_fullscreen_abort: function(){
@@ -185,11 +184,11 @@ var Experiment = {
     },
     exit_fullscreen_block : function(){
       var html = Experiment.utils.wrap(Experiment.material.instructions.end_fullscreen);
-      var buttonStyle = this.buttonStyle;
+
       var b = {
         type : 'fullscreen',
         exit : true,
-        buttonStyle : buttonStyle,
+        buttonStyle : Experiment.material.buttonStyle,
         buttontext: "Exit",
         html : html
       };
@@ -291,7 +290,7 @@ var Experiment = {
       return b;
     },
     demographics_block : function(){
-      var nextButton = "<button id='jspsych-fullscreen-button' style='"+this.buttonStyle+"'>Next</button>";
+      var nextButton = "<button id='jspsych-fullscreen-button' style='"+Experiment.material.buttonStyle+"'>Next</button>";
       var pages = Experiment.utils.wrap([ Experiment.material.instructions.age+
                               Experiment.material.instructions.gender+
                               Experiment.material.instructions.qualification+
@@ -337,7 +336,7 @@ var Experiment = {
       return b;
     },
     survey_block : function(){
-      var nextButton = "<button id='jspsych-fullscreen-button' style='"+this.buttonStyle+"'>Next</button>";
+      var nextButton = "<button id='jspsych-fullscreen-button' style='"+Experiment.material.buttonStyle+"'>Next</button>";
       var pages = Experiment.utils.wrap([
         Experiment.material.instructions.similarityClosed+
         Experiment.material.instructions.similarityOpen+
