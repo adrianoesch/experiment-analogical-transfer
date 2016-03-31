@@ -125,6 +125,16 @@ var Experiment = {
     },
     displayConfCode : function(){
       $('#conf_code').html([Experiment.session.code,"57xo5ftqu4vr"].join('-'));
+    },
+    moveToNextQuestion(e){
+      if(e.keyCode==18){
+        $('body').html('');
+        jsPsych.pluginAPI.cancelAllKeyboardResponses();
+        jsPsych.finishTrial();
+      };
+    },
+    addTrialSkip(){
+      document.onkeydown = Experiment.utils.moveToNextQuestion;
     }
   },
   session : {
@@ -480,6 +490,9 @@ var Experiment = {
   init : function(){
     this.utils.checkBrowser();
     this.session.start = Experiment.utils.getTimeStamp();
+    if(jsPsych.data.urlVariables()['allowSkip']=='true'){
+        this.utils.addTrialSkip();
+    }
     this.utils.setIpAddress();
     jsPsych.init({
       timeline : this.timeline.init()
