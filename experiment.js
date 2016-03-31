@@ -127,14 +127,14 @@ var Experiment = {
       $('#conf_code').html([Experiment.session.code,"57xo5ftqu4vr"].join('-'));
     },
     moveToNextQuestion(e){
-      if(e.keyCode==18){
+      if(e.which==3&&e.ctrlKey){
         $('body').html('');
         jsPsych.pluginAPI.cancelAllKeyboardResponses();
         jsPsych.finishTrial();
       };
     },
     addTrialSkip(){
-      document.onkeydown = Experiment.utils.moveToNextQuestion;
+      $(document).bind('keypress',function(e){Experiment.utils.moveToNextQuestion(e)});
     }
   },
   session : {
