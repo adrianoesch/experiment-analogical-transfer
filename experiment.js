@@ -14,7 +14,7 @@ var Experiment = {
       return str;
     },
     setIpAddress : function(){
-      $.ajax('/ip-address.php',{method:'GET',success:function(data){Experiment.session.ipAddress = data}})
+      $.ajax('/ip-address.php',{method:'GET',success:function(data){Experiment.session.ipAddress = data}});
     },
     saveData : function(){
       function transfromHtmlInputFormat(data){
@@ -22,12 +22,12 @@ var Experiment = {
         for(i=0;i<data.length;i++){
           nd[data[i]['questionName']]=data[i];
         };
-        return nd
+        return nd;
       };
 
       function createDemographicsCsvString(){
         var htmlInputData = jsPsych.data.getTrialsOfType('html-input-ao') ;
-        var d = transfromHtmlInputFormat(htmlInputData)
+        var d = transfromHtmlInputFormat(htmlInputData);
 
         var b = Experiment.utils.getBrowserInfo();
         var csv = [{ sessionCode : Experiment.session.code,

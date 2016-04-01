@@ -4,7 +4,7 @@ var instructions = {
               the experiment:<ul><li>exiting fullscreen mode</li><li>switching tabs or applications</li>\
               <li>reloading the webpage</li><li>going-"back" in the browser</li></ul>\
               <p>Please close all other running applications and turn off all notifications before entering \
-              the experiment. Ensure you are in a calm place without any distractions like noise for example.</p>\
+              the experiment. Ensure you are in a calm place without any distractions.</p>\
               <p>Click "Enter" to launch into fullscreen and start the experiment.</p>',
 
   consent :   '<h2>Consent</h2><p>In this experiment you will be asked to read very short stories \
@@ -43,10 +43,9 @@ var instructions = {
               <p style="margin-bottom:50px;">Press the right arrow key to continue to the experiment.</p>\
               ',
 
-  reminder : '<h4><p>Press the right arrow key to start the experiment. We will start with presenting statements \
-              right away, so prepare yourself.</p><p>Press the left arrow key to go back to the instructions \
-              and the example.</p></h4>\
-              ',
+  reminder : '<h4><p>We will now start with presenting statements, so prepare yourself.</p>\
+              <p>Press the right arrow key to continue and the left arrow key to go back to the instructions \
+              with the example.</p></h4>',
 
   sincerity : '<p>Finally, we ask you to tell us honestly whether you did the experiment seriously, \
               giving it your full attention. You will receive your regular payment independent of how you respond. \
@@ -91,7 +90,7 @@ var instructions = {
                  not share this information with anyone! It is crucial that the explanation is kept confidential until we \
                  have collected all data.</p><p>Here is your code to confirm your participation: <span style="font-weight:bold;" id="conf_code"></span></p>\
                  <p>Make sure to copy and paste this code back to Crowdflower (use right-click>copy in Safari). When you \
-                 are done with it, you can close this browser window or tab. Thanks!</p>',
+                 are done with it, you can close this browser window or tab. Thanks again!</p>',
 
   similarityClosed : '<p>Did you notice similarities between the stories during the experiment (not now)?<br> \
                       <select id="similarityClosed">\
