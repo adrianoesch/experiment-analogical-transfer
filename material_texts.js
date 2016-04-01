@@ -316,9 +316,11 @@ var texts = {
       "Object #1 relates to object #2."
     ],
     "relations" : [
+      [
       "relates to",
       "delegates",
       "increases"
+      ]
     ]
   }
 };
