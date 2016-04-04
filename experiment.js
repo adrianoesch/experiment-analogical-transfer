@@ -143,7 +143,7 @@ var Experiment = {
     nTrials : jsPsych.data.urlVariables()['is_dev'] == 'true' ? 1 : 7
   },
   material : {
-    names : names,
+    names : jsPsych.randomization.shuffle(names),
     texts : texts,
     instructions : instructions,
     contentDivStyle : 'position:absolute;width:800px;left:'+
@@ -220,20 +220,20 @@ var Experiment = {
             stoObj.nNamesPerStatement[num] = [];
             for(j=0;j<replKeys.length;j++){
               if(val.indexOf(replKeys[j].slice(1,2)) > -1){
-                val = val.replace(replKeys[j], stoObj.names[j])
+                val = val.replace(replKeys[j], stoObj.names[j]);
                 stoObj.correctNamesInStatements[num].push(stoObj.names[j]);
                 };
             };
-            stoObj.nNamesPerStatement[num] = stoObj.correctNamesInStatements[num].length
-            val = wrapStatements(val)
-
-            return val
+            stoObj.nNamesPerStatement[num] = stoObj.correctNamesInStatements[num].length;
+            val = wrapStatements(val);
+            return val;
           })
-          return stoObj
+          return stoObj;
         };
 
         function drawSampleNames(nNames){
-            return jsPsych.randomization.sample(names,nNames)
+          var n = Experiment.material.names.splice(0,nNames);
+          return n;
         };
 
         function wrapStatements(stat){
@@ -413,7 +413,7 @@ var Experiment = {
       var ql=[]
 
       for(i=0;i<q.length;i++){
-        ql.push(q[i]);
+        ql.push(q[qIdsShuffled[i]]);
         ll.push(l);
       };
 

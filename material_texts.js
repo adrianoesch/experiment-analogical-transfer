@@ -54,7 +54,7 @@ var texts = {
         [
           "wrote",
           "invented",
-          "thought off"
+          "thought of"
         ],[
           "cracks sth. of",
           "penetrates sth. of",
@@ -142,7 +142,7 @@ var texts = {
         [
           "provoke",
           "initate",
-          "propagates"
+          "propagate"
         ],[
           "destabilizes",
           "decomposes",
