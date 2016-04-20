@@ -232,7 +232,7 @@ var texts = {
           "fills in for"
         ],[
           "is sparse in",
-          "is rarerly found in",
+          "is rarely found in",
           "is sparked through"
         ],[
           "starts negotiating",
@@ -275,9 +275,9 @@ var texts = {
           "is referred to",
           "is arranged to"
         ],[
-          "supports",
-          "emphasizes",
-          "injects"
+          "supports sth. of",
+          "emphasizes sth. of",
+          "destroys sth. of"
         ],[
           "gets a promotion",
           "gets an advancement",
