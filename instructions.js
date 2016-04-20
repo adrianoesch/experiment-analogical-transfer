@@ -16,22 +16,22 @@ var instructions = {
 
   task :      '<h2>Instructions</h2><p>Thank you very much for taking part in our experiment!</p>\
               <p>Your task will be to read\
-              a few short stories and recall the content after each story. At first the stories \
-              will be presented statement by statement. Please read each statement thoroughly but don\'t \
+              a few short stories and recall the content after each story. Each story consists of three statements and \
+              at first those three statements will be presented statement by statement. Please read each statement thoroughly but don\'t \
               waste too much time. \
               You can continue to the next statement with \
               pressing the right arrow key.</p>\
               <p>After each story you will be asked to recall the content, again statement \
-              by statement in order of appearance. You will be able to choose the names of the entities plus the \
-              relations between those entities from two separate menus (one for names and one for relations).\
+              by statement and in order of appearance by rearrangeing the names of the entities plus their relation. \
+              You will be able to choose the names and relations from two separate menus (one for names and one for relations).\
               You can select the names and relations with drag & drop\
-              (click on an item with the mouse & drag it into a corresponding container) \
-              and rearrange the content of each statement that you have previously read.\
+              (click on an item with the mouse & drag it into a corresponding container).\
               You can correct your response by dragging objects back and forth within their corresponding containers\
               until you click "Next". All response boxes must contain an item. \
               Means to facilitate this task are not allowed.</p>\
-              <h3>Example</h3><p>Let\'s say you have read the statement "The child Driho smashed the mug Gapsi". \
-              You will then see a screen like below. By dragging the name "Driho" into the first name box, the \
+              <h3>Example</h3><p>Let\'s say you have read the phrase "The child Driho smashed the mug Gapsi" as the first statement of a story. \
+              You will then see a screen like below where you are asked to recall the content of the first statement. \
+              By dragging the name "Driho" into the first name box, the \
               relation "smashed" into the relation field the and the name "Krati" into the second name container, \
               you arrive at the correct solution.</p>\
               <p>If you changed your mind, just drag the item back into the menu container and choose \
@@ -39,7 +39,8 @@ var instructions = {
               <style>#content{width:800px;position:relative;}#menu{ border:solid 1px black;height:370px;}.menui{  width:150px;  height:280px; border:1px solid white;}.wrapMenu{  padding:0 50px;  float:left;}#menubox{margin:20px 0px 0px 130px;}#names, #name1, #name2{  background-color:rgb(230,230,230);}#relations, #relation{  background-color:rgb(200,200,200);}#names,#relations {  padding:10px;}#input{ width:800px; position:relative;  top:30px;  float:left;} .inputi{  width:190px;  padding:10px;  height:30px;border:1px solid white;}#inputbox{  font-size:16px;  position:relative;  border:1px solid black;  height:120px; padding:00px 50px; margin-bottom:130px}.wrapInput{  float:left;  margin:20px 10px;}.relationDivs,.nameDivs{  font-size:13px;  font-family:arial;  height:20px;  border-radius: 3px;  margin:3px;  padding:0px 0px 5px 5px;}.nameDivs{  background-color: rgba(0,0,0,0.2);}.relationDivs {  background-color: rgba(0,0,0,0.2);}#nextbutton{  position:relative;  margin-top:30px;  float:right;  padding:10px;  border-radius: 5px;  width:80px;  text-align:center;  background-color: rgba(0,0,0,0.7);  color:rgb(230,230,230)}#nextbutton:hover{  background-color: rgb(255,20,20);  color: black;}#errormessage{  color:rgb(250,50,50);  text-align:center; font-size:15px;}</style>\
               <div id="content" style="top: 50px;">Menu:  <div id="menu">    <div id="menubox">      <div class="wrapMenu">Names:        <div id="names" class="menui">          <div class="nameDivs" id="name_0" draggable="true">Helia</div>          <div class="nameDivs" id="name_1" draggable="true">Driho</div>          <div class="nameDivs" id="name_2" draggable="true">Istrof</div>          <div class="nameDivs" id="name_3" draggable="true">Gapsi</div>          <div class="nameDivs" id="name_4" draggable="true">Sotah</div>          <div class="nameDivs" id="name_5" draggable="true">Filzey</div>        </div>      </div>      <div class="wrapMenu">Relations:        <div id="relations" class="menui">          <div class="relationDivs" id="relation_0" draggable="true">crashed</div>          <div class="relationDivs" id="relation_1" draggable="true">enlarged</div>          <div class="relationDivs" id="relation_2" draggable="true">damaged</div>          <div class="relationDivs" id="relation_3" draggable="true">derailes</div>          <div class="relationDivs" id="relation_4" draggable="true">smashed</div>          <div class="relationDivs" id="relation_5" draggable="true">shouts</div>        </div>      </div>    </div>  </div>  <div id="input">Response: <strong>Statement <span id="statementNr">1</span></strong> <span id="errormessage"></span>    <div id="inputbox">      <div class="wrapInput">Name:        <div id="name1" class="inputi"></div>      </div>      <div class="wrapInput">Relation:        <div id="relation" class="inputi"></div>      </div>      <div class="wrapInput">Name:        <div id="name2" class="inputi"></div>      </div>    </div>  </div></div>\
               <script>Experiment.d.init()</script>\
-              <p style="">When you are done with arranging objects, there will be a "Next" button to continue to the subsequent statement or next story.</p>\
+              <p style="">When you are done with arranging objects, there will be a "Next" button to continue to either \
+              the subsequent statement to recall or next story to read.</p>\
               <p style="margin-bottom:50px;">Press the right arrow key to continue to the experiment.</p>\
               ',
 

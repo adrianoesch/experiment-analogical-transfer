@@ -2,35 +2,35 @@ var texts = {
   "analogues" : {
     "bacteria": {
       "statements" : [
-        "Bacteria #1 ejects enzyme #2.",
-        "Enzyme #2 destroys the membrane of organ #3.",
+        "Bacteria #1 emits enzyme #2.",
+        "Enzyme #2 dissolves the membrane of organ #3.",
         "Organ #3 fails."
       ],
       "relations" : [
         [
-          "ejects",
+          "emits",
           "expels",
           "injects"
         ],[
-          "destroys sth. of",
-          "demolishes sth. of",
-          "erases sth. of"
+          "dissolves sth. of",
+          "disintegrates sth. of",
+          "disjoints sth. of"
         ],[
+          "fails",
           "dies",
-          "perishes",
           "is eliminated"
         ]
       ]
     },
-    "rebel-group" : {
+    "crusader" : {
       "statements" : [
-        "Rebel group #1 bought weapon #2.",
-        "Weapon #2 breaches the border of city #3.",
-        "City #3 is invaded."
+        "Crusader group #1 bought weapon #2.",
+        "Weapon #2 breaches the fortification of town #3.",
+        "Town #3 is invaded."
       ],
       "relations":[
         [
-          "bougth",
+          "bought",
           "acquired",
           "caught"
         ],[
@@ -63,28 +63,6 @@ var texts = {
           "suffers sth.",
           "leaks sth.",
           "tolerates sth."
-        ]
-      ]
-    },
-    "gas" : {
-      "statements" : [
-        "Factory #1 emits gas #2.",
-        "Gas #2 dissolves the outer layer of planet #3.",
-        "Planet #3 becomes toxic."
-      ],
-      "relations":[
-        [
-          "emits",
-          "produces",
-          "filters"
-        ],[
-          "dissolves sth. of",
-          "eliminates sth. of",
-          "resolves sth. of"
-        ],[
-          "becomes toxic",
-          "turns inhabitable",
-          "becomes eliptic"
         ]
       ]
     },
@@ -132,35 +110,54 @@ var texts = {
         ]
       ]
     },
-    "fracking" : {
+    "espionage" : {
       "statements" : [
-        "Fracking acitivities #1 provoke earthquake #2.",
-        "Earthquake #2 destabilizes concrete structure of dam #3.",
-        "Dam #3 bursts."
+        "Country #1 trains spy #2.",
+        "Spy #2 is hired by Intelligence Agency of country #3.",
+        "Country #3 has its secrets stolen."
       ],
-      "relations":[
-        [
-          "provoke",
-          "initate",
-          "propagate"
-        ],[
-          "destabilizes",
-          "decomposes",
-          "shakes"
-        ],[
-          "bursts",
-          "is flushed",
-          "burns"
+      "relations" : [[
+        "trains",
+        "instructs",
+        "creates"
+      ],[
+        "is hired by sth. of",
+        "is employed by sth. of",
+        "is fired by sth. of"
+      ],[
+        "has sth. stolen",
+        "has sth. poached",
+        "has sth. lost"
         ]
       ]
+    },
+    "fox" : {
+      "statements" : [
+        "Fox #1 digs tunnel #2.",
+        "Tunnel #2 leads to coop of chicken #3.",
+        "Chicken #3 is devoured."
+      ],
+      "relations" : [[
+        "digs",
+        "burrow",
+        "wants"
+      ],[
+        "leads to sth. of",
+        "gets to sth. of",
+        "goes on sth. of"
+      ],[
+        "is devoured",
+        "is eaten",
+        "is missing"
+      ]]
     }
   },
   "fillers" : {
     "meteo" : {
       "statements" : [
         "Cloud #1 collects humidity over ocean #2.",
-        "Ocean #2 lies next to the beaches of area #1.",
-        "Area #1 is fertile."
+        "Ocean #2 lies next to the beaches of area #3.",
+        "Area #3 is fertile."
       ],
       "relations" : [
         [
@@ -178,69 +175,25 @@ var texts = {
         ]
       ]
     },
-    "school" : {
-      "statements" : [
-        "Boy #1 goes to school #2.",
-        "Girl #3 writes a letter to boy #1.",
-        "Boy #1 falls in love.",
-      ],
-      "relations" : [
-        [
-          "goes to",
-          "is enrolled at",
-          "enjoys"
-        ],[
-          "writes sth. to",
-          "sends sth. to",
-          "influences"
-        ],[
-          "falls in love",
-          "becomes fond of",
-          "feels loved"
-        ]
-      ]
-    },
     "fish" : {
       "statements" : [
-        "Fisher #1 cultivated sea grass #2.",
+        "Fisher #1 cultivates sea grass #2.",
         "Sea grass #2 is eaten by fish #3.",
         "Fish #3 is captured."
       ],
       "relations":[
         [
-          "cultivated",
+          "cultivates",
           "grows",
           "breeds"
         ],[
           "is eaten by",
           "is consumed by",
-          "is accpeted by"
+          "is accepted by"
         ],[
           "is captured",
           "is taken",
           "is digested"
-        ]
-      ]
-    },
-    "space" : {
-      "statements" : [
-        "Universe #1 casts off meteor #2.",
-        "Meteor #2 hits member of galaxy #3",
-        "Galaxy #3 recomposes."
-      ],
-      "relations" : [
-        [
-          "casts off",
-          "introduced",
-          "surrounds"
-        ],[
-          "hits sth. of",
-          "smashes sth. of",
-          "battles sth. of"
-        ],[
-          "restructures",
-          "changes",
-          "steps"
         ]
       ]
     },
@@ -307,6 +260,50 @@ var texts = {
           "has an allergic reaction",
           "reacts allergically",
           "has a panic reaction"
+        ]
+      ]
+    },
+    "employee" : {
+      "statements" : [
+        "Employee #1 is assigned to project #2.",
+        "Project #2 supports agenda of manager #3.",
+        "Manager #3 gets a promotion."
+      ],
+      "relations":[
+        [
+          "is assigned to",
+          "is referred to",
+          "is arranged to"
+        ],[
+          "supports",
+          "emphasizes",
+          "injects"
+        ],[
+          "gets a promotion",
+          "gets an advancement",
+          "gets a bonus"
+        ]
+      ]
+    },
+    "school" : {
+      "statements" : [
+        "School girl #1 hits boy #2.",
+        "Boy #2 reports to teacher #3.",
+        "Teacher #3 calls parents."
+      ],
+      "relations":[
+        [
+          "hits",
+          "punches",
+          "touches"
+        ],[
+          "reports to",
+          "tells",
+          "goes to"
+        ],[
+          "calls parents",
+          "notifies parents",
+          "visits parents"
         ]
       ]
     }
