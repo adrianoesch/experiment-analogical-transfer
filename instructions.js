@@ -22,7 +22,7 @@ var instructions = {
               You can continue to the next statement with \
               pressing the right arrow key.</p>\
               <p>After each story you will be asked to recall the content, again statement \
-              by statement and in order of appearance by rearrangeing the names of the entities plus their relation. \
+              by statement and in order of appearance by reconstructing the names of the entities plus their relation. \
               You will be able to choose the names and relations from two separate menus (one for names and one for relations).\
               You can select the names and relations with drag & drop\
               (click on an item with the mouse & drag it into a corresponding container).\
