@@ -341,7 +341,8 @@ var Experiment = {
             on_finish : function(){
               Experiment.utils.saveData();
             }
-          }]
+          }
+        ]
       };
       return b;
     },
