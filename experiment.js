@@ -54,14 +54,14 @@ var Experiment = {
 
       var csvStrings = [jsPsych.data.dataOfTypeAsCSV('hebb'),jsPsych.data.dataOfTypeAsCSV('survey-likert'), createDemographicsCsvString()];
       var jsonStrings = [jsPsych.data.dataAsJSON()];
-
+      var folderStr = jsPsych.data.getURLVariable('f') || 'experiment_1604';
       $.ajax({
         type: 'post',
         cache: false,
         url: './store.php',
         data: {
           subjectID: [Experiment.session.code,Experiment.utils.getTimeStamp()].join('_'),
-          folder: 'experiment_1604',
+          folder: folderStr,
           csvStrings: csvStrings,
           dataAsJSON: jsonStrings
         }
