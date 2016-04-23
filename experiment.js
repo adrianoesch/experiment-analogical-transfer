@@ -33,6 +33,7 @@ var Experiment = {
         var csv = [{ sessionCode : Experiment.session.code,
                     age : d['demo1']['age'],
                     gender : d['demo1']['gender'],
+                    language : d['demo1']['language'],
                     qualification : d['demo1']['quali'],
                     effort : d['demo1']['effort'],
                     sincerity : d['demo2']['sincerity'] || '',
