@@ -51,8 +51,8 @@ var Experiment = {
                   }];
         var csvString = jsPsych.data.JSON2CSV(csv);
         return csvString
-      }
-
+      };
+      
       var csvStrings = [jsPsych.data.dataOfTypeAsCSV('hebb'),jsPsych.data.dataOfTypeAsCSV('survey-likert'), createDemographicsCsvString()];
       var jsonStrings = [jsPsych.data.dataAsJSON()];
       var folderStr = jsPsych.data.getURLVariable('f') || 'experiment_1604';
