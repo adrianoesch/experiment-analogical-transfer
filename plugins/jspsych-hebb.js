@@ -31,6 +31,7 @@ jsPsych.plugins['hebb'] = (function() {
       // clear the display
       display_element.html('');
       // move on to the next trial
+      console.log(trial_data)
       jsPsych.finishTrial(trial_data);
     };
 

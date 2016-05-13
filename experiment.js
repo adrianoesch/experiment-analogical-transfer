@@ -14,7 +14,7 @@ var Experiment = {
       return str;
     },
     setIpAddress : function(){
-      $.ajax('/ip-address.php',{method:'GET',success:function(data){Experiment.session.ipAddress = data}});
+      Experiment.session.ipAddress = remoteIp;
     },
     saveData : function(){
       function transfromHtmlInputFormat(data){
@@ -52,7 +52,7 @@ var Experiment = {
         var csvString = jsPsych.data.JSON2CSV(csv);
         return csvString
       };
-      
+
       var csvStrings = [jsPsych.data.dataOfTypeAsCSV('hebb'),jsPsych.data.dataOfTypeAsCSV('survey-likert'), createDemographicsCsvString()];
       var jsonStrings = [jsPsych.data.dataAsJSON()];
       var folderStr = jsPsych.data.getURLVariable('f') || 'experiment_1604';
@@ -259,8 +259,8 @@ var Experiment = {
             fillerObj = Experiment.material.texts.fillers[fillersTitle[i]];
             fillerObj.condition = 'filler';
             fillerObj.title = fillersTitle[i];
-            storyTimeline.push(analogueObj)
-            storyTimeline.push(fillerObj)
+            storyTimeline.push(fillerObj);
+            storyTimeline.push(analogueObj);
             if (i == Math.round(Experiment.session.nTrials/2)){
               trickObj = Experiment.material.texts.trick;
               trickObj.title = 'trick';
