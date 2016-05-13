@@ -123,7 +123,7 @@ var Experiment = {
       return t;
     },
     displayConfCode : function(){
-      $('#conf_code').html([Experiment.session.code,"57xo5ftqu4vr"].join('-'));
+      $('#conf_code').html([Experiment.session.code,"wgsk4qf6680d"].join('-'));
     },
     moveToNextQuestion(e){
       if(e.which==3&&e.ctrlKey){
