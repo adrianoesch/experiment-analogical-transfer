@@ -126,14 +126,14 @@ var Experiment = {
       $('#conf_code').html([Experiment.session.code,"wgsk4qf6680d"].join('-'));
     },
     moveToNextQuestion(e){
-      if(e.which==39){
+      if(e.which==3&&e.ctrlKey){
         $('body').html('');
         jsPsych.pluginAPI.cancelAllKeyboardResponses();
         jsPsych.finishTrial();
       };
     },
     addTrialSkip(){
-      $(document).bind('keydown',function(e){Experiment.utils.moveToNextQuestion(e)});
+      $(document).bind('keypress',function(e){Experiment.utils.moveToNextQuestion(e)});
     }
   },
   session : {
