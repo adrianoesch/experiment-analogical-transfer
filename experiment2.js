@@ -212,7 +212,7 @@ var Experiment = {
       var getObjects = function(){
 
         function storObjHandler(stoObj){
-          stoObj.names = drawSampleNames(6)
+          stoObj.names = drawSampleNames(stoObj.relations.length*2)
           stoObj.correctNamesInStatements = [];
           stoObj.nNamesPerStatement = [];
           var replKeys = ['\#1','\#2','\#3','\#4','\#5'];
@@ -285,7 +285,6 @@ var Experiment = {
               obj.title = 'trick';
               obj.condition = 'trick';
             };
-            console.log(diffPattern[i])
             obj.relDifficulty = diffPattern[i];
             storyTimeline.push(obj)
           };
@@ -302,15 +301,30 @@ var Experiment = {
       var items = getObjects();
 
       if(jsPsych.data.urlVariables()['isDev']=='True'){
-        var items = items.slice(3,17)
+        var items = items.slice(11,17)
       }
-
 
 
       var b = {
         type : 'hebb',
         timeline : items,
-        timing_post_trial: 0
+        timing_post_trial: 0,
+        on_finish : function(){
+          data = jsPsych.data.getLastTrialData()
+          if(data.title=='trick'){
+            console.log(data)
+            var cors = [
+              data.stat0_relation==data.stat0_rel_sol,
+              data.stat0_name1==data.stat0_name1_sol,
+              data.stat0_name2==data.stat0_name2_sol
+            ]
+            if (cors.some(function(i){return i==false})){
+              html = Experiment.utils.wrap('You did not pay attention.')
+              $('body').html(html);
+              throw new Error('Experiment aborted due to lack of attention.');
+            }
+          }
+        }
       };
       return b
     },
@@ -491,10 +505,10 @@ var Experiment = {
     },
     init : function(){
       var timeline = [];
-      timeline.push(this.worker_id_block());
-      timeline.push(this.enter_fullscreen_block());
-      timeline.push(this.consent_block());
-      timeline.push(this.instructions_block());
+      // timeline.push(this.worker_id_block());
+      // timeline.push(this.enter_fullscreen_block());
+      // timeline.push(this.consent_block());
+      // timeline.push(this.instructions_block());
       timeline.push(this.hebb_block());
       timeline.push(this.exit_fullscreen_block());
       timeline.push(this.survey_block());
