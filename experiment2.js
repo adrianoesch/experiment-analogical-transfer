@@ -310,8 +310,7 @@ var Experiment = {
       var b = {
         type : 'hebb',
         timeline : items,
-        timing_post_trial: 0,
-        timeReading : 300
+        timing_post_trial: 0
       };
       return b
     },
@@ -492,14 +491,14 @@ var Experiment = {
     },
     init : function(){
       var timeline = [];
-      // timeline.push(this.worker_id_block());
-      // timeline.push(this.enter_fullscreen_block());
-      // timeline.push(this.consent_block());
-      // timeline.push(this.instructions_block());
+      timeline.push(this.worker_id_block());
+      timeline.push(this.enter_fullscreen_block());
+      timeline.push(this.consent_block());
+      timeline.push(this.instructions_block());
       timeline.push(this.hebb_block());
       timeline.push(this.exit_fullscreen_block());
       timeline.push(this.survey_block());
-      timeline.push(this.rei_block());
+      // timeline.push(this.rei_block());
       timeline.push(this.demographics_block());
       timeline.push(this.confirmation_block());
       return timeline;
