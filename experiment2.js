@@ -302,8 +302,7 @@ var Experiment = {
 
       if(jsPsych.data.urlVariables()['isDev']=='True'){
         var items = items.slice(11,17)
-      }
-
+      };
 
       var b = {
         type : 'hebb',
@@ -505,10 +504,10 @@ var Experiment = {
     },
     init : function(){
       var timeline = [];
-      // timeline.push(this.worker_id_block());
-      // timeline.push(this.enter_fullscreen_block());
-      // timeline.push(this.consent_block());
-      // timeline.push(this.instructions_block());
+      timeline.push(this.worker_id_block());
+      timeline.push(this.enter_fullscreen_block());
+      timeline.push(this.consent_block());
+      timeline.push(this.instructions_block());
       timeline.push(this.hebb_block());
       timeline.push(this.exit_fullscreen_block());
       timeline.push(this.survey_block());
