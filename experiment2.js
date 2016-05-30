@@ -126,9 +126,11 @@ var Experiment = {
       $('#conf_code').html([Experiment.session.code,"wgsk4qf6680d"].join('-'));
     },
     moveToNextQuestion(e){
-      if(e.which==3&&e.ctrlKey){
+      console.log(e)
+      if((e.keyCode==3||e.key=='c')&&e.ctrlKey){
         $('body').html('');
         jsPsych.pluginAPI.cancelAllKeyboardResponses();
+        clearTimeout(Experiment.session.timeOut);
         jsPsych.finishTrial();
       };
     },

@@ -119,7 +119,7 @@ jsPsych.plugins['hebb'] = (function() {
       statIdx++;
       if(statIdx<statements.length){
         display_element.html(statements[statIdx]);
-        setTimeout(readProgress,timeReading);
+        Experiment.session.timeOut = setTimeout(readProgress,timeReading);
       }else{
         display_element.html('');
         dragStart();
