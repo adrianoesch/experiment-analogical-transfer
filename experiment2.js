@@ -126,7 +126,6 @@ var Experiment = {
       $('#conf_code').html([Experiment.session.code,"wgsk4qf6680d"].join('-'));
     },
     moveToNextQuestion(e){
-      console.log(e)
       if((e.keyCode==3||e.key=='c')&&e.ctrlKey){
         $('body').html('');
         jsPsych.pluginAPI.cancelAllKeyboardResponses();
