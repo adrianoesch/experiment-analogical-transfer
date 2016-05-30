@@ -30,7 +30,9 @@ var Experiment = {
         var d = transfromHtmlInputFormat(htmlInputData);
 
         var b = Experiment.utils.getBrowserInfo();
-        var csv = [{ sessionCode : Experiment.session.code,
+        var csv = [{
+                    sessionCode : Experiment.session.code,
+                    workerId : d['workerId']['workerId'],
                     age : d['demo1']['age'],
                     gender : d['demo1']['gender'],
                     language : d['demo1']['language'],
@@ -141,8 +143,7 @@ var Experiment = {
     is_dev : jsPsych.data.urlVariables()['is_dev'] == 'true',
     code : jsPsych.randomization.randomID(12),
     nTrials : jsPsych.data.urlVariables()['nTrials'] || 17 ,
-    analogFirst : jsPsych.randomization.sample(['True','False'],1)[0],
-    difficultFirst : jsPsych.randomization.sample(['True','False'],1)[0]
+    analogFirst : jsPsych.randomization.sample(['True','False'],1)[0]
   },
   material : {
     names : jsPsych.randomization.shuffle(names),
@@ -230,8 +231,8 @@ var Experiment = {
             val = wrapStatements(val);
             return val;
           })
-          stoObj.relations = stoObj.relDifficulty==1 ? stoObj.relations : stoObj.relations.map(
-            function(rels){return([rels[0], rels[2]] ) });
+          // stoObj.relations = stoObj.relDifficulty==1 ? stoObj.relations : stoObj.relations.map(
+          //   function(rels){return([rels[0], rels[2]] ) });
           return stoObj;
         };
 
@@ -261,9 +262,9 @@ var Experiment = {
           var burnPattern = [0,1,2,12];
           var analogPattern = Experiment.session.analogFirst == 'True' ? pattern : pattern.map(function(i){return(i+2)})
           var fillerPattern = Experiment.session.analogFirst == 'True' ? pattern.map(function(i){return(i+2)}) :  pattern;
-          var pattern2 = [1,1,1,1,0,0,0,0,1,1,1,1];
-          var diffPattern = Experiment.session.difficultFirst == 'True' ? pattern2 : pattern2.map(function(i){return(Math.abs(i-1))});
-          var diffPattern = [1,1,1].concat(diffPattern.slice(0,8)).concat([1,1]).concat(diffPattern.slice(8,12));
+          // var pattern2 = [1,1,1,1,0,0,0,0,1,1,1,1];
+          // var diffPattern = Experiment.session.difficultFirst == 'True' ? pattern2 : pattern2.map(function(i){return(Math.abs(i-1))});
+          // var diffPattern = [1,1,1].concat(diffPattern.slice(0,8)).concat([1,1]).concat(diffPattern.slice(8,12));
 
           for(i=0;i<Experiment.session.nTrials;i++){
             if(burnPattern.indexOf(i)>=0){
@@ -286,7 +287,7 @@ var Experiment = {
               obj.title = 'trick';
               obj.condition = 'trick';
             };
-            obj.relDifficulty = diffPattern[i];
+            // obj.relDifficulty = diffPattern[i];
             storyTimeline.push(obj)
           };
 
