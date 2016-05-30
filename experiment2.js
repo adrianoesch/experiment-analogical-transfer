@@ -251,7 +251,7 @@ var Experiment = {
 
           var analoguesTitle = jsPsych.randomization.shuffle(Object.keys(Experiment.material.texts.analogues));
           var fillersTitle = jsPsych.randomization.shuffle(Object.keys(Experiment.material.texts.fillers));
-          var burnsTitle = Object.keys(Experiment.material.texts.burns);
+          var burnsTitle = jsPsych.randomization.shuffle(Object.keys(Experiment.material.texts.burns));
 
           var burnIdx = 0;
           var fillerIdx = 0;
