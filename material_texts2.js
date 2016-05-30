@@ -135,7 +135,7 @@ var texts = {
     "storm" : {
       "statements" : [
         "Storm #1 hits tree #2.",
-        "Tree #2 falls over trail of route #3.",
+        "Tree #2 falls on trail of route #3.",
         "Route #3 is blocked."
       ],
       "relations" : [
@@ -144,9 +144,9 @@ var texts = {
           "blows off",
           "runs over"
         ],[
-          "falls over",
+          "falls on",
           "drops on",
-          "trows over"
+          "is thrown on"
         ],[
           "is blocked",
           "is jammed",
@@ -201,21 +201,21 @@ var texts = {
     "pump" : {
       "statements" : [
         "Plumber #1 installs pump #2.",
-        "Pump #2 sucks water from level #3.",
-        "Level #3 dehydrates."
+        "Pump #2 sucks water from ground #3.",
+        "Ground #3 dries up."
       ],
       "relations" : [
         [
           "installs",
-          "fixes",
-          "builds"
+          "builds",
+          "fixes"
         ],[
           "sucks sth. from",
           "transports sth. from",
           "elevates sth. from"
         ],[
-          "dehydrates",
           "dries up",
+          "dehydrates",
           "soakes up"
         ]
       ]
@@ -242,11 +242,11 @@ var texts = {
         ]
       ]
     },
-    "neighbour" : {
+    "neighbor" : {
       "statements" : [
         "Man #1 takes care of cat #2.",
-        "Cat #2 moves over to the garden of neighbour #3",
-        "Neighbour #3 gets angry."
+        "Cat #2 walks over the flowers of neighbor #3",
+        "Neighbor #3 gets angry."
       ],
       "relations" : [
         [
@@ -254,13 +254,13 @@ var texts = {
           "looks after",
           "is feeding"
         ],[
-          "moves over to",
-          "goes over to",
+          "walks over sth. of",
+          "goes over sth. of",
           "strays over to"
         ],[
           "gets angry",
           "becomes furious",
-          "gets furious"
+          "gets aroused"
         ]
       ]
     }
