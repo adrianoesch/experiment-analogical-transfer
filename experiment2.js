@@ -320,7 +320,7 @@ var Experiment = {
               data.stat0_name2==data.stat0_name2_sol
             ]
             if (cors.some(function(i){return i==false})){
-              html = Experiment.utils.wrap('You did not pay attention.')
+              html = Experiment.utils.wrap(Experiment.material.instructions.abortAttention,100)
               $('body').html(html);
               throw new Error('Experiment aborted due to lack of attention.');
             }

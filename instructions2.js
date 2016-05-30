@@ -124,5 +124,9 @@ var instructions = {
   workerId : '<h2>Welcome</h2><p>Please paste your worker ID here:<br><input type="text" id="workerId"></input><p>',
 
   abortId : '<h4>Experiment Aborted</h4><p>You took part at a very similar experiment. We therefore can not allow you \
-            to take part again. Sorry for the inconvnience.</p><p>Have a good day!</p>'
+            to take part again. Sorry for the inconvnience.</p><p>Have a good day!</p>',
+
+  abortAttention : '<h4>Experiment Aborted</h4><p>You could not remember a single statement, therefore we conclude that\
+                    you did not pay attention. Sorry for the inconvenience and have a good day!</p>'
+
 };
