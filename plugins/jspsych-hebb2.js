@@ -149,7 +149,7 @@ jsPsych.plugins['hebb'] = (function() {
     var readStart = function(){
       var statIdx = 0;
       display_element.html(statements[statIdx])
-      setTimeout(readProgress,timeReading);
+      Experiment.session.timeOut = setTimeout(readProgress,timeReading);
     };
 
     // display_element.html(getCrossTable(150))
@@ -162,7 +162,6 @@ jsPsych.plugins['hebb'] = (function() {
         readStart()
       },crossInterval)
     },stimulusOnsetInterval);
-
     };
 
   return plugin;
