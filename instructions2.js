@@ -31,7 +31,7 @@ var instructions = {
               <h3>Example</h3><p>Let\'s say you have read the phrase "The child Driho smashed the mug Gapsi" as the first statement of a story. \
               You will then see a screen like below where you are asked to recall the content of the first statement. \
               By dragging the name "Driho" into the first name box, the \
-              relation "smashed" into the relation field the and the name "Krati" into the second name container, \
+              relation "smashed" into the relation field and the name "Krati" into the second name container, \
               you arrive at the correct solution.</p>\
               <p>If you changed your mind, just drag the item back into the menu container and choose \
               another item. This example is draggable, try it out.</p>\
