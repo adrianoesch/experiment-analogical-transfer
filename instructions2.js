@@ -11,7 +11,8 @@ var instructions = {
               and recall the content after each story. The experiment will \
               take about 10 to 15 minutes. The data will be recorded anonymously. Your participation \
               is of course voluntary, and you can quit the experiment at any time without giving any \
-              reasons. However, you will receive payment only if you complete the experiment.</p>\
+              reasons. However, you will receive payment only if you complete the experiment and pay \
+              attention to the task.</p>\
               <p>By pressing the right arrow key you agree to those terms and continue the experiment.</p>',
 
   task :      '<h2>Instructions</h2><p>Thank you very much for taking part in our experiment!</p>\

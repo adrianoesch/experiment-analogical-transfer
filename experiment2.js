@@ -55,9 +55,9 @@ var Experiment = {
         return csvString
       };
 
-      var csvStrings = [jsPsych.data.dataOfTypeAsCSV('hebb'),jsPsych.data.dataOfTypeAsCSV('survey-likert'), createDemographicsCsvString()];
+      var csvStrings = [jsPsych.data.dataOfTypeAsCSV('hebb'), createDemographicsCsvString()];
       var jsonStrings = [jsPsych.data.dataAsJSON()];
-      var folderStr = jsPsych.data.getURLVariable('f') || 'experiment_1604';
+      var folderStr = jsPsych.data.urlVariables()['f'] || 'experiment_1605';
       $.ajax({
         type: 'post',
         cache: false,
