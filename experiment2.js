@@ -269,17 +269,17 @@ var Experiment = {
           for(i=0;i<Experiment.session.nTrials;i++){
             if(burnPattern.indexOf(i)>=0){
               obj = Experiment.material.texts.burns[burnsTitle[burnIdx]];
-              obj.condition = 'burn';
+              obj.condition = 'burns';
               obj.title = burnsTitle[burnIdx];
               burnIdx++;
             }else if (analogPattern.indexOf(i)>=0){
               obj = Experiment.material.texts.analogues[analoguesTitle[analogIdx]];
-              obj.condition = 'analogue';
+              obj.condition = 'analogues';
               obj.title = analoguesTitle[analogIdx];
               analogIdx++;
             }else if (fillerPattern.indexOf(i)>=0){
               obj = Experiment.material.texts.fillers[fillersTitle[fillerIdx]];
-              obj.condition = 'filler';
+              obj.condition = 'fillers';
               obj.title = fillersTitle[fillerIdx];
               fillerIdx++;
             }else if (i == 11){
@@ -484,7 +484,7 @@ var Experiment = {
         data : { questionName: 'workerId' },
         on_finish : function(){
           workerId = jsPsych.data.getLastTrialData()['workerId']
-          dones = ["02rglerjcqzf", "09ps1f5lzncb", "0c5n478hs0a4", "0qte3tb2bmx0", "0quh3ya42fbo", "0rbz3087c78n", "0wwbq479u33r", "2cmwyuhgpdyl", "2tj1f44asl3k", "317c2202rgwl", "3d8369529mc9", "3s7mbj6o9hpl", "3wen4q2je7lr", "4g0h1m1nmvoq", "4ooppl6176ym", "4rf4j3c300qq", "58elrqfxuwef", "5hobvz8s4tnx", "5lgdkqeokbgt", "69yapaukgnf0", "6acwkfhq24yn", "6j2uxnmcnm1j", "6x4zwgahdwkj", "7bhyg1q65hfn", "7keggcg1dvlb", "7kp77wnnuqn9", "81kwlhs3m9ly", "8efkk2n4v4rq", "8jd6e3vdogb3", "8l2d0su1c8tg", "90n0c4noyqmq", "932j2nbsygpa", "9aptdlvayywj", "9qndugofwo7x", "9y0flpgan7gn", "9zrwaudenlfo", "a2599xgv8m1h", "a5nw8gmq97yg", "aesrm5fvrmdk", "ak3nylp3d81y", "ao297gks1g17", "b68gvrakrjbg", "bf4q10lx1p9b", "bvxhxsr8l6e4", "d4fnrau4o44c", "dn2vc1xbupw3", "eo5thyhhn4kj", "ez6yeqj2oe9o", "f9ou9bt4pvm7", "fatqcszdycbe", "fqz1fklkrsrz", "fyznrdexybp9", "gc7wbs06sd24", "gdh36dogvbof", "gto6lwt07e6v", "hdpy3r5xegau", "hhaa1bazs78h", "jcncsatdp68d", "jpazojfh4se9", "kcmnlhlb5y85", "kw8dgwbcntmp", "kwoe0883aoqv", "lj8m3pyz6vj1", "mo5dh82en44q", "nfgm555dkbw8", "nhdpm3k48y40", "nn2u37yntpnk", "nw3keb6wkuzb", "nx7t2gkw754o", "o656cy8zkbom", "o8rbryw09tf4", "o93feeteyps5", "ofpd0ubfbvfy", "oggcnc6f6aml", "ozz7yp7ewgsc", "p0zqex7ucqus", "qcbf1831257e", "qovd30eq3fqf", "qsoztz6u21a3", "s63u5y835lxq", "s8b80bvuzyxf", "sag3wsl4jhu9", "szyljk52m71h", "t91gvw4gdosn", "tdr1krq0lm0v", "txqgxjxhd750", "tzgf0c63p4z3", "u02zvnnb5x92", "u05c805c1pdo", "unu3x8yw2fhb", "uph09tj35r9r", "vm91ysgrd755", "vy51gapm81bh", "wfpny7w1q1pm", "wl5f94tgfatt", "wodj40vqd0k9", "wxbx1f2s2bz9", "x6840bpd7udk", "xawzy5rq02cp", "xdskuzgb4hsb", "xhoqdzwa2vlg", "xzk9g7fbowq8", "y1f6f9yxyll9", "y43elv3xejju", "ybxqgyn7qdj5", "yhdxh6zzuby2", "yhj3tb410haw", "yvmuaj29lwuu", "z0khmlpzu0k8", "z3ufkp158wkl", "zcjxevmlyllt", "zksmlcrayrlt", "zq0qgjv8c704"];
+          dones = ["12009597", "14392456", "37503896", "36877530", "21088425", "36876389", "36876797", "35921003", "25185311","33402064", "36761089", "33984573", "31085823", "9383666", "33110177", "34737109", "15448937", "2034278", "37101250", "11102360", "NA", "35921003", "33980820", "21088425", "11998178", "NA", "36350388", "NA", "1890003", "33996915", "12009597", "37315879", "36876389", "24170547", "36858304", "28301350", "30513549", "9559045", "33519460", "NA", "34737109", "9383666", "9383666", "NA", "20512953", "21017840", "37161088", "24329110", "36807032", "37161088", "18785646", "36875955", "33110177", "6579519", "25501853", "2034278", "30898464", "NA", "25501853", "31424895", "20043657", "16762164", "36624282", "33345368", "18132201", "1854070", "36620182", "33720713", "21088425", "21088425", "31956791", "NA", "36877530", "15445601", "3682947", "36917158", "36850816", "34016083", "6579519", "1854545", "1853182", "1854070", "34694174", "36939273", "NA", "31329809", "36939273", "33984573", "36871506", "36747744", "33110177", "35059719", "14392456", "37547023", "NA", "18386513", "36726729", "12009597", "NA", "13277529", "37262070", "37258901", "2034278", "36620711", "2034278", "37078496", "NA", "31834299", "36876797", "35603542", "12115558", "3663077", "36874997", "36620182", "33816546", "34066313", "21088425", "36875532", "NA", "6556053", "33816546", "36657816", "30321275", "35920592", "25185311", "37503896", "36624282", "35701460", "37144319", "14560516", "34525204" ];
           if(dones.indexOf(workerId) > -1){
             var abortMessage = Experiment.utils.wrap(Experiment.material.instructions.abortId,100);
             $('body').html(abortMessage);

@@ -24,15 +24,15 @@ var texts = {
     },
     "crusader" : {
       "statements" : [
-        "Crusader group #1 bought weapon #2.",
+        "Crusader group #1 buys weapon #2.",
         "Weapon #2 breaches the fortification of town #3.",
         "Town #3 is invaded."
       ],
       "relations":[
         [
-          "bought",
-          "acquired",
-          "caught"
+          "buys",
+          "acquires",
+          "catches"
         ],[
           "breaches sth. of",
           "breaks sth. of",
@@ -46,15 +46,15 @@ var texts = {
     },
     "hacker" : {
       "statements" : [
-        "Hacker #1 wrote computer code #2.",
+        "Hacker #1 writes computer code #2.",
         "Code #2 cracks the firewall of company #3.",
         "Company #3 suffers a data loss."
       ],
       "relations":[
         [
-          "wrote",
-          "invented",
-          "thought of"
+          "writes",
+          "invents",
+          "thinks of"
         ],[
           "cracks sth. of",
           "penetrates sth. of",
@@ -156,15 +156,15 @@ var texts = {
     },
     "farm" : {
       "statements" : [
-        "Farmer #1 bought machine #2.",
+        "Farmer #1 purchases machine #2.",
         "Machine #2 can collect fruit of plant #3.",
         "Plant #3 are harvested automatically."
       ],
       "relations" : [
         [
-          "bought",
-          "purchased",
-          "borrowed"
+          "purchases",
+          "buys",
+          "borrows"
         ],[
           "can collect",
           "garners",
@@ -290,13 +290,13 @@ var texts = {
     },
     "school" : {
       "statements" : [
-        "School girl #1 hits boy #2.",
+        "School girl #1 beats boy #2.",
         "Boy #2 reports to teacher #3.",
         "Teacher #3 calls parents."
       ],
       "relations":[
         [
-          "hits",
+          "beats",
           "punches",
           "touches"
         ],[
