@@ -23,6 +23,7 @@ jsPsych.plugins['hebb'] = (function() {
       similar : trial.similar,
       diff : trial.diff,
       names : trial.names.join(','),
+      condition : trial.condition
     };
     var kbResps = [];
     var nDrags = 0;

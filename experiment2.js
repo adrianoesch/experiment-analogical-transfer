@@ -280,7 +280,7 @@ var Experiment = {
             }else if (fillerPattern.indexOf(i)>=0){
               obj = Experiment.material.texts.fillers[fillersTitle[fillerIdx]];
               obj.condition = 'filler';
-              obj.title = fillersTitle[analogIdx];
+              obj.title = fillersTitle[fillerIdx];
               fillerIdx++;
             }else if (i == 11){
               obj = Experiment.material.texts.trick;
@@ -311,20 +311,19 @@ var Experiment = {
         timeline : items,
         timing_post_trial: 0,
         on_finish : function(){
-          data = jsPsych.data.getLastTrialData()
+          data = jsPsych.data.getLastTrialData();
           if(data.title=='trick'){
-            console.log(data)
             var cors = [
               data.stat0_relation==data.stat0_rel_sol,
               data.stat0_name1==data.stat0_name1_sol,
               data.stat0_name2==data.stat0_name2_sol
-            ]
+            ];
             if (cors.some(function(i){return i==false})){
-              html = Experiment.utils.wrap(Experiment.material.instructions.abortAttention,100)
+              html = Experiment.utils.wrap(Experiment.material.instructions.abortAttention,100);
               $('body').html(html);
               throw new Error('Experiment aborted due to lack of attention.');
             }
-          }
+          };
         }
       };
       return b
