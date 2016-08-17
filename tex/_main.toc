@@ -1,0 +1,40 @@
+\select@language {english}
+\contentsline {section}{Introduction}{5}
+\contentsline {subsection}{Analogy: What is it good for?}{5}
+\contentsline {subsection}{Analogical Transfer and Problem Solving}{7}
+\contentsline {subsection}{Unintentional Analogical Processes}{8}
+\contentsline {subsection}{Structural Similarity and Analogical Access}{10}
+\contentsline {subsection}{Hebb Repetition Paradigm}{11}
+\contentsline {section}{Experiment 1}{13}
+\contentsline {subsection}{Methods}{13}
+\contentsline {subsubsection}{Task}{13}
+\contentsline {subsubsection}{Participants}{14}
+\contentsline {subsubsection}{Material}{15}
+\contentsline {subsubsection}{Procedure}{17}
+\contentsline {subsection}{Results and Discussion}{18}
+\contentsline {subsubsection}{Material Assessment}{18}
+\contentsline {subsubsection}{General Task Performance}{18}
+\contentsline {subsubsection}{Confounding Effects}{19}
+\contentsline {subsubsection}{Main Effect}{21}
+\contentsline {subsubsection}{Reading Time}{25}
+\contentsline {subsubsection}{Follow-Up}{27}
+\contentsline {subsection}{Conclusion}{28}
+\contentsline {section}{Experiment 2}{29}
+\contentsline {subsection}{Methods}{29}
+\contentsline {subsubsection}{Task}{29}
+\contentsline {subsubsection}{Participants}{29}
+\contentsline {subsubsection}{Material}{29}
+\contentsline {subsubsection}{Procedure}{30}
+\contentsline {subsection}{Results and Discussion}{30}
+\contentsline {subsubsection}{Material Assessment}{30}
+\contentsline {subsubsection}{General Task Performance}{30}
+\contentsline {subsubsection}{Confounding Effects}{31}
+\contentsline {subsubsection}{Main Effects}{33}
+\contentsline {subsubsection}{Follow-Up}{35}
+\contentsline {subsubsection}{Conclusion}{36}
+\contentsline {section}{General Discussion and Future Directions}{37}
+\contentsline {subsection}{Material}{37}
+\contentsline {subsection}{Processing Depth}{37}
+\contentsline {subsection}{Task difficulty}{38}
+\contentsline {section}{Summary}{40}
+\contentsline {section}{References}{41}

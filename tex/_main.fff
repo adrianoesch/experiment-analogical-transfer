@@ -1,0 +1,12 @@
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+[!ht]
+\begin{center}
+%\includegraphics{fig275.pdf}
+\fitfigure{figures/example_response_menu.png}
+\caption{Example of a response display for the statement "Mining company Ahow has a lot of resource Pishi."}
+\label{fig:example_response_menu}
+\end{center}
+\end{figure*}
+\efloatseparator
+ 

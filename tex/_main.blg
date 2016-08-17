@@ -1,0 +1,61 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: _main.aux
+The style file: apacite.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: _main.bib
+Warning--I didn't find a database entry for "Cacioppo1982"
+apacite.bst [2013/07/21 v6.03 APA bibliography style]
+Warning--No journal in Baayen2008
+Warning--No journal in Clement1991
+Warning--No journal in Johnson1992
+You've used 40 entries,
+            6951 wiz_defined-function locations,
+            1588 strings with 18592 characters,
+and the built_in function-call counts, 78881 in all, are:
+= -- 9771
+> -- 609
+< -- 3904
++ -- 4066
+- -- 80
+* -- 5247
+:= -- 14677
+add.period$ -- 165
+call.type$ -- 40
+change.case$ -- 682
+chr.to.int$ -- 0
+cite$ -- 83
+duplicate$ -- 2067
+empty$ -- 2993
+format.name$ -- 1002
+if$ -- 14806
+int.to.chr$ -- 0
+int.to.str$ -- 120
+missing$ -- 0
+newline$ -- 1051
+num.names$ -- 322
+pop$ -- 1164
+preamble$ -- 1
+purify$ -- 160
+quote$ -- 0
+skip$ -- 5028
+stack$ -- 0
+substring$ -- 4454
+swap$ -- 1248
+text.length$ -- 95
+text.prefix$ -- 0
+top$ -- 1
+type$ -- 3392
+warning$ -- 3
+while$ -- 361
+width$ -- 0
+write$ -- 1289
+(There were 4 warnings)
