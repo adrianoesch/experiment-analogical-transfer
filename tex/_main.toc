@@ -15,7 +15,7 @@
 \contentsline {subsubsection}{Material Assessment}{18}
 \contentsline {subsubsection}{General Task Performance}{18}
 \contentsline {subsubsection}{Confounding Effects}{19}
-\contentsline {subsubsection}{Main Effect}{21}
+\contentsline {subsubsection}{Main Effect}{22}
 \contentsline {subsubsection}{Reading Time}{25}
 \contentsline {subsubsection}{Follow-Up}{27}
 \contentsline {subsection}{Conclusion}{28}
@@ -30,11 +30,20 @@
 \contentsline {subsubsection}{General Task Performance}{30}
 \contentsline {subsubsection}{Confounding Effects}{31}
 \contentsline {subsubsection}{Main Effects}{33}
-\contentsline {subsubsection}{Follow-Up}{35}
+\contentsline {subsubsection}{Follow-Up}{36}
 \contentsline {subsubsection}{Conclusion}{36}
-\contentsline {section}{General Discussion and Future Directions}{37}
-\contentsline {subsection}{Material}{37}
-\contentsline {subsection}{Processing Depth}{37}
-\contentsline {subsection}{Task difficulty}{38}
-\contentsline {section}{Summary}{40}
-\contentsline {section}{References}{41}
+\contentsline {section}{General Discussion and Future Directions}{38}
+\contentsline {subsection}{Material}{38}
+\contentsline {subsection}{Processing Depth}{38}
+\contentsline {subsection}{Task difficulty}{40}
+\contentsline {section}{Summary}{41}
+\contentsline {section}{References}{42}
+\contentsline {section}{Appendix}{46}
+\contentsline {subsection}{Material Experiment 1}{46}
+\contentsline {subsubsection}{Instructions on CrowdFlower}{46}
+\contentsline {subsubsection}{Follow-Up Questions}{46}
+\contentsline {subsubsection}{Stories with Relation Response Options}{46}
+\contentsline {subsubsection}{Names}{48}
+\contentsline {subsection}{Material Experiment 2}{48}
+\contentsline {subsubsection}{Instructions on CrowdFlower}{48}
+\contentsline {subsubsection}{Stories with Relation Response Options}{49}

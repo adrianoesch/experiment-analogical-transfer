@@ -25,9 +25,36 @@ Baayen, R\BPBI H.%
   random effects for subjects and items}} {{Memory and Language Mixed-effects
   modeling with crossed random effects for subjects and items}}.{\BBCQ}
 \newblock
-\APACjournalVolNumPages{}{59}{}{390--412}.
+\APACjournalVolNumPages{}{59}{4}{390--412}.
 \newblock
 \begin{APACrefDOI} \doi{10.1016/j.jml.2007.12.005} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Cacioppo%
+\ \BBA {} Petty%
+}{%
+Cacioppo%
+\ \BBA {} Petty%
+}{%
+{\protect \APACyear {1982}}%
+}]{%
+Cacioppo1982}
+\APACinsertmetastar {%
+Cacioppo1982}%
+\begin{APACrefauthors}%
+Cacioppo, J\BPBI T.%
+\BCBT {}\ \BBA {} Petty, R\BPBI E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1982}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{The Need of Cognition}} {{The Need of
+  Cognition}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of Personality and Social
+  Psychology}{42}{1}{116--131}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -153,8 +180,10 @@ Chalmers, D\BPBI J.%
 
 \bibitem [\protect \citeauthoryear {%
 Clement%
+\ \BBA {} Gentner%
 }{%
 Clement%
+\ \BBA {} Gentner%
 }{%
 {\protect \APACyear {1991}}%
 }]{%
@@ -163,6 +192,7 @@ Clement1991}
 Clement1991}%
 \begin{APACrefauthors}%
 Clement, A.%
+\BCBT {}\ \BBA {} Gentner, D.%
 \end{APACrefauthors}%
 \unskip\
 \newblock
@@ -172,7 +202,7 @@ Clement, A.%
   Mapping}} {{Systematicity as a Selection Constraint in Analogical
   Mapping}}.{\BBCQ}
 \newblock
-\APACjournalVolNumPages{}{132}{}{89--132}.
+\APACjournalVolNumPages{Cognitive Science}{15}{1}{89--132}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -248,9 +278,6 @@ de Leeuw, J\BPBI R.%
   behavioral experiments in a Web browser}}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{Behavior Research Methods}{47}{}{1--12}.
-\newblock
-\begin{APACrefURL} \url{http://www.ncbi.nlm.nih.gov/pubmed/24683129}
-  \end{APACrefURL}
 \newblock
 \begin{APACrefDOI} \doi{10.3758/s13428-014-0458-y} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
@@ -336,7 +363,7 @@ Epstein, S.%
   intuitive–experiential and analytical–rational thinking styles.}}{\BBCQ}
 \newblock
 \APACjournalVolNumPages{Journal of Personality and Social
-  Psychology}{71}{AUGUST 1996}{390--405}.
+  Psychology}{71}{2}{390--405}.
 \newblock
 \begin{APACrefDOI} \doi{10.1037/0022-3514.71.2.390} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
@@ -416,11 +443,13 @@ Gentner, D.%
 \end{APACrefauthors}%
 \unskip\
 \newblock
-\APACrefYearMonthDay{1982}{}{}.
+\APACrefYear{1982}.
 \newblock
-{\BBOQ}\APACrefatitle {{Flowing Waters or Teeming Crowds: Mental Models of
+\APACrefbtitle {{Flowing Waters or Teeming Crowds: Mental Models of
   Electricity}} {{Flowing Waters or Teeming Crowds: Mental Models of
-  Electricity}}.{\BBCQ}.
+  Electricity}}.
+\newblock
+\APACaddressPublisher{Cambridge}{Bolt Beranek and Newman Inc}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -610,10 +639,12 @@ Hasher, L.%
 \newblock
 \APACrefYearMonthDay{1988}{}{}.
 \newblock
-\APACrefbtitle {{Working memory, comprehension, and aging: A review and a new
-  view BT - The psychology of learning and motivation}} {{Working memory,
-  comprehension, and aging: A review and a new view BT - The psychology of
-  learning and motivation}}\ (\BVOL~22).
+{\BBOQ}\APACrefatitle {{Working memory, comprehension, and aging: A review and
+  a new view}} {{Working memory, comprehension, and aging: A review and a new
+  view}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{The psychology of learning and
+  motivation}{22}{}{193--225}.
 \newblock
 \begin{APACrefDOI} \doi{10.1016/s0079-7421(08)60041-9} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
@@ -783,7 +814,7 @@ Johnson, H\BPBI M.%
   Analogical Cases}} {{The Role of Predictive Features in Retrieving Analogical
   Cases}}.{\BBCQ}
 \newblock
-\APACjournalVolNumPages{}{667}{}{648--667}.
+\APACjournalVolNumPages{Journal of Memory and Language}{31}{5}{648--667}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -867,8 +898,7 @@ Leech, R.%
   {{Analogy as relational priming: a developmental and computational
   perspective on the origins of a complex cognitive skill.}}{\BBCQ}
 \newblock
-\APACjournalVolNumPages{The Behavioral and brain sciences}{31}{4}{357--378;
-  discussion 378--414}.
+\APACjournalVolNumPages{The Behavioral and brain sciences}{31}{4}{357--378}.
 \newblock
 \begin{APACrefDOI} \doi{10.1017/S0140525X08004469} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}
@@ -951,10 +981,6 @@ MacDonald, S.%
   Invasion of Kuwait.}}{\BBCQ}
 \newblock
 \APACjournalVolNumPages{Diplomacy {\&} Statecraft}{13}{4}{29--59}.
-\newblock
-\begin{APACrefURL}
-  \url{http://search.ebscohost.com/login.aspx?direct=true{\&}db=poh{\&}AN=10563901{\&}site=ehost-live}
-  \end{APACrefURL}
 \newblock
 \begin{APACrefDOI} \doi{10.1080/714000347} \end{APACrefDOI}
 \PrintBackRefs{\CurrentBib}

@@ -2,6 +2,7 @@ This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: _main.aux
 The style file: apacite.bst
+A level-1 auxiliary file: appendix.aux
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
@@ -12,50 +13,47 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: _main.bib
-Warning--I didn't find a database entry for "Cacioppo1982"
 apacite.bst [2013/07/21 v6.03 APA bibliography style]
 Warning--No journal in Baayen2008
-Warning--No journal in Clement1991
-Warning--No journal in Johnson1992
-You've used 40 entries,
+You've used 41 entries,
             6951 wiz_defined-function locations,
-            1588 strings with 18592 characters,
-and the built_in function-call counts, 78881 in all, are:
-= -- 9771
-> -- 609
-< -- 3904
-+ -- 4066
-- -- 80
-* -- 5247
-:= -- 14677
-add.period$ -- 165
-call.type$ -- 40
-change.case$ -- 682
+            1591 strings with 18527 characters,
+and the built_in function-call counts, 79865 in all, are:
+= -- 9874
+> -- 625
+< -- 3903
++ -- 4079
+- -- 82
+* -- 5307
+:= -- 14782
+add.period$ -- 169
+call.type$ -- 41
+change.case$ -- 699
 chr.to.int$ -- 0
 cite$ -- 83
-duplicate$ -- 2067
-empty$ -- 2993
-format.name$ -- 1002
-if$ -- 14806
+duplicate$ -- 2137
+empty$ -- 3072
+format.name$ -- 1036
+if$ -- 15037
 int.to.chr$ -- 0
-int.to.str$ -- 120
+int.to.str$ -- 123
 missing$ -- 0
-newline$ -- 1051
-num.names$ -- 322
-pop$ -- 1164
+newline$ -- 1079
+num.names$ -- 330
+pop$ -- 1145
 preamble$ -- 1
-purify$ -- 160
+purify$ -- 164
 quote$ -- 0
-skip$ -- 5028
+skip$ -- 5127
 stack$ -- 0
-substring$ -- 4454
-swap$ -- 1248
-text.length$ -- 95
+substring$ -- 4477
+swap$ -- 1293
+text.length$ -- 94
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 3392
-warning$ -- 3
-while$ -- 361
+type$ -- 3408
+warning$ -- 1
+while$ -- 369
 width$ -- 0
-write$ -- 1289
-(There were 4 warnings)
+write$ -- 1327
+(There was 1 warning)
