@@ -1,0 +1,46 @@
+\select@language {english}
+\contentsline {section}{Introduction}{5}
+\contentsline {subsection}{Analogy: What is it good for?}{5}
+\contentsline {subsection}{Analogical Transfer and Problem Solving}{7}
+\contentsline {subsection}{Unintentional Analogical Processes}{9}
+\contentsline {subsection}{Structural Similarity and Analogical Access}{11}
+\contentsline {subsection}{Hebb Repetition Paradigm}{12}
+\contentsline {section}{Experiment 1}{14}
+\contentsline {subsection}{Methods}{14}
+\contentsline {subsubsection}{Participants}{14}
+\contentsline {subsubsection}{Material}{15}
+\contentsline {subsubsection}{Procedure}{18}
+\contentsline {subsection}{Results and Discussion}{19}
+\contentsline {subsubsection}{Material Assessment}{20}
+\contentsline {subsubsection}{General Task Performance}{20}
+\contentsline {subsubsection}{Confounding Effects}{22}
+\contentsline {subsubsection}{Main Effect}{24}
+\contentsline {subsubsection}{Post-Experiment Questionnaire}{28}
+\contentsline {subsection}{Conclusion}{30}
+\contentsline {section}{Experiment 2}{31}
+\contentsline {subsection}{Methods}{31}
+\contentsline {subsubsection}{Participants}{31}
+\contentsline {subsubsection}{Material}{32}
+\contentsline {subsubsection}{Procedure}{32}
+\contentsline {subsection}{Results and Discussion}{32}
+\contentsline {subsubsection}{Material Assessment}{33}
+\contentsline {subsubsection}{General Task Performance}{33}
+\contentsline {subsubsection}{Confounding Effects}{34}
+\contentsline {subsubsection}{Main Effects}{36}
+\contentsline {subsubsection}{Post-Experiment Questionnaire}{38}
+\contentsline {subsection}{Conclusion}{39}
+\contentsline {section}{General Discussion}{41}
+\contentsline {subsection}{Limitations and Future Directions}{41}
+\contentsline {subsubsection}{Material}{41}
+\contentsline {subsubsection}{Processing Depth}{41}
+\contentsline {subsubsection}{Task difficulty}{43}
+\contentsline {section}{References}{44}
+\contentsline {section}{Appendix}{49}
+\contentsline {subsection}{Material Experiment 1}{49}
+\contentsline {subsubsection}{Instructions on CrowdFlower}{49}
+\contentsline {subsubsection}{Follow-Up Questions}{49}
+\contentsline {subsubsection}{Stories with Relation Response Options}{49}
+\contentsline {subsubsection}{Names}{51}
+\contentsline {subsection}{Material Experiment 2}{51}
+\contentsline {subsubsection}{Instructions on CrowdFlower}{51}
+\contentsline {subsubsection}{Stories with Relation Response Options}{52}

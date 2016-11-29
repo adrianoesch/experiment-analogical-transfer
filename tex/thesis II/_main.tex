@@ -179,7 +179,7 @@ All in all those observations lead to the conclusion, that the task didn't repro
 \subsubsection{Confounding Effects}
 Nonetheless we could reproduce a set of well known effects from cognition literature with this setup, which legitimizes the interpretation of our results to a certain extent.
 
-At first, we observed a general training effect as shown in figure \ref{fig:conf_stoidx}. A univariate logistic regression predicting recall success with the trial index is highly significant (\textit{e} = 0.043, \textit{z}(9518) = 7.321,  \textit{p} < 0.001). Although the trials 1 and 12 seem to deviate quite strongly from the general trend. It could be the case, that even though we presented participants with a pilot statement to give them the option the get accustomed to the response menu beforehand, participants didn't fully understand the task until after the first full trial. Further it should be noted that the trick story was inserted at the 11th trial position, but of course excluded from this analysis. Apparently the lack of coherence regarding story length confused participants remarkably and is observable in recall success.
+At first, we observed a general training effect as shown in figure \ref{fig:conf_stoidx}. A univariate logistic regression predicting recall success with the trial index is highly significant (\textit{e} = 0.043, \textit{z}(9518) = 7.321,  \textit{p} < 0.001). The trials 1 and 12 seem to deviate quite strongly from the general trend. It could be the case, that even though we presented participants with a pilot statement to give them the option to get accustomed to the response menu beforehand, participants didn't fully understand the task until they completed the first trial. Further it should be noted that the trick story was inserted as the 11th trial, but of course excluded from this analysis. Apparently the lack of coherence regarding story length confused participants remarkably and is observable in recall success.
 
 \begin{figure}
 \begin{minipage}[t]{.5\textwidth}
@@ -238,6 +238,8 @@ Model 1 is the simplest, only accounting for the single effects plus their inter
 To account for two anomalies in our data, we tested two additional models adding a free trial position parameter on each, the first parameter being "after trick". As we have seen in figure \ref{fig:conf_stoidx}, recall success remarkably declines after the insertion of the trick story in our trial sequence. To investigate the effect of this incoherence on our main interaction, we ran the logistic regression in model 5 with an extra free parameter for all trials after the trick story. Not surprisingly the log-likelihood of this model increases significantly, and the coefficient estimate for interaction is bigger then in the previous models.
 
 The other anomaly from inspecting the effect of trial index on recall accuracy (fig. \ref{fig:conf_stoidx}) was the big deviation at the first trial. To investigate if the statistical power of the interaction mainly results from this deviation, we embedded another free parameter for all first trials. Even though we can observe a decreased coefficient estimate in the interaction in model 6, it stays below the 5\%-significance level.
+
+%training effect in filler stories?
 
 \subsubsection{Reading Time}
 
@@ -428,6 +430,9 @@ Individual differences regarding processing depth have not been accounted for in
 
 \subsection{Task difficulty}
 As we have discussed already, we think that task difficulty moderates the effect of repeated story structure on recall success. The fact that more than one of the observed effects in experiment 1 are absent in experiment 2  speak for this hypothesis (interaction condition with trial index, first position, after trick position). To strengthen this argument a manipulation of the encoding time with for example 2, 4 and 8 seconds encoding time could collect further evidence in favor of this hypothesis. Also a manipulation of story length to vary task difficulty could be considered.
+
+% discuss reasons and meaning of no effect \subsection{No effect}
+
 
 \newpage
 \section{Summary}

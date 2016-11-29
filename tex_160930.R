@@ -34,7 +34,7 @@ s <- read.csv('data/s_160523.csv')
 
 x<-aggregate(value~sessionCode,tr,mean)
 rownames(x)<-as.character(x$sessionCode)
-rownmaes(s)<-s$sessionCode
+rownames(s)<-s$sessionCode
 s$overall_cor <- x$value[s$sessionCode]
 
 # general task performance ####
@@ -92,7 +92,7 @@ x <- aggregate(value~title,tr,mean)
 sds <- aggregate(value~title,tr,sd)[2]
 les <- aggregate(value~title,tr,length)[2]
 x$ses <- unlist(sds/sqrt(les))
-x$condition <- factor(conditionMap[x$title],ordered=T,levels=c('analog','filler'))
+x$condition <- factor(conditionMap[x$title],ordered=T,levels=c('analogical','filler'))
 
 ggplot(x,aes(y=value,x=title,shape=condition))+geom_point(size=3)+
   geom_smooth(method='lm',se=FALSE,colour='black')+
@@ -141,10 +141,14 @@ p+geom_line(data=arc,aes(x+1,0.85+y*0.01),lty=2)+
 savePlot('conf_respType.png')
 
 summary(xtabs(~value+responseType,tr))
+summary(xtabs(~value+responseType,tr[tr$variable2=='name',]))
 summary(glm(value~responseType,tr,family=binomial))
 
 summary(xtabs(~value+variable2,tr))
 summary(glm(value~variable2,tr,family=binomial))
+
+
+
 
 # condition
 x2 <- aggregate(value~condition,tr,mean)
@@ -240,6 +244,12 @@ mod4 <- glmer(value~stoIdxZ*conditionZ+variable2+statIdx+timeReadingLog+
               control = glmerControl(optimizer = c("bobyqa"),optCtrl = list(maxfun = 100000)))
 summary(mod4)
 
+mod4b <-  glmer(value~stoIdxZ*conditionZ+variable2+statIdx+timeReadingLog+hour+
+                  (1|sessionCode)+(1|uniqueStatement),
+                data=tr,family="binomial",
+                control = glmerControl(optimizer = c("bobyqa"),optCtrl = list(maxfun = 100000)))
+summary(mod4b)
+
 mod5 <- glmer(value~stoIdxZ*conditionZ+variable2+statIdx+timeReadingLog+
                 afterTrick+
                 (1|sessionCode)+(1|uniqueStatement),
@@ -283,7 +293,10 @@ lengths=aggregate(timeReadingLog~stoIdx2+condition,tr,length)$timeReadingLog
 x$ses <- unlist(sds/sqrt(lengths))
 ggplot(x,aes(x=stoIdx2,y=timeReadingLog,shape=condition,group=condition))+geom_point(size=3)+
   theme_bw()+geom_line()+geom_errorbar(aes(ymin=timeReadingLog-ses,ymax=timeReadingLog+ses))+
-  labs(y='Log Time Reading',x='Trial Index',shape='Condition')
+  labs(y='Log Time Reading',x='Trial Index',shape='Condition')+
+  theme(legend.position=c(.8,0.8),
+        legend.background=element_rect(colour=1,size=.2))
+  
 savePlot('read.png')
 
 read.mod = lmer(timeReadingLog~stoIdxZ*conditionZ+
@@ -361,13 +374,14 @@ s2 <- read.csv('data/s_160812.csv')
 rownames(s2) <- s2$sessionCode
 
 tr2b <- tr2
-tr2 <- tr2[tr$condition!='burns',]
+tr2 <- tr2[tr2$condition!='burns',]
 t2b <- t2
-t2 <- t2[t$condition!='burns',]
+t2 <- t2[t2$condition!='burns',]
 
 x <- aggregate(value~sessionCode,tr2,mean)
 rownames(x) <- x$sessionCode
 s2$overall_cor <- x$value[s2$sessionCode]
+
 
 # age distribution
 ggplot(s2,aes(age))+geom_histogram(binwidth=10)+
@@ -394,7 +408,7 @@ x <- aggregate(value~title,tr2b,mean)
 sds <- aggregate(value~title,tr2b,sd)[2]
 les <- aggregate(value~title,tr2b,length)[2]
 x$ses <- unlist(sds/sqrt(les))
-x$condition <- factor(conditionMap2[as.character(x$title)],ordered=T,levels=c('analog','filler','burn'))
+x$condition <- factor(conditionMap2[as.character(x$title)],ordered=T,levels=c('analogical','filler','burn'))
 x$title<-factor(x$title,ordered=T,levels=x$title[order(x$condition)])
 
 ggplot(x,aes(y=value,x=title,shape=condition))+geom_point(size=3)+
@@ -402,11 +416,33 @@ ggplot(x,aes(y=value,x=title,shape=condition))+geom_point(size=3)+
   theme_bw()+theme(axis.text.x=element_text(angle=45,hjust=1))+
   geom_errorbar(aes(ymax=value+ses,ymin=value-ses))+
   labs(x='Stories',y='Recall Accuracy',shape='Condition')+
-  ylim(c(0.5,0.75))+
-  geom_hline(yintercept=mean(x$value))
+  ylim(c(0.45,0.75))+
+  geom_hline(yintercept=mean(x$value))+
+  theme(legend.position=c(.2,0.2),
+        legend.background=element_rect(colour=1,size=.2))
+  
 savePlot('material2_storiesWburn.png')
 
 summary(xtabs(~title+value,tr2b))
+
+# task sensitivity <- levene test for titles
+library(Rcmdr)
+x1 <- aggregate(value~title,tr,mean)
+x2 <- aggregate(value~title,tr2,mean)
+x <- data.frame(means=c(x1$value,x2$value),
+                exp=c(rep('exp1',nrow(x1)),rep('exp2',nrow(x2))))
+
+leveneTest(means~exp,x)
+
+# and for subjects
+x1 <- aggregate(value~sessionCode,tr,mean)
+x2 <- aggregate(value~sessionCode,tr2,mean)
+x <- data.frame(means=c(x1$value,x2$value),
+                exp=c(rep('exp1',nrow(x1)),rep('exp2',nrow(x2))))
+
+leveneTest(means~exp,x)
+
+
 
 # confounding effects ####
 # stoIdx
@@ -445,15 +481,46 @@ savePlot('conf2_stoIdxWburn.png')
 summary(glm(value~stoIdx,tr2b,family=binomial))
 
 ## aftertrick check
+tr2b$first <- as.factor(tr2b$stoIdx==2)
 tr2b$afterTrick <- as.factor(tr2b$stoIdx==14)
-summary(glm(value~stoIdx+afterTrick,tr2b,family=binomial))
+summary(glm(value~stoIdx+afterTrick+first,tr2b,family=binomial))
+
+summary(glmer(value~stoIdx+afterTrick+first+(1|sessionCode)+(1|uniqueStatement),
+              tr2b,family=binomial))
+
+
+# check for demographic differences between the samples
+s$exp = '1'
+s2$exp = '2'
+x=rbind(s[,c('exp','gender','age','overall_cor','qualification')],s2[,c('exp','overall_cor','gender','age','qualification')])
+summary(xtabs(~gender+exp,x))
+summary(xtabs(~qualification+exp,x))
+summary(aov(age~exp,x))
+t.test(s$age,s2$age)
+
+# check within levene
+x=aggregate(value~sessionCode,tr,sd)
+x2=aggregate(value~sessionCode,tr2,sd)
+t.test(x$value,x2$value)
+
+x=aggregate(value~title,tr,sd)
+x2=aggregate(value~title,tr2,sd)
+t.test(x$value,x2$value)
+
 
 ## check age influence
-s$exp <- 'one'
-s2$exp <- 'two'
-x <- rbind(s[,c('age','overall_cor','exp')],s2[,c('age','overall_cor','exp')])
 summary(lm(overall_cor~age+exp,x))
 
+tr$age  <- s$age[tr$sessionCode]
+mod <- glm(value~stoIdx*age,tr,family=binomial)
+summary(mod)
+
+tr2$age  <- s2$age[tr2$sessionCode]
+mod2 <- glm(value~stoIdx*age,tr2,family=binomial)
+summary(mod2)
+
+# check 
+s$overall_sd
 
 # response type
 responseMap <- c('1st name','2nd name','relation')
@@ -580,7 +647,7 @@ sds=aggregate(value~primed+condition,tr2,sd)$value
 lengths=aggregate(value~primed+condition,tr2,length)$value
 x$ses <- unlist(sds/sqrt(lengths))
 x$primed <- ifelse(x$primed==0,'no','yes')
-x$condition <- ifelse(x$condition=='analogues','analog','filler')
+x$condition <- ifelse(x$condition=='analogues','analogical','filler')
 ggplot(x,aes(x=primed,y=value,shape=condition,group=condition))+geom_point(size=3)+
   theme_bw()+geom_line()+geom_errorbar(aes(ymin=value-ses,ymax=value+ses))+
   labs(y='Recall Accuracy',x='Primed',shape='Condition')
@@ -633,5 +700,4 @@ stargazer(mod.fol2.sim,mod.fol2.rep,mod.fol2.ana,
           notes.append=F,
           out=paste0(tablesPath,'fol2_table.tex')
 )
-
 
